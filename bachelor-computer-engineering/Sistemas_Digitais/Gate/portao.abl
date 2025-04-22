@@ -1,0 +1,28 @@
+module	HACKING
+title	'MODULO DE CONTROLO DE UM PORTAO AUTOMATICO'
+
+	portao	DEVICE	'p22v10';
+
+	CLK,BTN,DET,FIM,FIMTIME,RESET	pin 1,2,3,4,5,6;
+	abrir,fechar,contar		pin 14,15,16;
+
+	CK = .C.;
+
+" Estados
+	
+	INICIO	=	^b000;
+	ABRE	=	^b100;
+	CONTA	=	^b001;
+	FECHA	=	^b010;
+
+
+state_diagram [abrir,fechar,contar]
+
+state INICIO:	IF !RESET & BTN 		THEN ABRE 	ELSE INICIO;
+state ABRE:	IF !RESET & (FIM # BTN)		THEN CONTA	ELSE ABRE;
+state CONTA:	IF !RESET & (FIMTIME # BTN)	THEN FECHA	ELSE CONTA;
+state FECHA:	IF !RESET & DET			THEN ABRE
+		ELSE IF (BTN # FIM) 	THEN INICIO;
+		"ELSE FECHA;
+
+end	HACKING

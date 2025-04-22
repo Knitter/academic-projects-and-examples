@@ -1,0 +1,82 @@
+
+
+                                                                     Page 1
+ABEL-PLD(tm) 3.20  -  Document Generator              30-Jan-:4 11:15 AM
+MODULO DE CONTROLO DE UM PORTAO AUTOMATICO
+Equations for Module HACKING
+
+Device portao
+
+
+- Reduced Equations for device portao:
+
+    a.RE = (RESET);
+
+    b.RE = (RESET);
+
+    !abrir = (a & b # a & !b # !a & !b);
+
+    !fechar = (a & !b # !a & b # !a & !b);
+
+    !contar = (a & b # !a & b # !a & !b);
+
+    a := (!BTN & !DET & !FIM & a & b 
+           # !BTN & !TIMEOUT & a & !b 
+           # BTN & a & !b 
+           # TIMEOUT & a & !b 
+           # FIM & !a & b 
+           # BTN & !a & b);
+         
+
+    b := (!BTN & !DET & !FIM & a & b 
+           # DET & a & b 
+           # BTN & a & !b 
+           # TIMEOUT & a & !b 
+           # !BTN & !FIM & !a & b 
+           # BTN & !a & !b);
+         
+
+
+
+                                                                     Page 2
+ABEL-PLD(tm) 3.20  -  Document Generator              30-Jan-:4 11:15 AM
+MODULO DE CONTROLO DE UM PORTAO AUTOMATICO
+Chip diagram for Module HACKING
+
+Device portao
+
+
+                            P22V10
+
+                 ----------\       /----------
+                 |          \     /          |
+                 |           -----           |
+             CLK |  1                    24  |                 
+                 |                           |
+             BTN |  2                    23  |                 
+                 |                           |
+             DET |  3                    22  |                 
+                 |                           |
+             FIM |  4                    21  |                 
+                 |                           |
+         TIMEOUT |  5                    20  |                 
+                 |                           |
+           RESET |  6                    19  |                 
+                 |                           |
+                 |  7                    18  | b               
+                 |                           |
+                 |  8                    17  | a               
+                 |                           |
+                 |  9                    16  | contar          
+                 |                           |
+                 | 10                    15  | fechar          
+                 |                           |
+                 | 11                    14  | abrir           
+                 |                           |
+                 | 12                    13  |                 
+                 |                           |
+                 |                           |
+                 -----------------------------
+
+
+end of module HACKING

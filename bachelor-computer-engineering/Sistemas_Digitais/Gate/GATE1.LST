@@ -1,0 +1,78 @@
+0001 |module  HACKING
+0002 |title   'MODULO DE CONTROLO DE UM PORTAO AUTOMATICO'
+0003 |
+0004 |        portao  DEVICE  'p22v10';
+0005 |
+0006 |        CLK,BTN,DET,FIM,TIMEOUT,RESET   pin 1,2,3,4,5,6;
+0007 |        abrir,fechar,contar,a,b         pin 14,15,16,17,18;
+0008 |
+0009 |        controlo=[a,b];
+0010 |        a,b istype 'reg,pos';
+0011 |        
+0012 |        x,CK = .X.,.C.;
+0013 |        entradas = [RESET,CLK,BTN,DET,FIM,TIMEOUT];
+0014 |        saidas   = [abrir,fechar,contar];
+0015 |
+0016 |" Estados
+0017 |        
+0018 |        INICIO  = 0; "      000;
+0019 |        ABRE    = 1; "      100;
+0020 |        CONTA   = 2; "      001;
+0021 |        FECHA   = 3; "      010;
+0022 |
+0023 |equations
+0024 |        controlo.re=RESET;
+0025 |
+0026 |state_diagram controlo
+0027 |
+0028 |state INICIO:   saidas=[0,0,0];
+0029 |                IF BTN THEN ABRE ELSE INICIO;
+0030 |
+0031 |state ABRE:     saidas=[1,0,0];
+0032 |                IF BTN # FIM THEN CONTA ELSE ABRE;
+0033 |
+0034 |state CONTA:    saidas=[0,0,1];
+0035 |                IF TIMEOUT # BTN THEN FECHA ELSE CONTA;
+0036 |
+0037 |state FECHA:    saidas=[0,1,0];
+0038 |                IF DET THEN ABRE ELSE IF BTN # FIM THEN INICIO ELSE FECHA;
+0039 |
+0040 |test_vectors "jhg"    (entradas -> [controlo,saidas])
+0041 |        
+0042 |        [1,CK,x,x,x,x] -> [INICIO,[0,0,0]];
+0043 |        [0,CK,0,x,x,x] -> [INICIO,[0,0,0]];
+0044 |        [0,CK,1,x,x,x] -> [ABRE,[1,0,0]];
+0045 |        
+0046 |        [0,CK,0,x,0,x] -> [ABRE,[1,0,0]];
+0047 |        [0,CK,1,x,x,x] -> [CONTA,[0,0,1]];
+0048 |
+0049 |        [0,CK,0,x,x,0] -> [CONTA,[0,0,1]];
+0050 |        [0,CK,x,x,x,1] -> [FECHA,[0,1,0]];
+0051 |
+0052 |        [0,CK,0,0,0,x] -> [FECHA,[0,1,0]];
+0053 |        [0,CK,x,1,x,x] -> [ABRE,[1,0,0]];
+0054 |
+0055 |        
+0056 |"Loop1        
+0057 |        [0,CK,x,x,1,x] -> [CONTA,[0,0,1]];
+0058 |        [0,CK,1,x,x,x] -> [FECHA,[0,1,0]];
+0059 |        [0,CK,1,x,x,x] -> [INICIO,[0,0,0]];
+0060 |
+0061 |"Loop2
+0062 |        [0,CK,1,x,x,x] -> [ABRE,[1,0,0]];
+0063 |        [0,CK,1,x,x,x] -> [CONTA,[0,0,1]];
+0064 |        [0,CK,x,x,x,1] -> [FECHA,[0,1,0]];
+0065 |        [0,CK,x,x,1,x] -> [INICIO,[0,0,0]];
+0066 |
+0067 |"STOP Clock
+0068 |        [0,0,x,x,x,x] -> [INICIO,[0,0,0]];
+0069 |
+0070 |
+0071 |        "entradas = [RESET,CLK,BTN,DET,FIM,TIMEOUT];
+0072 |        "saidas   = [abrir,fechar,contar];
+0073 |
+0074 |"Reset_Abre
+0075 |        [0,CK,1,x,x,x] -> [ABRE,[1,0,0]];
+0076 |        [1,CK,x,x,x,x] -> [INICIO,[0,0,0]];
+0077 |
+0078 |end     HACKING

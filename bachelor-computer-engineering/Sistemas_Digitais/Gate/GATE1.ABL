@@ -1,0 +1,78 @@
+module  HACKING
+title   'MODULO DE CONTROLO DE UM PORTAO AUTOMATICO'
+
+	portao  DEVICE  'p22v10';
+
+	CLK,BTN,DET,FIM,TIMEOUT,RESET   pin 1,2,3,4,5,6;
+	abrir,fechar,contar,a,b         pin 14,15,16,17,18;
+
+	controlo=[a,b];
+	a,b istype 'reg,pos';
+	
+	x,CK = .X.,.C.;
+	entradas = [RESET,CLK,BTN,DET,FIM,TIMEOUT];
+	saidas   = [abrir,fechar,contar];
+
+" Estados
+	
+	INICIO  = 0; "      000;
+	ABRE    = 1; "      100;
+	CONTA   = 2; "      001;
+	FECHA   = 3; "      010;
+
+equations
+	controlo.re=RESET;
+
+state_diagram controlo
+
+state INICIO:   saidas=[0,0,0];
+		IF BTN THEN ABRE ELSE INICIO;
+
+state ABRE:     saidas=[1,0,0];
+		IF BTN # FIM THEN CONTA ELSE ABRE;
+
+state CONTA:    saidas=[0,0,1];
+		IF TIMEOUT # BTN THEN FECHA ELSE CONTA;
+
+state FECHA:    saidas=[0,1,0];
+		IF DET THEN ABRE ELSE IF BTN # FIM THEN INICIO ELSE FECHA;
+
+test_vectors "jhg"    (entradas -> [controlo,saidas])
+	
+	[1,CK,x,x,x,x] -> [INICIO,[0,0,0]];
+	[0,CK,0,x,x,x] -> [INICIO,[0,0,0]];
+	[0,CK,1,x,x,x] -> [ABRE,[1,0,0]];
+	
+	[0,CK,0,x,0,x] -> [ABRE,[1,0,0]];
+	[0,CK,1,x,x,x] -> [CONTA,[0,0,1]];
+
+	[0,CK,0,x,x,0] -> [CONTA,[0,0,1]];
+	[0,CK,x,x,x,1] -> [FECHA,[0,1,0]];
+
+	[0,CK,0,0,0,x] -> [FECHA,[0,1,0]];
+	[0,CK,x,1,x,x] -> [ABRE,[1,0,0]];
+
+	
+"Loop1        
+	[0,CK,x,x,1,x] -> [CONTA,[0,0,1]];
+	[0,CK,1,x,x,x] -> [FECHA,[0,1,0]];
+	[0,CK,1,x,x,x] -> [INICIO,[0,0,0]];
+
+"Loop2
+	[0,CK,1,x,x,x] -> [ABRE,[1,0,0]];
+	[0,CK,1,x,x,x] -> [CONTA,[0,0,1]];
+	[0,CK,x,x,x,1] -> [FECHA,[0,1,0]];
+	[0,CK,x,x,1,x] -> [INICIO,[0,0,0]];
+
+"STOP Clock
+	[0,0,x,x,x,x] -> [INICIO,[0,0,0]];
+
+
+	"entradas = [RESET,CLK,BTN,DET,FIM,TIMEOUT];
+	"saidas   = [abrir,fechar,contar];
+
+"Reset_Abre
+	[0,CK,1,x,x,x] -> [ABRE,[1,0,0]];
+	[1,CK,x,x,x,x] -> [INICIO,[0,0,0]];
+
+end     HACKING
