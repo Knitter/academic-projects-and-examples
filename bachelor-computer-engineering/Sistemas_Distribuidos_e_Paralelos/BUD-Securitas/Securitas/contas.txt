@@ -1,0 +1,4 @@
+#Formato: <login>;<senha>
+ei07237;UmDoLiTa
+sdp01;MrNeo
+ei10635;xpto

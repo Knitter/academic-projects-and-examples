@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Desktop/TrabSDP/Securitas/defines.h Source File</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>defines.h</h1><a href="defines_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef DEFINES_H_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define DEFINES_H_</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="comment">/* Definicao de macros de erro */</span>
+<a name="l00013"></a><a class="code" href="defines_8h.html#a0">00013</a> <span class="preprocessor">#define ERROR_VAL -1</span>
+<a name="l00014"></a><a class="code" href="defines_8h.html#a1">00014</a> <span class="preprocessor"></span><span class="preprocessor">#define ALL_GOES_WELL 0</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 <span class="comment">/* Definciao de macros gerais */</span>
+<a name="l00017"></a><a class="code" href="defines_8h.html#a2">00017</a> <span class="preprocessor">#define MAX_LOGIN_LEN 26</span>
+<a name="l00018"></a><a class="code" href="defines_8h.html#a3">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_PASS_LEN 26</span>
+<a name="l00019"></a><a class="code" href="defines_8h.html#a4">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_SESSINON_ID sizeof(long int) * 4 + 2</span>
+<a name="l00020"></a><a class="code" href="defines_8h.html#a5">00020</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_MESSAGE_LEN 1024</span>
+<a name="l00021"></a><a class="code" href="defines_8h.html#a6">00021</a> <span class="preprocessor"></span><span class="preprocessor">#define TIMEOUT 60</span>
+<a name="l00022"></a><a class="code" href="defines_8h.html#a7">00022</a> <span class="preprocessor"></span><span class="preprocessor">#define HASHBASE 127</span>
+<a name="l00023"></a><a class="code" href="defines_8h.html#a8">00023</a> <span class="preprocessor"></span><span class="preprocessor">#define OK_STATUS 1</span>
+<a name="l00024"></a><a class="code" href="defines_8h.html#a9">00024</a> <span class="preprocessor"></span><span class="preprocessor">#define EXIT_STATUS 0</span>
+<a name="l00025"></a><a class="code" href="defines_8h.html#a10">00025</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_IP_LEN 15</span>
+<a name="l00026"></a><a class="code" href="defines_8h.html#a11">00026</a> <span class="preprocessor"></span><span class="preprocessor">#define MIN_IP_LEN 7</span>
+<a name="l00027"></a><a class="code" href="defines_8h.html#a12">00027</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_FOLDER_LIST_LEN 1024</span>
+<a name="l00028"></a><a class="code" href="defines_8h.html#a13">00028</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_LOGIN_LIST_LEN 512 </span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span>
+<a name="l00030"></a>00030 <span class="comment">/* Definicao de macros para funcao que processa pedidos */</span>
+<a name="l00031"></a><a class="code" href="defines_8h.html#a14">00031</a> <span class="preprocessor">#define LISTENING 0</span>
+<a name="l00032"></a><a class="code" href="defines_8h.html#a15">00032</a> <span class="preprocessor"></span><span class="preprocessor">#define LOGIN 1</span>
+<a name="l00033"></a><a class="code" href="defines_8h.html#a16">00033</a> <span class="preprocessor"></span><span class="preprocessor">#define PASSWORD 2</span>
+<a name="l00034"></a><a class="code" href="defines_8h.html#a17">00034</a> <span class="preprocessor"></span><span class="preprocessor">#define AUTORIZACAO 3</span>
+<a name="l00035"></a><a class="code" href="defines_8h.html#a18">00035</a> <span class="preprocessor"></span><span class="preprocessor">#define LOGOUT 4</span>
+<a name="l00036"></a><a class="code" href="defines_8h.html#a19">00036</a> <span class="preprocessor"></span><span class="preprocessor">#define EXIT 5</span>
+<a name="l00037"></a><a class="code" href="defines_8h.html#a20">00037</a> <span class="preprocessor"></span><span class="preprocessor">#define HACK 6</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span>
+<a name="l00039"></a>00039 <span class="comment">/* Alias para estruturas utilizadas */</span>
+<a name="l00040"></a><a class="code" href="defines_8h.html#a21">00040</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>timespec <a class="code" href="defines_8h.html#a21">t_timespec</a>;
+<a name="l00041"></a><a class="code" href="defines_8h.html#a22">00041</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>sigaction <a class="code" href="defines_8h.html#a22">t_sigaction</a>;
+<a name="l00042"></a><a class="code" href="defines_8h.html#a23">00042</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>gengetopt_args_info <a class="code" href="defines_8h.html#a23">t_gen_args</a>;
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#endif </span><span class="comment">/*DEFINES_H_*/</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

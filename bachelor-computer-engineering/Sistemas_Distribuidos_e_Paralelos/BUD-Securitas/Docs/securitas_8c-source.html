@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Desktop/TrabSDP/Securitas/securitas.c Source File</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>securitas.c</h1><a href="securitas_8c.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="securitas_8h.html">securitas.h</a>"</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="securitas_8c.html#a0">00013</a> <span class="keywordtype">int</span> <a class="code" href="securitas_8c.html#a0">global_status</a> = <a class="code" href="defines_8h.html#a8">OK_STATUS</a>;
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="securitas_8c.html#a1">00015</a> <span class="keywordtype">int</span> <a class="code" href="securitas_8c.html#a1">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])
+<a name="l00016"></a>00016   {
+<a name="l00017"></a>00017   HASHTABLE_T *sessions = NULL, *contas = NULL, *maquinas = NULL;
+<a name="l00018"></a>00018   FILE *f_contas = NULL, *f_maquinas = NULL;
+<a name="l00019"></a>00019   <span class="keywordtype">char</span> *c_file = NULL, *m_file = NULL;   <span class="comment">/* -1 indica fim de vector de sinais */</span>
+<a name="l00020"></a>00020   <span class="keywordtype">int</span> session_len = 0, porto = 0, sinais[] = {SIGINT, SIGALRM, SIGPIPE,-1}, z=0;
+<a name="l00021"></a>00021   <a class="code" href="structt__args__processor.html">t_args_processor</a> *args_processor;
+<a name="l00022"></a>00022   <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *args_thread;
+<a name="l00023"></a>00023   pthread_mutex_t mutex;
+<a name="l00024"></a>00024   pthread_cond_t cond;
+<a name="l00025"></a>00025   pthread_t tid;
+<a name="l00026"></a>00026   
+<a name="l00027"></a>00027   <a class="code" href="defines_8h.html#a22">t_sigaction</a> act,oldact;
+<a name="l00028"></a>00028   
+<a name="l00029"></a>00029   <span class="comment">/* Iniciar e registar sinais */</span>
+<a name="l00030"></a>00030   act.sa_handler=<a class="code" href="securitas_8c.html#a2">signal_handling</a>;
+<a name="l00031"></a>00031   sigemptyset(&amp;act.sa_mask);
+<a name="l00032"></a>00032   act.sa_flags=0;
+<a name="l00033"></a>00033   
+<a name="l00034"></a>00034                 <span class="comment">/* sinais++ */</span>
+<a name="l00035"></a>00035   <span class="keywordflow">for</span>(;sinais[z] != -1; z++)
+<a name="l00036"></a>00036     sigaction(sinais[z],&amp;act,&amp;oldact);
+<a name="l00037"></a>00037     
+<a name="l00038"></a>00038   <span class="comment">/* Iniciar variaveis */</span>  
+<a name="l00039"></a>00039   sessions = tabela_criar(<a class="code" href="defines_8h.html#a7">HASHBASE</a>, (LIBERTAR_FUNC)<a class="code" href="structures_8c.html#a5">free_session</a>);
+<a name="l00040"></a>00040   <span class="comment">/* Iniciar mutex e condicao*/</span>
+<a name="l00041"></a>00041   <span class="keywordflow">if</span>(pthread_mutex_init(&amp;mutex, NULL) != 0)
+<a name="l00042"></a>00042     {
+<a name="l00043"></a>00043     tabela_destruir(&amp;sessions);
+<a name="l00044"></a>00044     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Impossivel iniciar estruturas de controlo de thread."</span>, <span class="stringliteral">"Impossivel iniciar o mutex."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00045"></a>00045     }
+<a name="l00046"></a>00046     
+<a name="l00047"></a>00047   <span class="keywordflow">if</span>(pthread_cond_init(&amp;cond, NULL) != 0)
+<a name="l00048"></a>00048     {
+<a name="l00049"></a>00049     pthread_mutex_destroy(&amp;mutex);
+<a name="l00050"></a>00050     tabela_destruir(&amp;sessions);
+<a name="l00051"></a>00051     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Impossivel iniciar estruturas de controlo de thread."</span>, <span class="stringliteral">"Impossivel iniciar a condicao."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00052"></a>00052     }
+<a name="l00053"></a>00053      
+<a name="l00054"></a>00054   <span class="comment">/* Efectuar parsing dos parametros de entrada */</span>
+<a name="l00055"></a>00055   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a5">parse_args</a>(argc, argv, &amp;c_file, &amp;m_file, &amp;porto, &amp;session_len) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00056"></a>00056     {
+<a name="l00057"></a>00057     <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(&amp;cond, &amp;mutex, &amp;sessions);
+<a name="l00058"></a>00058     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Argumentos invalidos."</span>, <span class="stringliteral">"Erro na chamada ao cmdline_parser."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00059"></a>00059     }
+<a name="l00060"></a>00060     
+<a name="l00061"></a>00061   <span class="comment">/* Validar o porto passado */</span>
+<a name="l00062"></a>00062   <span class="keywordflow">if</span>(porto &lt; 0)
+<a name="l00063"></a>00063     {
+<a name="l00064"></a>00064     <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(&amp;cond, &amp;mutex, &amp;sessions);
+<a name="l00065"></a>00065         <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"O porto especificado nao se encontra dentro dos limites.\nIndique valores superiores a 0 (zero)"</span>, <span class="stringliteral">"Passado ao Securitas um porto inferiror a 0"</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00066"></a>00066     }
+<a name="l00067"></a>00067     
+<a name="l00068"></a>00068   <span class="comment">/* Validar caminhos passados por parametro */</span>
+<a name="l00069"></a>00069   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a7">validate_path</a>(c_file) != 0)
+<a name="l00070"></a>00070     {
+<a name="l00071"></a>00071    <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(&amp;cond, &amp;mutex, &amp;sessions);
+<a name="l00072"></a>00072     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Caminho para ficheiro de contas invalido."</span>, <span class="stringliteral">"Caminho para contas invalido."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00073"></a>00073     }
+<a name="l00074"></a>00074     
+<a name="l00075"></a>00075   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a7">validate_path</a>(m_file) != 0)
+<a name="l00076"></a>00076     {
+<a name="l00077"></a>00077     <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(&amp;cond, &amp;mutex, &amp;sessions);
+<a name="l00078"></a>00078     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Caminho para ficheiro de maquinas invalido."</span>, <span class="stringliteral">"Caminho para maquinas invalido."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080   
+<a name="l00081"></a>00081   <span class="comment">/* Abrir ficheiros */</span>
+<a name="l00082"></a>00082   <span class="keywordflow">if</span>(!(f_contas = fopen(c_file, <span class="stringliteral">"r"</span>)))
+<a name="l00083"></a>00083     {
+<a name="l00084"></a>00084     <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(&amp;cond, &amp;mutex, &amp;sessions);
+<a name="l00085"></a>00085     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Erro ao abrir o ficheiro de contas"</span>, <span class="stringliteral">"fopen() falhou no ficheiro de contas."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087     
+<a name="l00088"></a>00088   <span class="keywordflow">if</span>(!(f_maquinas = fopen(m_file, <span class="stringliteral">"r"</span>)))
+<a name="l00089"></a>00089     {
+<a name="l00090"></a>00090     <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(&amp;cond, &amp;mutex, &amp;sessions);
+<a name="l00091"></a>00091     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Erro ao abrir o ficheiro de maquinas"</span>, <span class="stringliteral">"fopen() falhou no ficheiro de maquinas."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00092"></a>00092     }
+<a name="l00093"></a>00093     
+<a name="l00094"></a>00094   <span class="comment">/* Criar hastables */</span><span class="comment">/*This code is not to be 'speed user friendly' */</span>
+<a name="l00095"></a>00095   contas = tabela_criar(<a class="code" href="defines_8h.html#a7">HASHBASE</a>, (LIBERTAR_FUNC)<a class="code" href="structures_8c.html#a9">free_conta</a>);
+<a name="l00096"></a>00096   maquinas = tabela_criar(<a class="code" href="defines_8h.html#a7">HASHBASE</a>, (LIBERTAR_FUNC)<a class="code" href="structures_8c.html#a7">free_maquina</a>);
+<a name="l00097"></a>00097   
+<a name="l00098"></a>00098   <span class="comment">/* Efectuar parsing de ficheiros de configuracao */</span>
+<a name="l00099"></a>00099   <span class="keywordflow">if</span>(<a class="code" href="files_8c.html#a1">parse_contas</a>(f_contas, contas) == <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>)
+<a name="l00100"></a>00100     {
+<a name="l00101"></a>00101     <a class="code" href="securitas_8c.html#a5">destroy_5_resources</a>(&amp;cond, &amp;mutex, &amp;contas, &amp;maquinas, &amp;sessions);
+<a name="l00102"></a>00102     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Formato do ficheiro de contas invalido ou a funcao foi interrompida pelo sistema."</span>,
+<a name="l00103"></a>00103       <span class="stringliteral">"O formato do ficheiro de contas nao esta correcto ou a funcao getline() falhou."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00104"></a>00104     }
+<a name="l00105"></a>00105     
+<a name="l00106"></a>00106   <span class="keywordflow">if</span>(<a class="code" href="files_8c.html#a0">parse_maquinas</a>(f_maquinas, maquinas) == <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>)
+<a name="l00107"></a>00107     {
+<a name="l00108"></a>00108     <a class="code" href="securitas_8c.html#a5">destroy_5_resources</a>(&amp;cond, &amp;mutex, &amp;contas, &amp;maquinas, &amp;sessions);
+<a name="l00109"></a>00109     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Formato do ficheiro de maquinas invalido  ou a funcao foi interrompida pelo sistema."</span>,
+<a name="l00110"></a>00110       <span class="stringliteral">"O formato do ficheiro de maquinas nao esta correcto ou a funcao getline() falhou."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00111"></a>00111     }
+<a name="l00112"></a>00112   
+<a name="l00113"></a>00113   <span class="comment">/* Libertar os recursos que ja nao sao necessarios */</span>
+<a name="l00114"></a>00114   fclose(f_contas);
+<a name="l00115"></a>00115   fclose(f_maquinas);
+<a name="l00116"></a>00116   free(c_file);
+<a name="l00117"></a>00117   free(m_file);
+<a name="l00118"></a>00118   
+<a name="l00119"></a>00119   <span class="comment">/* Criar thread de monitorizacao */</span>
+<a name="l00120"></a>00120   args_thread = <a class="code" href="structures_8c.html#a0">create_args_monitor</a>(sessions, session_len, &amp;mutex, &amp;cond);
+<a name="l00121"></a>00121   <span class="keywordflow">if</span>(pthread_create(&amp;tid, NULL, <a class="code" href="securitas_8c.html#a3">monitor_thread</a>, args_thread) != 0)
+<a name="l00122"></a>00122     {
+<a name="l00123"></a>00123     <a class="code" href="securitas_8c.html#a7">destroy_final_resources</a>(&amp;cond, &amp;mutex, &amp;contas, &amp;maquinas, &amp;sessions, args_processor, args_thread);
+<a name="l00124"></a>00124     <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="stringliteral">"Erro ao criar o sistema de monitorizacao."</span>, <span class="stringliteral">"Impossivel criar a thread."</span>, <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>);
+<a name="l00125"></a>00125     }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127   <span class="comment">/* Iniciar o socket de comunicacao no porto especificado */</span>
+<a name="l00128"></a>00128   args_processor = <a class="code" href="structures_8c.html#a2">create_args_processor</a>(sessions, contas, maquinas, session_len, &amp;mutex);
+<a name="l00129"></a>00129   <a class="code" href="functions_8c.html#a4">open_socket</a>((uint16_t)porto, <a class="code" href="securitas_8c.html#a4">proc_pedido</a>, args_processor, &amp;<a class="code" href="securitas_8c.html#a0">global_status</a>);
+<a name="l00130"></a>00130   
+<a name="l00131"></a>00131   <span class="comment">/* Desbloquear a thread e esperar que ela termine para poder libertar os recursos */</span>
+<a name="l00132"></a>00132   pthread_cond_signal(&amp;cond);
+<a name="l00133"></a>00133   pthread_join(tid, NULL);
+<a name="l00134"></a>00134   
+<a name="l00135"></a>00135   <span class="comment">/* Libertar recursos e sair */</span>
+<a name="l00136"></a>00136   <a class="code" href="securitas_8c.html#a7">destroy_final_resources</a>(&amp;cond, &amp;mutex, &amp;contas, &amp;maquinas, &amp;sessions, args_processor, args_thread);
+<a name="l00137"></a>00137   printf(<span class="stringliteral">"Securitas a terminar. Tenha um bom dia."</span>);
+<a name="l00138"></a>00138   
+<a name="l00139"></a>00139 <span class="preprocessor">  #ifdef SHOW_DEBUG</span>
+<a name="l00140"></a>00140 <span class="preprocessor"></span>    DEBUG(<span class="stringliteral">"Sair do main do Securitas"</span>);
+<a name="l00141"></a>00141 <span class="preprocessor">  #endif</span>
+<a name="l00142"></a>00142 <span class="preprocessor"></span>  <span class="keywordflow">return</span> 0;
+<a name="l00143"></a>00143   }
+<a name="l00144"></a>00144   
+<a name="l00145"></a><a class="code" href="securitas_8h.html#a5">00145</a> <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a2">signal_handling</a>(<span class="keywordtype">int</span> sig)
+<a name="l00146"></a>00146   {
+<a name="l00147"></a>00147   <span class="keywordflow">switch</span>(sig)
+<a name="l00148"></a>00148     {
+<a name="l00149"></a>00149     <span class="keywordflow">case</span> SIGINT:
+<a name="l00150"></a>00150       <a class="code" href="securitas_8c.html#a0">global_status</a> = <a class="code" href="defines_8h.html#a9">EXIT_STATUS</a>;
+<a name="l00151"></a>00151       <span class="keywordflow">break</span>;
+<a name="l00152"></a>00152     <span class="keywordflow">case</span> SIGALRM:
+<a name="l00153"></a>00153 <span class="preprocessor">      #ifdef SHOW_DEBUG</span>
+<a name="l00154"></a>00154 <span class="preprocessor"></span>        DEBUG(<span class="stringliteral">"Recebido o sinal SIGALRM"</span>);
+<a name="l00155"></a>00155 <span class="preprocessor">      #endif</span>
+<a name="l00156"></a>00156 <span class="preprocessor"></span>      <span class="keywordflow">break</span>;
+<a name="l00157"></a>00157     <span class="keywordflow">case</span> SIGPIPE:
+<a name="l00158"></a>00158 <span class="preprocessor">      #ifdef SHOW_DEBUG</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span>        DEBUG(<span class="stringliteral">"Recebido o sinal SIGPIPE"</span>);
+<a name="l00160"></a>00160 <span class="preprocessor">      #endif</span>
+<a name="l00161"></a>00161 <span class="preprocessor"></span>      <span class="keywordflow">break</span>;
+<a name="l00162"></a>00162     }
+<a name="l00163"></a>00163   }
+<a name="l00164"></a>00164 
+<a name="l00165"></a><a class="code" href="securitas_8h.html#a4">00165</a> <span class="keywordtype">void</span> *<a class="code" href="securitas_8c.html#a3">monitor_thread</a>(<span class="keywordtype">void</span> *args)
+<a name="l00166"></a>00166   {
+<a name="l00167"></a>00167   <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *info = (<a class="code" href="structt__args__monitor.html">t_args_monitor</a> *)args;
+<a name="l00168"></a>00168   ITERADOR_T *it = NULL;
+<a name="l00169"></a>00169   LISTA_GENERICA_T *lista_elem = NULL;
+<a name="l00170"></a>00170   <a class="code" href="defines_8h.html#a21">t_timespec</a> time_speck;
+<a name="l00171"></a>00171   time_t tick;
+<a name="l00172"></a>00172   sigset_t set, oset;
+<a name="l00173"></a>00173   <span class="keywordtype">int</span> cond_error = 0;
+<a name="l00174"></a>00174   
+<a name="l00175"></a>00175   time_speck.tv_nsec = 0;
+<a name="l00176"></a>00176   <span class="comment">/* Bloquer a recepcao de sinais */</span>
+<a name="l00177"></a>00177   sigemptyset(&amp;set);
+<a name="l00178"></a>00178   sigemptyset(&amp;oset);
+<a name="l00179"></a>00179   
+<a name="l00180"></a>00180   sigaddset(&amp;set, SIGINT);
+<a name="l00181"></a>00181   sigaddset(&amp;set, SIGALRM);
+<a name="l00182"></a>00182   sigaddset(&amp;set, SIGPIPE);
+<a name="l00183"></a>00183   
+<a name="l00184"></a>00184   pthread_sigmask(SIG_BLOCK, &amp;set, &amp;oset);
+<a name="l00185"></a>00185   
+<a name="l00186"></a>00186   <span class="keywordflow">while</span>(<a class="code" href="securitas_8c.html#a0">global_status</a>)
+<a name="l00187"></a>00187     {
+<a name="l00188"></a>00188     <span class="comment">/* Tendo em conta que o parametro 'tempo' se encontra em minutos */</span>
+<a name="l00189"></a>00189     time(&amp;tick);
+<a name="l00190"></a>00190     time_speck.tv_sec = tick + info-&gt;<a class="code" href="structt__args__monitor.html#o1">session_len</a> * 60;
+<a name="l00191"></a>00191     pthread_mutex_lock(info-&gt;<a class="code" href="structt__args__monitor.html#o2">mutex</a>);
+<a name="l00192"></a>00192     cond_error = pthread_cond_timedwait(info-&gt;<a class="code" href="structt__args__monitor.html#o3">cond</a>, info-&gt;<a class="code" href="structt__args__monitor.html#o2">mutex</a>, &amp;time_speck);
+<a name="l00193"></a>00193     pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__monitor.html#o2">mutex</a>);
+<a name="l00194"></a>00194     <span class="keywordflow">if</span>(cond_error != ETIMEDOUT)
+<a name="l00195"></a>00195       <span class="keywordflow">continue</span>;
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 <span class="preprocessor">    #ifdef SHOW_DEBUG</span>
+<a name="l00198"></a>00198 <span class="preprocessor"></span>      DEBUG(<span class="stringliteral">"Thread a acordar."</span>);
+<a name="l00199"></a>00199 <span class="preprocessor">    #endif</span>
+<a name="l00200"></a>00200 <span class="preprocessor"></span>
+<a name="l00201"></a>00201     pthread_mutex_lock(info-&gt;<a class="code" href="structt__args__monitor.html#o2">mutex</a>);
+<a name="l00202"></a>00202     <span class="keywordflow">if</span>(tabela_numero_elementos(info-&gt;<a class="code" href="structt__args__monitor.html#o0">sessions</a>) != 0)
+<a name="l00203"></a>00203       {
+<a name="l00204"></a>00204       lista_elem = tabela_criar_lista_elementos(info-&gt;<a class="code" href="structt__args__monitor.html#o0">sessions</a>);
+<a name="l00205"></a>00205       it = lista_criar_iterador(lista_elem);
+<a name="l00206"></a>00206       <span class="keywordflow">while</span>(iterador_proximo_elemento(it))      
+<a name="l00207"></a>00207         <span class="keywordflow">if</span>((time_speck.tv_sec - ((<a class="code" href="structt__session.html">t_session</a> *)it-&gt;actual-&gt;elem)-&gt;working_time) &gt; info-&gt;<a class="code" href="structt__args__monitor.html#o1">session_len</a> * 60)
+<a name="l00208"></a>00208           {
+<a name="l00209"></a>00209 <span class="preprocessor">          #ifdef SHOW_DEBUG</span>
+<a name="l00210"></a>00210 <span class="preprocessor"></span>          DEBUG(<span class="stringliteral">"A remover a sessao: ^%s^"</span>, ((<a class="code" href="structt__session.html">t_session</a> *)it-&gt;actual-&gt;elem)-&gt;sessionid);
+<a name="l00211"></a>00211 <span class="preprocessor">          #endif</span>
+<a name="l00212"></a>00212 <span class="preprocessor"></span>          
+<a name="l00213"></a>00213           tabela_remover(info-&gt;<a class="code" href="structt__args__monitor.html#o0">sessions</a>, ((<a class="code" href="structt__session.html">t_session</a> *)it-&gt;actual-&gt;elem)-&gt;sessionid);
+<a name="l00214"></a>00214           }
+<a name="l00215"></a>00215       }
+<a name="l00216"></a>00216     pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__monitor.html#o2">mutex</a>);
+<a name="l00217"></a>00217     }
+<a name="l00218"></a>00218   pthread_exit(NULL);
+<a name="l00219"></a>00219   <span class="keywordflow">return</span> NULL;
+<a name="l00220"></a>00220   }
+<a name="l00221"></a>00221  
+<a name="l00222"></a><a class="code" href="securitas_8h.html#a3">00222</a> <span class="keywordtype">int</span> <a class="code" href="securitas_8c.html#a4">proc_pedido</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span> *args, <span class="keywordtype">char</span> *ip_cliente)
+<a name="l00223"></a>00223   {
+<a name="l00224"></a>00224   <span class="keywordtype">int</span> state = 0, folder_count = 0;
+<a name="l00225"></a>00225   <span class="keywordtype">char</span> mesg[<a class="code" href="defines_8h.html#a5">MAX_MESSAGE_LEN</a> + 1] = {<span class="charliteral">'\0'</span>}, *pasta = NULL, line[<a class="code" href="defines_8h.html#a5">MAX_MESSAGE_LEN</a> + 1] = {<span class="charliteral">'\0'</span>} , lixo[<a class="code" href="defines_8h.html#a5">MAX_MESSAGE_LEN</a> + 1] = {<span class="charliteral">'\0'</span>}, user_login[<a class="code" href="defines_8h.html#a2">MAX_LOGIN_LEN</a> + 1] = {<span class="charliteral">'\0'</span>}, 
+<a name="l00226"></a>00226     user_pass[<a class="code" href="defines_8h.html#a3">MAX_PASS_LEN</a> + 1] = {<span class="charliteral">'\0'</span>}, sessionid[<a class="code" href="defines_8h.html#a4">MAX_SESSINON_ID</a> + 1]= {<span class="charliteral">'\0'</span>};
+<a name="l00227"></a>00227   <a class="code" href="structt__conta.html">t_conta</a> *user = NULL;
+<a name="l00228"></a>00228   <a class="code" href="structt__session.html">t_session</a> *session = NULL;
+<a name="l00229"></a>00229   <a class="code" href="structt__maquina.html">t_maquina</a> *maquina = NULL;
+<a name="l00230"></a>00230   ITERADOR_T *it = NULL;
+<a name="l00231"></a>00231   <a class="code" href="structt__args__processor.html">t_args_processor</a> *info = (<a class="code" href="structt__args__processor.html">t_args_processor</a> *)args;
+<a name="l00232"></a>00232   time_t acesso_actual;
+<a name="l00233"></a>00233   memset(line, 0, <a class="code" href="defines_8h.html#a5">MAX_MESSAGE_LEN</a> + 1);
+<a name="l00234"></a>00234   
+<a name="l00235"></a>00235   <span class="comment">/* Cumprimentar o cliente */</span>
+<a name="l00236"></a>00236   sprintf(mesg, <span class="stringliteral">"Bem vido ao Securitas. Ligacao OK\r\n"</span>);
+<a name="l00237"></a>00237   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00238"></a>00238     <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00239"></a>00239   <span class="keywordflow">do</span>
+<a name="l00240"></a>00240     {
+<a name="l00241"></a>00241     <span class="comment">/* Antes de activar o alarme garantir que a variavel de teste tem o valor correcto */</span><span class="comment">/*One bit towards PARANOIA*/</span>
+<a name="l00242"></a>00242     alarm(<a class="code" href="defines_8h.html#a6">TIMEOUT</a>);
+<a name="l00243"></a>00243     <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a2">readline</a>(fd, line, <a class="code" href="defines_8h.html#a5">MAX_MESSAGE_LEN</a>) &lt;= 0)
+<a name="l00244"></a>00244       {
+<a name="l00245"></a>00245       DEBUG(<span class="stringliteral">"Erro ao tentar ler informacaoes do socket. 'readline' falhou."</span>);
+<a name="l00246"></a>00246       close(fd);
+<a name="l00247"></a>00247       <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00248"></a>00248       }
+<a name="l00249"></a>00249     <span class="comment">/* Desativar o alarme uma vez que ja foi efectuada uma leitura */</span>
+<a name="l00250"></a>00250     alarm(0);
+<a name="l00251"></a>00251     <span class="comment">/* O servidor nao admite mensagens de pedidos que nao sejam terminadas com CRLF </span>
+<a name="l00252"></a>00252 <span class="comment">     * no entanto admite um numero de CRLF indefenidos e, caso o cliente nao respeite o protocolo, </span>
+<a name="l00253"></a>00253 <span class="comment">     * lixo depois da mensagem correcta desde que exista um CRLF a separar os campos */</span>
+<a name="l00254"></a>00254     <a class="code" href="functions_8c.html#a0">trim_crlf</a>(line);
+<a name="l00255"></a>00255     
+<a name="l00256"></a>00256 <span class="preprocessor">    #ifdef SHOW_DEBUG</span>
+<a name="l00257"></a>00257 <span class="preprocessor"></span>      DEBUG(<span class="stringliteral">"A entrar no estado: %d"</span>, state);
+<a name="l00258"></a>00258 <span class="preprocessor">    #endif</span>
+<a name="l00259"></a>00259 <span class="preprocessor"></span>    
+<a name="l00260"></a>00260     <span class="keywordflow">switch</span>(state)
+<a name="l00261"></a>00261       { 
+<a name="l00262"></a>00262       <span class="comment">/* Espera por instrucao inicial, AUTENTICACAO, AUTORIZACAO ou LOGOUT */</span>
+<a name="l00263"></a>00263       <span class="keywordflow">case</span> <a class="code" href="defines_8h.html#a14">LISTENING</a>:
+<a name="l00264"></a>00264         <span class="keywordflow">if</span>(strcmp(line, <span class="stringliteral">"AUTENTICACAO"</span>) == 0)
+<a name="l00265"></a>00265           state = <a class="code" href="defines_8h.html#a15">LOGIN</a>;
+<a name="l00266"></a>00266         <span class="keywordflow">else</span>
+<a name="l00267"></a>00267           <span class="keywordflow">if</span>(strcmp(line, <span class="stringliteral">"AUTORIZACAO"</span>) == 0)
+<a name="l00268"></a>00268             state = <a class="code" href="defines_8h.html#a17">AUTORIZACAO</a>;
+<a name="l00269"></a>00269           <span class="keywordflow">else</span>
+<a name="l00270"></a>00270             <span class="keywordflow">if</span>(strcmp(line, <span class="stringliteral">"LOGOUT"</span>) == 0)
+<a name="l00271"></a>00271               state = <a class="code" href="defines_8h.html#a18">LOGOUT</a>;
+<a name="l00272"></a>00272             <span class="keywordflow">else</span>
+<a name="l00273"></a>00273               state = <a class="code" href="defines_8h.html#a19">EXIT</a>;
+<a name="l00274"></a>00274         <span class="keywordflow">break</span>;
+<a name="l00275"></a>00275       <span class="comment">/* Espera por LOGIN */</span>
+<a name="l00276"></a>00276       <span class="keywordflow">case</span> <a class="code" href="defines_8h.html#a15">LOGIN</a>:
+<a name="l00277"></a>00277 <span class="preprocessor">        #ifdef SHOW_DEBUG</span>
+<a name="l00278"></a>00278 <span class="preprocessor"></span>          DEBUG(<span class="stringliteral">"A receber login, lido: ^%s^"</span>, line);
+<a name="l00279"></a>00279 <span class="preprocessor">        #endif</span>
+<a name="l00280"></a>00280 <span class="preprocessor"></span>      
+<a name="l00281"></a>00281         <span class="keywordflow">if</span>(strncmp(line, <span class="stringliteral">"LOGIN|"</span>, 6) == 0)
+<a name="l00282"></a>00282           {
+<a name="l00283"></a>00283           sscanf(line, <span class="stringliteral">"%[^|]|%s"</span>, lixo, user_login);
+<a name="l00284"></a>00284           state = <a class="code" href="defines_8h.html#a16">PASSWORD</a>;
+<a name="l00285"></a>00285           }
+<a name="l00286"></a>00286         <span class="keywordflow">else</span>
+<a name="l00287"></a>00287           state = <a class="code" href="defines_8h.html#a19">EXIT</a>;
+<a name="l00288"></a>00288         <span class="keywordflow">break</span>;
+<a name="l00289"></a>00289       <span class="comment">/* Espera por PASS */</span>
+<a name="l00290"></a>00290       <span class="keywordflow">case</span> <a class="code" href="defines_8h.html#a16">PASSWORD</a>:
+<a name="l00291"></a>00291 <span class="preprocessor">        #ifdef SHOW_DEBUG</span>
+<a name="l00292"></a>00292 <span class="preprocessor"></span>          DEBUG(<span class="stringliteral">"A receber password, lido: %s"</span>, line);
+<a name="l00293"></a>00293 <span class="preprocessor">        #endif</span>
+<a name="l00294"></a>00294 <span class="preprocessor"></span>        
+<a name="l00295"></a>00295         <span class="keywordflow">if</span>(strncmp(line, <span class="stringliteral">"PASW|"</span>, 5) == 0)
+<a name="l00296"></a>00296           {
+<a name="l00297"></a>00297           sscanf(line, <span class="stringliteral">"%[^|]|%s"</span>, lixo, user_pass);
+<a name="l00298"></a>00298           <span class="keywordflow">if</span>((user = tabela_consultar(info-&gt;<a class="code" href="structt__args__processor.html#o1">hash_contas</a>, user_login)) &amp;&amp; (strcmp(user_pass, user-&gt;<a class="code" href="structt__conta.html#o1">password</a>) == 0))
+<a name="l00299"></a>00299             {
+<a name="l00300"></a>00300             session = <a class="code" href="structures_8c.html#a4">create_session</a>(user_login);
+<a name="l00301"></a>00301             pthread_mutex_lock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00302"></a>00302             tabela_inserir(info-&gt;<a class="code" href="structt__args__processor.html#o0">hash_sessions</a>, session-&gt;<a class="code" href="structt__session.html#o0">sessionid</a>, session);
+<a name="l00303"></a>00303             pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00304"></a>00304             sprintf(mesg, <span class="stringliteral">"SESSIONID|%s\r\n"</span>, session-&gt;<a class="code" href="structt__session.html#o0">sessionid</a>);
+<a name="l00305"></a>00305             <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00306"></a>00306               <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00307"></a>00307             }
+<a name="l00308"></a>00308           <span class="keywordflow">else</span>
+<a name="l00309"></a>00309             {
+<a name="l00310"></a>00310             sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>,<span class="stringliteral">"LOGIN_FAILED"</span>);
+<a name="l00311"></a>00311             <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00312"></a>00312               <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00313"></a>00313             }
+<a name="l00314"></a>00314           }
+<a name="l00315"></a>00315         state = <a class="code" href="defines_8h.html#a19">EXIT</a>;
+<a name="l00316"></a>00316         <span class="keywordflow">break</span>;
+<a name="l00317"></a>00317       <span class="comment">/* AUTORIZACAO */</span>
+<a name="l00318"></a>00318       <span class="keywordflow">case</span> <a class="code" href="defines_8h.html#a17">AUTORIZACAO</a>:
+<a name="l00319"></a>00319         <span class="keywordflow">if</span>(strncmp(line, <span class="stringliteral">"SESSIONID|"</span>, 10) == 0)
+<a name="l00320"></a>00320           {
+<a name="l00321"></a>00321 <span class="preprocessor">          #ifdef SHOW_DEBUG</span>
+<a name="l00322"></a>00322 <span class="preprocessor"></span>            DEBUG(<span class="stringliteral">"A efectuar a autorizacao."</span>);
+<a name="l00323"></a>00323 <span class="preprocessor">          #endif</span>
+<a name="l00324"></a>00324 <span class="preprocessor"></span>          
+<a name="l00325"></a>00325           sscanf(line, <span class="stringliteral">"%[^|]|%s"</span>, lixo, sessionid);
+<a name="l00326"></a>00326           maquina = tabela_consultar(info-&gt;<a class="code" href="structt__args__processor.html#o2">hash_maquinas</a>, ip_cliente);   
+<a name="l00327"></a>00327           <span class="keywordflow">if</span>(maquina)
+<a name="l00328"></a>00328             {
+<a name="l00329"></a>00329             pthread_mutex_lock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00330"></a>00330             session = tabela_consultar(info-&gt;<a class="code" href="structt__args__processor.html#o0">hash_sessions</a>, sessionid);               
+<a name="l00331"></a>00331             <span class="keywordflow">if</span>(session)
+<a name="l00332"></a>00332               {
+<a name="l00333"></a>00333               time(&amp;acesso_actual);
+<a name="l00334"></a>00334               <span class="keywordflow">if</span>((acesso_actual - session-&gt;<a class="code" href="structt__session.html#o2">working_time</a>) &lt; info-&gt;<a class="code" href="structt__args__processor.html#o3">session_len</a> * 60)
+<a name="l00335"></a>00335                 {
+<a name="l00336"></a>00336                 session-&gt;<a class="code" href="structt__session.html#o2">working_time</a> = acesso_actual;
+<a name="l00337"></a>00337                 <span class="keywordflow">if</span>(tabela_consultar(maquina-&gt;<a class="code" href="structt__maquina.html#o1">logins</a>, session-&gt;<a class="code" href="structt__session.html#o1">login</a>))
+<a name="l00338"></a>00338                   {
+<a name="l00339"></a>00339                   pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);    
+<a name="l00340"></a>00340                   sprintf(mesg, <span class="stringliteral">"FOLDERS|%d\r\n"</span>, maquina-&gt;<a class="code" href="structt__maquina.html#o2">pastas</a>-&gt;numero_elementos);
+<a name="l00341"></a>00341                   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00342"></a>00342                     <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00343"></a>00343                   it = lista_criar_iterador(maquina-&gt;<a class="code" href="structt__maquina.html#o2">pastas</a>);
+<a name="l00344"></a>00344                   <span class="keywordflow">while</span>((pasta = iterador_proximo_elemento(it)))
+<a name="l00345"></a>00345                     {
+<a name="l00346"></a>00346                     sprintf(mesg, <span class="stringliteral">"F%d|%s\r\n"</span>, ++folder_count, pasta);
+<a name="l00347"></a>00347                     <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00348"></a>00348                       {
+<a name="l00349"></a>00349                       iterador_destruir(&amp;it);
+<a name="l00350"></a>00350                       <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00351"></a>00351                       }
+<a name="l00352"></a>00352                     }
+<a name="l00353"></a>00353                   iterador_destruir(&amp;it);
+<a name="l00354"></a>00354                   sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>,<span class="stringliteral">"END_FOLDERS"</span>);
+<a name="l00355"></a>00355                   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00356"></a>00356                     <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00357"></a>00357                   }
+<a name="l00358"></a>00358                 <span class="keywordflow">else</span>
+<a name="l00359"></a>00359                   {
+<a name="l00360"></a>00360                   pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00361"></a>00361                   sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>, <span class="stringliteral">"ACCESS_DENIED"</span>);
+<a name="l00362"></a>00362                   <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00363"></a>00363                     <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00364"></a>00364                   }
+<a name="l00365"></a>00365                 }
+<a name="l00366"></a>00366               <span class="keywordflow">else</span>
+<a name="l00367"></a>00367                 {
+<a name="l00368"></a>00368                 pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00369"></a>00369                 sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>, <span class="stringliteral">"SESSION_EXPIRED"</span>);
+<a name="l00370"></a>00370                 <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00371"></a>00371                   <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00372"></a>00372                 }
+<a name="l00373"></a>00373               }
+<a name="l00374"></a>00374             <span class="keywordflow">else</span>
+<a name="l00375"></a>00375               {
+<a name="l00376"></a>00376               pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00377"></a>00377               sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>, <span class="stringliteral">"SESSION_EXPIRED"</span>);
+<a name="l00378"></a>00378               <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00379"></a>00379                 <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00380"></a>00380               }
+<a name="l00381"></a>00381             }
+<a name="l00382"></a>00382           <span class="keywordflow">else</span>
+<a name="l00383"></a>00383             {
+<a name="l00384"></a>00384             sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>, <span class="stringliteral">"ACCESS_DENIED"</span>);
+<a name="l00385"></a>00385             <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00386"></a>00386               <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00387"></a>00387             }
+<a name="l00388"></a>00388           }
+<a name="l00389"></a>00389         state = <a class="code" href="defines_8h.html#a19">EXIT</a>;
+<a name="l00390"></a>00390         <span class="keywordflow">break</span>;
+<a name="l00391"></a>00391       <span class="comment">/*ANULACAO*/</span>
+<a name="l00392"></a>00392       <span class="keywordflow">case</span> <a class="code" href="defines_8h.html#a18">LOGOUT</a>:
+<a name="l00393"></a>00393         <span class="keywordflow">if</span>(strncmp(line, <span class="stringliteral">"SESSID|"</span>, 7) == 0)
+<a name="l00394"></a>00394           {
+<a name="l00395"></a>00395 <span class="preprocessor">          #ifdef SHOW_DEBUG</span>
+<a name="l00396"></a>00396 <span class="preprocessor"></span>            DEBUG(<span class="stringliteral">"A efectuar o logout."</span>);
+<a name="l00397"></a>00397 <span class="preprocessor">          #endif</span>
+<a name="l00398"></a>00398 <span class="preprocessor"></span>          
+<a name="l00399"></a>00399           sscanf(line, <span class="stringliteral">"%[^|]|%s"</span>, lixo, sessionid);
+<a name="l00400"></a>00400           <span class="keywordflow">if</span>((session = tabela_consultar(info-&gt;<a class="code" href="structt__args__processor.html#o0">hash_sessions</a>, sessionid)))
+<a name="l00401"></a>00401             {
+<a name="l00402"></a>00402             pthread_mutex_lock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00403"></a>00403             tabela_remover(info-&gt;<a class="code" href="structt__args__processor.html#o0">hash_sessions</a>, sessionid);
+<a name="l00404"></a>00404             pthread_mutex_unlock(info-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a>);
+<a name="l00405"></a>00405             sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>, <span class="stringliteral">"SUCCESS"</span>);
+<a name="l00406"></a>00406             <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00407"></a>00407               <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00408"></a>00408             }
+<a name="l00409"></a>00409           <span class="keywordflow">else</span>
+<a name="l00410"></a>00410             {
+<a name="l00411"></a>00411             sprintf(mesg, <span class="stringliteral">"%s\r\n"</span>, <span class="stringliteral">"LOGOUT_FAILED"</span>);
+<a name="l00412"></a>00412             <span class="keywordflow">if</span>(<a class="code" href="functions_8c.html#a1">write_to_socket</a>(fd, mesg, <span class="stringliteral">"Erro de escrita para o cliente. Cliente teminado."</span>) != <a class="code" href="defines_8h.html#a1">ALL_GOES_WELL</a>)
+<a name="l00413"></a>00413               <span class="keywordflow">return</span> <a class="code" href="defines_8h.html#a0">ERROR_VAL</a>;
+<a name="l00414"></a>00414             
+<a name="l00415"></a>00415 <span class="preprocessor">            #ifdef SHOW_DEBUG</span>
+<a name="l00416"></a>00416 <span class="preprocessor"></span>              DEBUG(<span class="stringliteral">"Pedido para fecho de uma sessao inexistente."</span>);
+<a name="l00417"></a>00417 <span class="preprocessor">            #endif</span>
+<a name="l00418"></a>00418 <span class="preprocessor"></span>            }
+<a name="l00419"></a>00419           }
+<a name="l00420"></a>00420         state = <a class="code" href="defines_8h.html#a19">EXIT</a>;
+<a name="l00421"></a>00421         <span class="keywordflow">break</span>;    
+<a name="l00422"></a>00422       <span class="keywordflow">default</span>:
+<a name="l00423"></a>00423         <span class="comment">/* Fechar ligacao ao cliente. */</span><span class="comment">/*ESTAMOS A SER HACKADOS!*/</span>
+<a name="l00424"></a>00424         DEBUG(<span class="stringliteral">"Atingido estado de escuta indefinido."</span>);
+<a name="l00425"></a>00425         state = <a class="code" href="defines_8h.html#a19">EXIT</a>;
+<a name="l00426"></a>00426       }
+<a name="l00427"></a>00427     }
+<a name="l00428"></a>00428   <span class="keywordflow">while</span>(state != <a class="code" href="defines_8h.html#a19">EXIT</a>);
+<a name="l00429"></a>00429   close(fd);
+<a name="l00430"></a>00430   free(ip_cliente);
+<a name="l00431"></a>00431   <span class="keywordflow">return</span> 0;
+<a name="l00432"></a>00432   }
+<a name="l00433"></a>00433 
+<a name="l00434"></a>00434 <span class="comment">/* As funcoes seguintes permitem libertar os recursos reservados ate determinada altura da vida do servidor */</span>
+<a name="l00435"></a><a class="code" href="securitas_8h.html#a2">00435</a> <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a5">destroy_5_resources</a>(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions)
+<a name="l00436"></a>00436   {
+<a name="l00437"></a>00437   pthread_mutex_destroy(mutex);
+<a name="l00438"></a>00438   pthread_cond_destroy(condicao);
+<a name="l00439"></a>00439   tabela_destruir(contas);
+<a name="l00440"></a>00440   tabela_destruir(maquinas);
+<a name="l00441"></a>00441   tabela_destruir(sessions);
+<a name="l00442"></a>00442   }
+<a name="l00443"></a>00443 
+<a name="l00444"></a><a class="code" href="securitas_8h.html#a1">00444</a> <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **sessions)
+<a name="l00445"></a>00445   {
+<a name="l00446"></a>00446   pthread_mutex_destroy(mutex);
+<a name="l00447"></a>00447   pthread_cond_destroy(condicao);
+<a name="l00448"></a>00448   tabela_destruir(sessions);
+<a name="l00449"></a>00449   }
+<a name="l00450"></a>00450 
+<a name="l00451"></a><a class="code" href="securitas_8h.html#a0">00451</a> <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a7">destroy_final_resources</a>(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions, <a class="code" href="structt__args__processor.html">t_args_processor</a> *args_processor, <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *args_thread)
+<a name="l00452"></a>00452   {
+<a name="l00453"></a>00453   pthread_mutex_destroy(mutex);
+<a name="l00454"></a>00454   pthread_cond_destroy(condicao);
+<a name="l00455"></a>00455   tabela_destruir(contas);
+<a name="l00456"></a>00456   tabela_destruir(maquinas);
+<a name="l00457"></a>00457   tabela_destruir(sessions);
+<a name="l00458"></a>00458   <a class="code" href="structures_8c.html#a3">free_args_processor</a>(args_processor);
+<a name="l00459"></a>00459   <a class="code" href="structures_8c.html#a1">free_args_monitor</a>(args_thread);
+<a name="l00460"></a>00460   }
+</pre></div><hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

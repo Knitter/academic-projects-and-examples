@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Desktop/TrabSDP/Securitas/structures.c Source File</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>structures.c</h1><a href="structures_8c.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="structures_8h.html">structures.h</a>"</span>
+<a name="l00011"></a>00011 
+<a name="l00024"></a><a class="code" href="structures_8h.html#a9">00024</a> <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *<a class="code" href="structures_8c.html#a0">create_args_monitor</a>(HASHTABLE_T *sessions, <span class="keywordtype">int</span> tempo, pthread_mutex_t *mutex, pthread_cond_t *cond)
+<a name="l00025"></a>00025   {
+<a name="l00026"></a>00026   <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *args = NULL;
+<a name="l00027"></a>00027   <span class="keywordflow">if</span>(sessions &amp;&amp; mutex &amp;&amp; cond)
+<a name="l00028"></a>00028     {
+<a name="l00029"></a>00029     args = (<a class="code" href="structt__args__monitor.html">t_args_monitor</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="structt__args__monitor.html">t_args_monitor</a>));
+<a name="l00030"></a>00030     args-&gt;<a class="code" href="structt__args__monitor.html#o0">sessions</a> = sessions;
+<a name="l00031"></a>00031     args-&gt;<a class="code" href="structt__args__monitor.html#o1">session_len</a> = tempo;
+<a name="l00032"></a>00032     args-&gt;<a class="code" href="structt__args__monitor.html#o2">mutex</a> = mutex;
+<a name="l00033"></a>00033     args-&gt;<a class="code" href="structt__args__monitor.html#o3">cond</a> = cond;
+<a name="l00034"></a>00034     }
+<a name="l00035"></a>00035   <span class="keywordflow">return</span> args;
+<a name="l00036"></a>00036   }
+<a name="l00037"></a>00037 
+<a name="l00047"></a><a class="code" href="structures_8h.html#a8">00047</a> <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a1">free_args_monitor</a>(<a class="code" href="structt__args__monitor.html">t_args_monitor</a> *args)
+<a name="l00048"></a>00048   {
+<a name="l00049"></a>00049   free(args);
+<a name="l00050"></a>00050   }
+<a name="l00051"></a>00051 
+<a name="l00066"></a><a class="code" href="structures_8h.html#a7">00066</a> <a class="code" href="structt__args__processor.html">t_args_processor</a> *<a class="code" href="structures_8c.html#a2">create_args_processor</a>(HASHTABLE_T *sessions, HASHTABLE_T *contas, HASHTABLE_T *maquinas, <span class="keywordtype">int</span> tempo, pthread_mutex_t *mutex)
+<a name="l00067"></a>00067   {
+<a name="l00068"></a>00068   <a class="code" href="structt__args__processor.html">t_args_processor</a> *args = NULL;
+<a name="l00069"></a>00069   args = (<a class="code" href="structt__args__processor.html">t_args_processor</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="structt__args__processor.html">t_args_processor</a>));
+<a name="l00070"></a>00070   args-&gt;<a class="code" href="structt__args__processor.html#o0">hash_sessions</a> = sessions;
+<a name="l00071"></a>00071   args-&gt;<a class="code" href="structt__args__processor.html#o1">hash_contas</a> = contas;
+<a name="l00072"></a>00072   args-&gt;<a class="code" href="structt__args__processor.html#o2">hash_maquinas</a> = maquinas;
+<a name="l00073"></a>00073   args-&gt;<a class="code" href="structt__args__processor.html#o3">session_len</a> = tempo;
+<a name="l00074"></a>00074   args-&gt;<a class="code" href="structt__args__processor.html#o4">mutex</a> = mutex;
+<a name="l00075"></a>00075   <span class="keywordflow">return</span> args;
+<a name="l00076"></a>00076   }
+<a name="l00077"></a>00077 
+<a name="l00087"></a><a class="code" href="structures_8h.html#a6">00087</a> <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a3">free_args_processor</a>(<a class="code" href="structt__args__processor.html">t_args_processor</a> *args)
+<a name="l00088"></a>00088   {
+<a name="l00089"></a>00089   free(args);
+<a name="l00090"></a>00090   }
+<a name="l00091"></a>00091 
+<a name="l00101"></a><a class="code" href="structures_8h.html#a5">00101</a> <a class="code" href="structt__session.html">t_session</a> *<a class="code" href="structures_8c.html#a4">create_session</a>(<span class="keywordtype">char</span> *login)
+<a name="l00102"></a>00102   {
+<a name="l00103"></a>00103   <span class="keyword">static</span> <span class="keywordtype">char</span> format[20]; 
+<a name="l00104"></a>00104   <a class="code" href="structt__session.html">t_session</a> *session = NULL;
+<a name="l00105"></a>00105   time_t relogio;
+<a name="l00106"></a>00106   <span class="keywordflow">if</span>(login)
+<a name="l00107"></a>00107     {
+<a name="l00108"></a>00108     time(&amp;relogio);
+<a name="l00109"></a>00109     srandom(getpid() + relogio);
+<a name="l00110"></a>00110     session = (<a class="code" href="structt__session.html">t_session</a> *) malloc(<span class="keyword">sizeof</span>(<a class="code" href="structt__session.html">t_session</a>));
+<a name="l00111"></a>00111     sprintf(format, <span class="stringliteral">"%%0%dlx:%%0%dlx"</span>, <span class="keyword">sizeof</span>(<span class="keywordtype">long</span> <span class="keywordtype">int</span>), <span class="keyword">sizeof</span>(<span class="keywordtype">long</span> <span class="keywordtype">int</span>));
+<a name="l00112"></a>00112     sprintf(session-&gt;<a class="code" href="structt__session.html#o0">sessionid</a>, format, relogio, random());
+<a name="l00113"></a>00113     session-&gt;<a class="code" href="structt__session.html#o1">login</a> = strdup(login);
+<a name="l00114"></a>00114     time(&amp;(session-&gt;<a class="code" href="structt__session.html#o2">working_time</a>));
+<a name="l00115"></a>00115     }
+<a name="l00116"></a>00116   <span class="keywordflow">return</span> session;
+<a name="l00117"></a>00117   } 
+<a name="l00118"></a>00118 
+<a name="l00128"></a><a class="code" href="structures_8h.html#a4">00128</a> <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a5">free_session</a>(<a class="code" href="structt__session.html">t_session</a> *session)
+<a name="l00129"></a>00129   {
+<a name="l00130"></a>00130   free(session-&gt;<a class="code" href="structt__session.html#o1">login</a>);
+<a name="l00131"></a>00131   free(session-&gt;<a class="code" href="structt__session.html#o0">sessionid</a>);
+<a name="l00132"></a>00132   free(session);
+<a name="l00133"></a>00133   }
+<a name="l00142"></a>00142 <span class="comment">/*void fake_free_maquina(t_maquina *maq)</span>
+<a name="l00143"></a>00143 <span class="comment">  {</span>
+<a name="l00144"></a>00144 <span class="comment">  if((--maq-&gt;num_ips) == 0)</span>
+<a name="l00145"></a>00145 <span class="comment">    free_maquina(maq);</span>
+<a name="l00146"></a>00146 <span class="comment">  }*/</span>
+<a name="l00147"></a>00147 
+<a name="l00159"></a><a class="code" href="structures_8h.html#a3">00159</a> <a class="code" href="structt__maquina.html">t_maquina</a> *<a class="code" href="structures_8c.html#a6">create_maquina</a>(<span class="keywordtype">char</span> *ip, HASHTABLE_T *logins, LISTA_GENERICA_T *pastas)
+<a name="l00160"></a>00160   {
+<a name="l00161"></a>00161   <a class="code" href="structt__maquina.html">t_maquina</a> *maquina = NULL;
+<a name="l00162"></a>00162   <span class="keywordflow">if</span>(ip &amp;&amp; logins &amp;&amp; pastas)
+<a name="l00163"></a>00163     {
+<a name="l00164"></a>00164     maquina = (<a class="code" href="structt__maquina.html">t_maquina</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="structt__maquina.html">t_maquina</a>));
+<a name="l00165"></a>00165     maquina-&gt;<a class="code" href="structt__maquina.html#o0">ip</a> = strdup(ip);
+<a name="l00166"></a>00166     maquina-&gt;<a class="code" href="structt__maquina.html#o1">logins</a> = logins;
+<a name="l00167"></a>00167     maquina-&gt;<a class="code" href="structt__maquina.html#o2">pastas</a> = pastas;
+<a name="l00168"></a>00168     }
+<a name="l00169"></a>00169   <span class="keywordflow">return</span> maquina;
+<a name="l00170"></a>00170   }
+<a name="l00171"></a>00171 
+<a name="l00179"></a><a class="code" href="structures_8h.html#a2">00179</a> <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a7">free_maquina</a>(<a class="code" href="structt__maquina.html">t_maquina</a> *maq)
+<a name="l00180"></a>00180   {
+<a name="l00181"></a>00181   free(maq-&gt;<a class="code" href="structt__maquina.html#o0">ip</a>);
+<a name="l00182"></a>00182   free(maq-&gt;<a class="code" href="structt__maquina.html#o1">logins</a>);
+<a name="l00183"></a>00183   free(maq-&gt;<a class="code" href="structt__maquina.html#o2">pastas</a>);
+<a name="l00184"></a>00184   free(maq);
+<a name="l00185"></a>00185   }
+<a name="l00186"></a>00186 
+<a name="l00197"></a><a class="code" href="structures_8h.html#a1">00197</a> <a class="code" href="structt__conta.html">t_conta</a> *<a class="code" href="structures_8c.html#a8">create_conta</a>(<span class="keywordtype">char</span> *login, <span class="keywordtype">char</span> *password)
+<a name="l00198"></a>00198   {
+<a name="l00199"></a>00199   <a class="code" href="structt__conta.html">t_conta</a> *conta = NULL;
+<a name="l00200"></a>00200   <span class="keywordflow">if</span>(login &amp;&amp; password)
+<a name="l00201"></a>00201     {
+<a name="l00202"></a>00202     conta = (<a class="code" href="structt__conta.html">t_conta</a> *) malloc(<span class="keyword">sizeof</span>(<a class="code" href="structt__conta.html">t_conta</a>));
+<a name="l00203"></a>00203     conta-&gt;<a class="code" href="structt__conta.html#o0">login</a> = strdup(login);
+<a name="l00204"></a>00204     conta-&gt;<a class="code" href="structt__conta.html#o1">password</a> = strdup(password);
+<a name="l00205"></a>00205     }
+<a name="l00206"></a>00206   <span class="keywordflow">return</span> conta;
+<a name="l00207"></a>00207   }
+<a name="l00208"></a>00208 
+<a name="l00218"></a><a class="code" href="structures_8h.html#a0">00218</a> <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a9">free_conta</a>(<a class="code" href="structt__conta.html">t_conta</a> *conta)
+<a name="l00219"></a>00219   {
+<a name="l00220"></a>00220   free(conta-&gt;<a class="code" href="structt__conta.html#o0">login</a>);
+<a name="l00221"></a>00221   free(conta-&gt;<a class="code" href="structt__conta.html#o1">password</a>);
+<a name="l00222"></a>00222   free(conta);
+<a name="l00223"></a>00223   }
+</pre></div><hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

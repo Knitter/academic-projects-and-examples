@@ -1,0 +1,623 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Referência ao ficheiro Desktop/TrabSDP/Securitas/functions.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>Referência ao ficheiro functions.h</h1><code>#include &quot;cmdline.h&quot;</code><br>
+<code>#include &quot;<a class="el" href="structures_8h-source.html">structures.h</a>&quot;</code><br>
+<code>#include &lt;netinet/in.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;unistd.h&gt;</code><br>
+<code>#include &lt;sys/socket.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &lt;arpa/inet.h&gt;</code><br>
+<code>#include &lt;time.h&gt;</code><br>
+<code>#include &lt;errno.h&gt;</code><br>
+<code>#include &quot;debug.h&quot;</code><br>
+<code>#include &quot;<a class="el" href="defines_8h-source.html">defines.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="securitas_8h-source.html">securitas.h</a>&quot;</code><br>
+
+<p>
+<a href="functions_8h-source.html">Ir para o código fonte deste ficheiro.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a0">_GNU_SOURCE</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a1">INVALID_CHARS</a>&nbsp;&nbsp;&nbsp;&quot;^\\|\&quot;?;,:&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a2">VALID_CHAR</a>&nbsp;&nbsp;&nbsp;'0'</td></tr>
+
+<tr><td colspan="2"><br><h2>Definições de tipos</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef int(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a3">PROCESSOR</a> )(int, void *, char *)</td></tr>
+
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a4">validate_path</a> (char *path)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Valida uma string, representativa de um caminho para um ficheiro, passada por parametro.  <a href="#a4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a5">print_error_exit</a> (char *user_mesg, char *error_mesg, int exit_code)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funcao que mostra mensagens de erro e termina a aplicacao.  <a href="#a5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a6">parse_args</a> (int argc, char *argv[], char **c_filr, char **m_file, int *porto, int *tempo)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Efectua o parsing dos argumentos passados 'a funcao.  <a href="#a6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a7">open_socket</a> (uint16_t porto, <a class="el" href="functions_8h.html#a3">PROCESSOR</a> processa_pedido, void *args_processor, int *stoping_condition)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a8">validate_ip</a> (char *ip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Permite verificar a validade de um endereco IP.  <a href="#a8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a9">readline</a> (int fd, char *linha, int max)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funcao responsavel pela leitura de texto atraves de um descritor de ficheiro.  <a href="#a9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a10">write_to_socket</a> (int fd, char *mesg, char *error_mesg)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funcao que permite escrever para um socket previamente aberto.  <a href="#a10"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a11">trim_crlf</a> (char *line)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A funcao permite eliminar o CRLF de uma mensagem.  <a href="#a11"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Descrição detalhada</h2>
+<dl compact><dt><b>Data:</b></dt><dd>Novembro 2005 </dd></dl>
+<dl compact><dt><b>Autor:</b></dt><dd>Sergio Miguel Neves Lopes, EI10635 </dd></dl>
+<dl compact><dt><b>Versão:</b></dt><dd>1.0</dd></dl>
+
+<p>
+Definido no ficheiro <a class="el" href="functions_8h-source.html">functions.h</a>.<hr><h2>Documentação das macros</h2>
+<a class="anchor" name="a0"></a><!-- doxytag: member="functions.h::_GNU_SOURCE" ref="a0" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define _GNU_SOURCE          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="functions_8h-source.html#l00011">11</a> do ficheiro <a class="el" href="functions_8h-source.html">functions.h</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a1"></a><!-- doxytag: member="functions.h::INVALID_CHARS" ref="a1" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define INVALID_CHARS&nbsp;&nbsp;&nbsp;&quot;^\\|\&quot;?;,:&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="functions_8h-source.html#l00033">33</a> do ficheiro <a class="el" href="functions_8h-source.html">functions.h</a>.
+<p>
+Referenciado por <a class="el" href="functions_8c-source.html#l00240">validate_path()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a2"></a><!-- doxytag: member="functions.h::VALID_CHAR" ref="a2" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define VALID_CHAR&nbsp;&nbsp;&nbsp;'0'          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="functions_8h-source.html#l00034">34</a> do ficheiro <a class="el" href="functions_8h-source.html">functions.h</a>.
+<p>
+Referenciado por <a class="el" href="functions_8c-source.html#l00240">validate_path()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Documentação dos tipos</h2>
+<a class="anchor" name="a3"></a><!-- doxytag: member="functions.h::PROCESSOR" ref="a3" args=")(int, void *, char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">typedef int(* <a class="el" href="functions_8h.html#a3">PROCESSOR</a>)(int, void *, char *)          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="functions_8h-source.html#l00036">36</a> do ficheiro <a class="el" href="functions_8h-source.html">functions.h</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Documentação das funções</h2>
+<a class="anchor" name="a7"></a><!-- doxytag: member="functions.h::open_socket" ref="a7" args="(uint16_t porto, PROCESSOR processa_pedido, void *args_processor, int *stoping_condition)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int open_socket           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">uint16_t&nbsp;</td>
+          <td class="mdname" nowrap> <em>porto</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="functions_8h.html#a3">PROCESSOR</a>&nbsp;</td>
+          <td class="mdname" nowrap> <em>processa_pedido</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>void *&nbsp;</td>
+          <td class="mdname" nowrap> <em>args_processor</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int *&nbsp;</td>
+          <td class="mdname" nowrap> <em>stoping_condition</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao responsavel pela abertura de um socket.<p>
+<dl compact><dt><b>Retorna:</b></dt><dd>ERROR_VAL, caso ocorra um erro ou valor ALL_GOES_WELL, se a funcao terminar sem erros.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00130">130</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a> e <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a6"></a><!-- doxytag: member="functions.h::parse_args" ref="a6" args="(int argc, char *argv[], char **c_filr, char **m_file, int *porto, int *tempo)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_args           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>argv</em>[], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char **&nbsp;</td>
+          <td class="mdname" nowrap> <em>c_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char **&nbsp;</td>
+          <td class="mdname" nowrap> <em>m_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int *&nbsp;</td>
+          <td class="mdname" nowrap> <em>porto</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int *&nbsp;</td>
+          <td class="mdname" nowrap> <em>tempo</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Efectua o parsing dos argumentos passados 'a funcao. 
+<p>
+Permite efectuar o tratamento dos paramentros passados 'a aplicacao. A funcao nao valida os paramentros, apenas a correspondencia aos tipos de dados e' verificada, qualquer validacao tera de ser efectuada exteriormente.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>argc</em>&nbsp;</td><td>Numero de argumentos passados 'a aplicacao. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>argv</em>&nbsp;</td><td>Conjunto de argumentos passados 'a aplicacao e recebidos pela funcao main. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>c_file</em>&nbsp;</td><td>Ponteiro para a variavel que ira conter a string representatica do caminho para o ficheiro de contas. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>m_file</em>&nbsp;</td><td>Ponteiro para a variavel que ira conter a string representatica do caminho para o ficheiro de maquinas. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>porto</em>&nbsp;</td><td>Ponteiro para a variavel que ira conter o valor do porto passado 'a aplicacao. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>tempo</em>&nbsp;</td><td>Ponteiro para a variavel que ira conter o valor do tempo passado 'a aplicacao.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao -1 em caso de erro e 0 caso contrario.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00198">198</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a> e <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a5"></a><!-- doxytag: member="functions.h::print_error_exit" ref="a5" args="(char *user_mesg, char *error_mesg, int exit_code)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void print_error_exit           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>user_mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>error_mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>exit_code</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que mostra mensagens de erro e termina a aplicacao. 
+<p>
+A funcao mostra uma mensagem de erro ao utilizador e coloca no stderr uma mensagem e o codigo do erro, de seguida o programa e'terminado.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>user_mesg</em>&nbsp;</td><td>Mensagem de erro a mostrar ao utilizador. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>error_mesg</em>&nbsp;</td><td>Mensagem de erro a enviar para o stderr. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>exit_code</em>&nbsp;</td><td>Codigo do erro que ocorreu.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao retorna valores.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00222">222</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a9"></a><!-- doxytag: member="functions.h::readline" ref="a9" args="(int fd, char *linha, int max)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int readline           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap> <em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>linha</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>max</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao responsavel pela leitura de texto atraves de um descritor de ficheiro. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>fd</em>&nbsp;</td><td>Descritor onde sera efectuada a leitura. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>linha</em>&nbsp;</td><td>Ponteiro para a linha onde seram guardados os dados lidos </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>max</em>&nbsp;</td><td>Numero maximo de caracteres a ler.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao devolve o numero de caracteres lidos.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00067">67</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00222">proc_pedido()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a11"></a><!-- doxytag: member="functions.h::trim_crlf" ref="a11" args="(char *line)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void trim_crlf           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>line</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+A funcao permite eliminar o CRLF de uma mensagem. 
+<p>
+A funcao assume que o conteudo correcto da mensagem aparece antes do CRLF e que tudo o que aparecer depois e' para ser removido. Embora o objectivo seja eliminar a sequencia '<br>
+', a funcao termina assim que apareca um dos dois caracteres do conjunto nao verificando se o outro caracter se encontra efectivamente na mensagem, assim, o efeito pratico da funcao resulta na remocao de TODOS os caracteres que aparecam apos uma ocorrencia do caracter '' ou do caracter '<br>
+'.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>line</em>&nbsp;</td><td>Ponteiro para a mensagem a tratar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao possui valores de retorno.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00026">26</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00222">proc_pedido()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a8"></a><!-- doxytag: member="functions.h::validate_ip" ref="a8" args="(char *ip)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int validate_ip           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>ip</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Permite verificar a validade de um endereco IP. 
+<p>
+Enderecos de broadcast e de rede nao sao considerados IPs validos.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ip</em>&nbsp;</td><td>Ponteiro para a string que representa o IP a testar.</td></tr>
+  </table>
+</dl>
+return ALL_GOES_WELL caso a string passada represente um IP valido ou ERROR_VAL caso contrario.
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00104">104</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a>, <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a> e <a class="el" href="defines_8h-source.html#l00025">MAX_IP_LEN</a>.
+<p>
+Referenciado por <a class="el" href="files_8c-source.html#l00025">parse_maquinas()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a4"></a><!-- doxytag: member="functions.h::validate_path" ref="a4" args="(char *path)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int validate_path           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>path</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Valida uma string, representativa de um caminho para um ficheiro, passada por parametro. 
+<p>
+A funcao validate_path permite determinar se uma string representa correctamente um caminho para um ficheiro ou directoria. A funcao nao altera a string de entrada e nao verifica se os ficheiros e/ou pastas existem, verifica apenas se, sintaticamente, o caminho e' valido.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>path</em>&nbsp;</td><td>Ponteiro para a string a validar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao devolde -1 caso o caminho seja invalido e 0 caso contrario.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00240">240</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referências <a class="el" href="functions_8h-source.html#l00033">INVALID_CHARS</a> e <a class="el" href="functions_8h-source.html#l00034">VALID_CHAR</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a10"></a><!-- doxytag: member="functions.h::write_to_socket" ref="a10" args="(int fd, char *mesg, char *error_mesg)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int write_to_socket           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap> <em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>error_mesg</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que permite escrever para um socket previamente aberto. 
+<p>
+A funcao permite a escrita de mensagens para um socket que tenha sido aberto antes da chamada 'a funcao. Em caso de erro a funcao envia para o stderr a mensagem definida pelo utilizador e fecha o socket para onde tentou escrever..<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>fd</em>&nbsp;</td><td>Descritor do socket para onde se pretende escrever. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mesg</em>&nbsp;</td><td>Ponteiro para a mensagem a escrever. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>error_mesg</em>&nbsp;</td><td>Ponteiro para a mensagem de erro a enviar para o stderr.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao devolve ALL_GOES_WELL em caso de sucesso e ERROR_VAL em caso de erro.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="functions_8c-source.html#l00046">46</a> do ficheiro <a class="el" href="functions_8c-source.html">functions.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a> e <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00222">proc_pedido()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

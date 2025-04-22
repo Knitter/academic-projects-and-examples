@@ -1,0 +1,7 @@
+#Formato: <ip>;<lista de logins>;<lista de caminhos absolutos>
+lsi-m13;ei07237|ei02323;c:\Documents and Settings|c:\mp3|z:\
+192.168.234.244;ei07237|sdp01;/home/2004_2005/sem_2/sdp|/nfshome/shared/sdp
+127.0.0.1;ei10635|ei07237|sdp01;/home/knitter|/etc/xpto|/pasta/pasta2/pasta3
+#pastas a mostrar em testes, necessario alterar o ip da maquina
+# sempre que se pretende testar
+192.168.156.41;ei10635|ei07237|sdp01;c:\

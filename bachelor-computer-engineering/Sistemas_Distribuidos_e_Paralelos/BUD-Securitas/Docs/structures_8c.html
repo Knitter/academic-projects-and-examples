@@ -1,0 +1,547 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Referência ao ficheiro Desktop/TrabSDP/Securitas/structures.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>Referência ao ficheiro structures.c</h1><code>#include &quot;<a class="el" href="structures_8h-source.html">structures.h</a>&quot;</code><br>
+
+<p>
+<a href="structures_8c-source.html">Ir para o código fonte deste ficheiro.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structt__args__monitor.html">t_args_monitor</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a0">create_args_monitor</a> (HASHTABLE_T *sessions, int tempo, pthread_mutex_t *mutex, pthread_cond_t *cond)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a1">free_args_monitor</a> (<a class="el" href="structt__args__monitor.html">t_args_monitor</a> *args)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structt__args__processor.html">t_args_processor</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a2">create_args_processor</a> (HASHTABLE_T *sessions, HASHTABLE_T *contas, HASHTABLE_T *maquinas, int tempo, pthread_mutex_t *mutex)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a3">free_args_processor</a> (<a class="el" href="structt__args__processor.html">t_args_processor</a> *args)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structt__session.html">t_session</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a4">create_session</a> (char *login)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a5">free_session</a> (<a class="el" href="structt__session.html">t_session</a> *session)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structt__maquina.html">t_maquina</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a6">create_maquina</a> (char *ip, HASHTABLE_T *logins, LISTA_GENERICA_T *pastas)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a7">free_maquina</a> (<a class="el" href="structt__maquina.html">t_maquina</a> *maq)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structt__conta.html">t_conta</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a8">create_conta</a> (char *login, char *password)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8c.html#a9">free_conta</a> (<a class="el" href="structt__conta.html">t_conta</a> *conta)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição detalhada</h2>
+Implementacao das funcoes responsaveis por criar, manter e remover as varias estruturas de dados utilizadas.<p>
+<dl compact><dt><b>Data:</b></dt><dd>Novembro 2005 </dd></dl>
+<dl compact><dt><b>Autor:</b></dt><dd>Sergio Miguel Neves Lopes, EI10635 </dd></dl>
+<dl compact><dt><b>Versão:</b></dt><dd>1.0</dd></dl>
+
+<p>
+Definido no ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.<hr><h2>Documentação das funções</h2>
+<a class="anchor" name="a0"></a><!-- doxytag: member="structures.c::create_args_monitor" ref="a0" args="(HASHTABLE_T *sessions, int tempo, pthread_mutex_t *mutex, pthread_cond_t *cond)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__args__monitor.html">t_args_monitor</a>* create_args_monitor           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessions</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>tempo</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>pthread_mutex_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>mutex</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>pthread_cond_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>cond</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que permite efectuar a alocacao dinamica da estrutura com os parametros a passar 'a thread de monitorizacao.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>sessions</em>&nbsp;</td><td>Ponteiro para a estrutura que guarda as sessoes abertas no servidor. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>tempo</em>&nbsp;</td><td>Tempo correspondente ao parametro session length. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mutex</em>&nbsp;</td><td>Ponteiro para o mutex que controla a seccao crititica. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>cond</em>&nbsp;</td><td>Ponteiro para a condicao que, associada ao mutex, permite controlar a seccao critica.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>Ponteiro para a zona de memoria alocada.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a1">free_args_monitor()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00024">24</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00049">t_args_monitor::cond</a>, <a class="el" href="structures_8h-source.html#l00048">t_args_monitor::mutex</a>, <a class="el" href="structures_8h-source.html#l00047">t_args_monitor::session_len</a> e <a class="el" href="structures_8h-source.html#l00046">t_args_monitor::sessions</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a2"></a><!-- doxytag: member="structures.c::create_args_processor" ref="a2" args="(HASHTABLE_T *sessions, HASHTABLE_T *contas, HASHTABLE_T *maquinas, int tempo, pthread_mutex_t *mutex)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__args__processor.html">t_args_processor</a>* create_args_processor           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessions</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>contas</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>maquinas</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>tempo</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>pthread_mutex_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>mutex</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que permite efectuar a alocacao dinamica a estrutura com os parametros a passar 'a funcao que ira processar os pedidos dos clientes.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>sessions</em>&nbsp;</td><td>Ponteiro para a estrutura que guarda a informacao das </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>contas</em>&nbsp;</td><td>Ponteiro para a estrutura que guarda a informacao das contas. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>maquinas</em>&nbsp;</td><td>Ponteiro para a estrutura que guarda a informacao das maquinas. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>tempo</em>&nbsp;</td><td>Tempo correspondente ao parametro session length. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mutex</em>&nbsp;</td><td>Ponteiro para o mutex que controla a seccao crititica.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>Ponteiro para a zona de memoria alocada.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a3">free_args_processor()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00066">66</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00054">t_args_processor::hash_contas</a>, <a class="el" href="structures_8h-source.html#l00054">t_args_processor::hash_maquinas</a>, <a class="el" href="structures_8h-source.html#l00054">t_args_processor::hash_sessions</a>, <a class="el" href="structures_8h-source.html#l00056">t_args_processor::mutex</a> e <a class="el" href="structures_8h-source.html#l00055">t_args_processor::session_len</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a8"></a><!-- doxytag: member="structures.c::create_conta" ref="a8" args="(char *login, char *password)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__conta.html">t_conta</a>* create_conta           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>password</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que permite efectuar a alocacao dinamica de uma conta.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>login</em>&nbsp;</td><td>String com o login. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>password</em>&nbsp;</td><td>String com a password.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>Ponteiro para a zona de memoria alocada.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a9">free_conta()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00197">197</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00026">t_conta::login</a> e <a class="el" href="structures_8h-source.html#l00027">t_conta::password</a>.
+<p>
+Referenciado por <a class="el" href="files_8c-source.html#l00121">parse_contas()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a6"></a><!-- doxytag: member="structures.c::create_maquina" ref="a6" args="(char *ip, HASHTABLE_T *logins, LISTA_GENERICA_T *pastas)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__maquina.html">t_maquina</a>* create_maquina           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>logins</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>LISTA_GENERICA_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>pastas</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que permite efectuar a alocacao dinamica das informacoes de uma maquina.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ip</em>&nbsp;</td><td>Ponteiro para o IP da maquina. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>logins</em>&nbsp;</td><td>Tabela de hash de logins. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pastas</em>&nbsp;</td><td>Ponteiro para a lista de pastas da maquina.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>Ponteiro para a zona de memoria alocada.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a9">free_conta()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00159">159</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00032">t_maquina::ip</a>, <a class="el" href="structures_8h-source.html#l00033">t_maquina::logins</a> e <a class="el" href="structures_8h-source.html#l00034">t_maquina::pastas</a>.
+<p>
+Referenciado por <a class="el" href="files_8c-source.html#l00025">parse_maquinas()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a4"></a><!-- doxytag: member="structures.c::create_session" ref="a4" args="(char *login)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__session.html">t_session</a>* create_session           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>login</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Funcao que permite efectuar a alocacao dinamica de uma sessao.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>login</em>&nbsp;</td><td>String com o login.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>Ponteiro para a zona de memoria alocada.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a5">free_session()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00101">101</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00040">t_session::login</a>, <a class="el" href="structures_8h-source.html#l00039">t_session::sessionid</a> e <a class="el" href="structures_8h-source.html#l00041">t_session::working_time</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00222">proc_pedido()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a1"></a><!-- doxytag: member="structures.c::free_args_monitor" ref="a1" args="(t_args_monitor *args)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void free_args_monitor           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__args__monitor.html">t_args_monitor</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>args</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liberta memoria alocada dinamicamente para alojar dados do tipo <a class="el" href="structt__args__monitor.html">t_args_monitor</a>.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>args</em>&nbsp;</td><td>Ponteiro para a estrutura a libertar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao possui valores de retorno.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a0">create_args_monitor()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00047">47</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00451">destroy_final_resources()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a3"></a><!-- doxytag: member="structures.c::free_args_processor" ref="a3" args="(t_args_processor *args)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void free_args_processor           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__args__processor.html">t_args_processor</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>args</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liberta memoria alocada dinamicamente para alojar dados do tipo <a class="el" href="structt__args__processor.html">t_args_processor</a>.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>args</em>&nbsp;</td><td>Ponteiro para a estrutura a libertar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao possui valores de retorno.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a2">create_args_processor()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00087">87</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00451">destroy_final_resources()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a9"></a><!-- doxytag: member="structures.c::free_conta" ref="a9" args="(t_conta *conta)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void free_conta           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__conta.html">t_conta</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>conta</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liberta memoria alocada dinamicamente para alojar dados do tipo <a class="el" href="structt__conta.html">t_conta</a>.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>conta</em>&nbsp;</td><td>Ponteiro para a estrutura a libertar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao possui valores de retorno.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a8">create_conta()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00218">218</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00026">t_conta::login</a> e <a class="el" href="structures_8h-source.html#l00027">t_conta::password</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a7"></a><!-- doxytag: member="structures.c::free_maquina" ref="a7" args="(t_maquina *maq)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void free_maquina           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__maquina.html">t_maquina</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>maq</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liberta memoria alocada dinamicamente para alojar dados do tipo <a class="el" href="structt__maquina.html">t_maquina</a>.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>maq</em>&nbsp;</td><td>Ponteiro para a estrutura a libertar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao possui valores de retorno.</dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00179">179</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00032">t_maquina::ip</a>, <a class="el" href="structures_8h-source.html#l00033">t_maquina::logins</a> e <a class="el" href="structures_8h-source.html#l00034">t_maquina::pastas</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a5"></a><!-- doxytag: member="structures.c::free_session" ref="a5" args="(t_session *session)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void free_session           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structt__session.html">t_session</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>session</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liberta memoria alocada dinamicamente para alojar dados do tipo <a class="el" href="structt__session.html">t_session</a>.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>session</em>&nbsp;</td><td>Ponteiro para a estrutura a libertar.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao nao possui valores de retorno.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="structures_8c.html#a4">create_session()</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="structures_8c-source.html#l00128">128</a> do ficheiro <a class="el" href="structures_8c-source.html">structures.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00040">t_session::login</a> e <a class="el" href="structures_8h-source.html#l00039">t_session::sessionid</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

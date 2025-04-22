@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Referência ao ficheiro Desktop/TrabSDP/Securitas/files.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>Referência ao ficheiro files.h</h1><code>#include &quot;<a class="el" href="structures_8h-source.html">structures.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="defines_8h-source.html">defines.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="functions_8h-source.html">functions.h</a>&quot;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &quot;hashtables.h&quot;</code><br>
+<code>#include &quot;debug.h&quot;</code><br>
+<code>#include &quot;listas.h&quot;</code><br>
+<code>#include &lt;netdb.h&gt;</code><br>
+
+<p>
+<a href="files_8h-source.html">Ir para o código fonte deste ficheiro.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="files_8h.html#a0">_GNU_SOURCE</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="files_8h.html#a1">parse_contas</a> (FILE *file, HASHTABLE_T *contas)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Efectua o parsing do ficheiro de contas.  <a href="#a1"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="files_8h.html#a2">parse_maquinas</a> (FILE *file, HASHTABLE_T *maquinas)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Efectua o parsing do ficheiro de maquinas.  <a href="#a2"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Descrição detalhada</h2>
+<dl compact><dt><b>Data:</b></dt><dd>Novembro 2005 </dd></dl>
+<dl compact><dt><b>Autor:</b></dt><dd>Sergio Miguel Neves Lopes, EI10635 </dd></dl>
+<dl compact><dt><b>Versão:</b></dt><dd>1.0</dd></dl>
+
+<p>
+Definido no ficheiro <a class="el" href="files_8h-source.html">files.h</a>.<hr><h2>Documentação das macros</h2>
+<a class="anchor" name="a0"></a><!-- doxytag: member="files.h::_GNU_SOURCE" ref="a0" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define _GNU_SOURCE          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="files_8h-source.html#l00011">11</a> do ficheiro <a class="el" href="files_8h-source.html">files.h</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Documentação das funções</h2>
+<a class="anchor" name="a1"></a><!-- doxytag: member="files.h::parse_contas" ref="a1" args="(FILE *file, HASHTABLE_T *contas)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_contas           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">FILE *&nbsp;</td>
+          <td class="mdname" nowrap> <em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>contas</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Efectua o parsing do ficheiro de contas. 
+<p>
+A funcao permite ler o ficheiro de contas e retirar a informacao fundamental para a execucao do securitas. Os dados sao introduzidos na hashtable passada como parametro.A funcao ASSUME que a memoria para a estrutura ja se encontra alocada.A funcao NAO tenta alocar memoria para a estrutura.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>file</em>&nbsp;</td><td>Ponteiro para o ficheiro de contas a ler. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>contas</em>&nbsp;</td><td>Ponteiro para a estrutura onde serao guardados os dados lidos.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao retorna ALL_GOES_WELL em sucesso e ERROR_VAL se ocorrer um erro na leitura.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="defines_8h.html">defines.h</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="files_8c-source.html#l00121">121</a> do ficheiro <a class="el" href="files_8c-source.html">files.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a>, <a class="el" href="structures_8c-source.html#l00197">create_conta()</a>, <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>, <a class="el" href="defines_8h-source.html#l00017">MAX_LOGIN_LEN</a> e <a class="el" href="defines_8h-source.html#l00018">MAX_PASS_LEN</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a2"></a><!-- doxytag: member="files.h::parse_maquinas" ref="a2" args="(FILE *file, HASHTABLE_T *maquinas)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_maquinas           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">FILE *&nbsp;</td>
+          <td class="mdname" nowrap> <em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T *&nbsp;</td>
+          <td class="mdname" nowrap> <em>maquinas</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Efectua o parsing do ficheiro de maquinas. 
+<p>
+A funcao permite ler o ficheiro de maquinas e retirar a informacao fundamental para a execucao do securitas. Os dados sao introduzidos na hashtable passada como parametro.A funcao ASSUME que a memoria para a estrutura ja se encontra alocada.A funcao NAO tenta alocar memoria para a estrutura.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>file</em>&nbsp;</td><td>Ponteiro para o ficheiro de maquinas a ler. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>maquinas</em>&nbsp;</td><td>Ponteiro para a estrutura onde serao guardados os dados lidos. </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Retorna:</b></dt><dd>A funcao retorna ALL_GOES_WELL em sucesso e ERROR_VAL se ocorrer um erro na leitura.</dd></dl>
+<dl compact><dt><b>Veja também:</b></dt><dd><a class="el" href="defines_8h.html">defines.h</a></dd></dl>
+
+<p>
+Definido na linha <a class="el" href="files_8c-source.html#l00025">25</a> do ficheiro <a class="el" href="files_8c-source.html">files.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a>, <a class="el" href="structures_8c-source.html#l00159">create_maquina()</a>, <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>, <a class="el" href="defines_8h-source.html#l00022">HASHBASE</a>, <a class="el" href="structures_8h-source.html#l00032">t_maquina::ip</a>, <a class="el" href="defines_8h-source.html#l00027">MAX_FOLDER_LIST_LEN</a>, <a class="el" href="defines_8h-source.html#l00025">MAX_IP_LEN</a>, <a class="el" href="defines_8h-source.html#l00017">MAX_LOGIN_LEN</a>, <a class="el" href="defines_8h-source.html#l00028">MAX_LOGIN_LIST_LEN</a> e <a class="el" href="functions_8c-source.html#l00104">validate_ip()</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

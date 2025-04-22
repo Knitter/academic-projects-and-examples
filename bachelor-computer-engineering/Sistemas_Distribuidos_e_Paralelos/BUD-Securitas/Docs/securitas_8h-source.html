@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Desktop/TrabSDP/Securitas/securitas.h Source File</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>securitas.h</h1><a href="securitas_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef SECURITAS_H_</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define SECURITAS_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="structures_8h.html">structures.h</a>"</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include "<a class="code" href="files_8h.html">files.h</a>"</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include "<a class="code" href="functions_8h.html">functions.h</a>"</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;pthread.h&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;time.h&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;signal.h&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;sys/time.h&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include "hashtables.h"</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include "<a class="code" href="defines_8h.html">defines.h</a>"</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="comment">/*</span>
+<a name="l00025"></a>00025 <span class="comment"> * A funcao permite remover alguns dos recursos abertos para a criacao do socket de comunicacao</span>
+<a name="l00026"></a>00026 <span class="comment"> */</span>
+<a name="l00027"></a>00027 <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a7">destroy_final_resources</a>(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions, <a class="code" href="structt__args__processor.html">t_args_processor</a> *args_processor, <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *args_thread);
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="comment">/*</span>
+<a name="l00030"></a>00030 <span class="comment"> * A funcao permite remover alguns dos recursos abertos para a criacao do socket de comunicacao</span>
+<a name="l00031"></a>00031 <span class="comment"> */</span>
+<a name="l00032"></a>00032 <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a6">destroy_3_resources</a>(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **sessions);
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="comment">/*</span>
+<a name="l00035"></a>00035 <span class="comment"> * A funcao permite remover todos os recursos abertos para a criacao do socket</span>
+<a name="l00036"></a>00036 <span class="comment"> */</span>
+<a name="l00037"></a>00037 <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a5">destroy_5_resources</a>(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions);
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="comment">/*</span>
+<a name="l00040"></a>00040 <span class="comment"> * Forma como os pedidos dos clientes irao ser processados</span>
+<a name="l00041"></a>00041 <span class="comment"> */</span>
+<a name="l00042"></a>00042 <span class="keywordtype">int</span> <a class="code" href="securitas_8c.html#a4">proc_pedido</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span> *args, <span class="keywordtype">char</span> *ip_cliente);
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="comment">/*</span>
+<a name="l00045"></a>00045 <span class="comment"> * Funcao a executar pela thread de monitorizacao</span>
+<a name="l00046"></a>00046 <span class="comment"> */</span>
+<a name="l00047"></a>00047 <span class="keywordtype">void</span> *<a class="code" href="securitas_8c.html#a3">monitor_thread</a>(<span class="keywordtype">void</span> *args);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="comment">/*</span>
+<a name="l00050"></a>00050 <span class="comment"> * Funcao que permite tratar os sinais recebidos pelo servidor</span>
+<a name="l00051"></a>00051 <span class="comment"> */</span>
+<a name="l00052"></a>00052 <span class="keywordtype">void</span> <a class="code" href="securitas_8c.html#a2">signal_handling</a>(<span class="keywordtype">int</span> sig);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="preprocessor">#endif </span><span class="comment">/*SECURITAS_H_*/</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

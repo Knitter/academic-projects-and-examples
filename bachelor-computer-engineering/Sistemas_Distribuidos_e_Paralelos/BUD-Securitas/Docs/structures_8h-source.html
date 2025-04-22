@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Desktop/TrabSDP/Securitas/structures.h Source File</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>structures.h</h1><a href="structures_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef STRUCTURES_H_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define STRUCTURES_H_</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include "<a class="code" href="defines_8h.html">defines.h</a>"</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;time.h&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;sys/types.h&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;unistd.h&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;pthread.h&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include "hashtables.h"</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include "debug.h"</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="structt__conta.html">00024</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00025"></a>00025 <span class="keyword">  </span>{
+<a name="l00026"></a><a class="code" href="structt__conta.html#o0">00026</a>   <span class="keywordtype">char</span> *login;
+<a name="l00027"></a><a class="code" href="structt__conta.html#o1">00027</a>   <span class="keywordtype">char</span> *password;
+<a name="l00028"></a>00028   }<a class="code" href="structt__conta.html">t_conta</a>;
+<a name="l00029"></a>00029   
+<a name="l00030"></a><a class="code" href="structt__maquina.html">00030</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00031"></a>00031 <span class="keyword">  </span>{
+<a name="l00032"></a><a class="code" href="structt__maquina.html#o0">00032</a>   <span class="keywordtype">char</span> *ip;
+<a name="l00033"></a><a class="code" href="structt__maquina.html#o1">00033</a>   HASHTABLE_T *logins;
+<a name="l00034"></a><a class="code" href="structt__maquina.html#o2">00034</a>   LISTA_GENERICA_T *pastas;
+<a name="l00035"></a>00035   }<a class="code" href="structt__maquina.html">t_maquina</a>;
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="structt__session.html">00037</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00038"></a>00038 <span class="keyword">  </span>{
+<a name="l00039"></a><a class="code" href="structt__session.html#o0">00039</a>   <span class="keywordtype">char</span> sessionid[<a class="code" href="defines_8h.html#a4">MAX_SESSINON_ID</a>];
+<a name="l00040"></a><a class="code" href="structt__session.html#o1">00040</a>   <span class="keywordtype">char</span> *login;
+<a name="l00041"></a><a class="code" href="structt__session.html#o2">00041</a>   time_t working_time;
+<a name="l00042"></a>00042   }<a class="code" href="structt__session.html">t_session</a>;
+<a name="l00043"></a>00043 
+<a name="l00044"></a><a class="code" href="structt__args__monitor.html">00044</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00045"></a>00045 <span class="keyword">  </span>{
+<a name="l00046"></a><a class="code" href="structt__args__monitor.html#o0">00046</a>   HASHTABLE_T *sessions;
+<a name="l00047"></a><a class="code" href="structt__args__monitor.html#o1">00047</a>   <span class="keywordtype">int</span> session_len;
+<a name="l00048"></a><a class="code" href="structt__args__monitor.html#o2">00048</a>   pthread_mutex_t *mutex;
+<a name="l00049"></a><a class="code" href="structt__args__monitor.html#o3">00049</a>   pthread_cond_t *cond;
+<a name="l00050"></a>00050   }<a class="code" href="structt__args__monitor.html">t_args_monitor</a>;
+<a name="l00051"></a>00051   
+<a name="l00052"></a><a class="code" href="structt__args__processor.html">00052</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00053"></a>00053 <span class="keyword">  </span>{
+<a name="l00054"></a><a class="code" href="structt__args__processor.html#o0">00054</a>   HASHTABLE_T *hash_sessions, *hash_contas, *hash_maquinas;
+<a name="l00055"></a><a class="code" href="structt__args__processor.html#o3">00055</a>   <span class="keywordtype">int</span> session_len;
+<a name="l00056"></a><a class="code" href="structt__args__processor.html#o4">00056</a>   pthread_mutex_t *mutex;
+<a name="l00057"></a>00057   }<a class="code" href="structt__args__processor.html">t_args_processor</a>;
+<a name="l00058"></a>00058  
+<a name="l00059"></a>00059 <span class="comment">/*</span>
+<a name="l00060"></a>00060 <span class="comment"> * Funcao que permite libertar a memoria ocupada pela estrutura 't_conta'</span>
+<a name="l00061"></a>00061 <span class="comment"> */</span>
+<a name="l00062"></a>00062 <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a9">free_conta</a>(<a class="code" href="structt__conta.html">t_conta</a> *conta);
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="comment">/*</span>
+<a name="l00065"></a>00065 <span class="comment"> * A funcao permite criar e alocar espaco para a estrutura 't_conta'</span>
+<a name="l00066"></a>00066 <span class="comment"> */</span>
+<a name="l00067"></a>00067 <a class="code" href="structt__conta.html">t_conta</a> *<a class="code" href="structures_8c.html#a8">create_conta</a>(<span class="keywordtype">char</span> *login, <span class="keywordtype">char</span> *password);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="comment">/*</span>
+<a name="l00070"></a>00070 <span class="comment"> * Funcao que permite libertar memoria ocupada pela estrutura 't_maquina'</span>
+<a name="l00071"></a>00071 <span class="comment"> */</span>
+<a name="l00072"></a>00072 <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a7">free_maquina</a>(<a class="code" href="structt__maquina.html">t_maquina</a> *maq);
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="comment">/*</span>
+<a name="l00075"></a>00075 <span class="comment"> * A funcao permite criar e alocar espaco para a estrutura 't_maquina'</span>
+<a name="l00076"></a>00076 <span class="comment"> */</span>
+<a name="l00077"></a>00077 <a class="code" href="structt__maquina.html">t_maquina</a> *<a class="code" href="structures_8c.html#a6">create_maquina</a>(<span class="keywordtype">char</span> *ip, HASHTABLE_T *logins, LISTA_GENERICA_T *pastas);
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="comment">/*</span>
+<a name="l00080"></a>00080 <span class="comment"> * Funcao que permite libertar memoria ocupada pela estrutura 't_session'</span>
+<a name="l00081"></a>00081 <span class="comment"> */</span>
+<a name="l00082"></a>00082 <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a5">free_session</a>(<a class="code" href="structt__session.html">t_session</a> *session);
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="comment">/*</span>
+<a name="l00085"></a>00085 <span class="comment"> * A funcao permite criar e alocar espaco para a estrutura 't_session'</span>
+<a name="l00086"></a>00086 <span class="comment"> */</span>
+<a name="l00087"></a>00087 <a class="code" href="structt__session.html">t_session</a> *<a class="code" href="structures_8c.html#a4">create_session</a>(<span class="keywordtype">char</span> *login);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="comment">/*</span>
+<a name="l00090"></a>00090 <span class="comment"> * Funcao que permite libertar memoria ocupada pela estrutura 't_args_processor'</span>
+<a name="l00091"></a>00091 <span class="comment"> */</span>
+<a name="l00092"></a>00092 <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a3">free_args_processor</a>(<a class="code" href="structt__args__processor.html">t_args_processor</a> *args);
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="comment">/*</span>
+<a name="l00095"></a>00095 <span class="comment"> * A funcao permite criar e alocar espaco para a estrutura 't_args_processor'</span>
+<a name="l00096"></a>00096 <span class="comment"> */</span>
+<a name="l00097"></a>00097 <a class="code" href="structt__args__processor.html">t_args_processor</a> *<a class="code" href="structures_8c.html#a2">create_args_processor</a>(HASHTABLE_T *sessions, HASHTABLE_T *contas, HASHTABLE_T *maquinas, <span class="keywordtype">int</span> tempo, pthread_mutex_t *mutex);
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 <span class="comment">/*</span>
+<a name="l00100"></a>00100 <span class="comment"> * Funcao que permite libertar memoria ocupada pela estrutura 't_args_monitor'</span>
+<a name="l00101"></a>00101 <span class="comment"> */</span>
+<a name="l00102"></a>00102 <span class="keywordtype">void</span> <a class="code" href="structures_8c.html#a1">free_args_monitor</a>(<a class="code" href="structt__args__monitor.html">t_args_monitor</a> *args);
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="comment">/*</span>
+<a name="l00105"></a>00105 <span class="comment"> * A funcao permite criar e alocar espaco para a estrutura 't_args_monitor'</span>
+<a name="l00106"></a>00106 <span class="comment"> */</span>
+<a name="l00107"></a>00107 <a class="code" href="structt__args__monitor.html">t_args_monitor</a> *<a class="code" href="structures_8c.html#a0">create_args_monitor</a>(HASHTABLE_T *sessions, <span class="keywordtype">int</span> tempo, pthread_mutex_t *mutex, pthread_cond_t *cond);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="preprocessor">#endif </span><span class="comment">/*STRUCTURES_H_*/</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

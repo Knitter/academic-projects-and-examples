@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Referência ao ficheiro Desktop/TrabSDP/Securitas/securitas.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>Referência ao ficheiro securitas.c</h1><code>#include &quot;<a class="el" href="securitas_8h-source.html">securitas.h</a>&quot;</code><br>
+
+<p>
+<a href="securitas_8c-source.html">Ir para o código fonte deste ficheiro.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a1">main</a> (int argc, char *argv[])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a2">signal_handling</a> (int sig)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a3">monitor_thread</a> (void *args)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a4">proc_pedido</a> (int fd, void *args, char *ip_cliente)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a5">destroy_5_resources</a> (pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a6">destroy_3_resources</a> (pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **sessions)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a7">destroy_final_resources</a> (pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions, <a class="el" href="structt__args__processor.html">t_args_processor</a> *args_processor, <a class="el" href="structt__args__monitor.html">t_args_monitor</a> *args_thread)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="securitas_8c.html#a0">global_status</a> = OK_STATUS</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição detalhada</h2>
+Implementacao das funcoes especificas do servico Securitas. Implementacao da funcao 'main'.<p>
+<dl compact><dt><b>Data:</b></dt><dd>Novembro 2005 </dd></dl>
+<dl compact><dt><b>Autor:</b></dt><dd>Sergio Miguel Neves Lopes, EI10635 </dd></dl>
+<dl compact><dt><b>Versão:</b></dt><dd>1.0</dd></dl>
+
+<p>
+Definido no ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.<hr><h2>Documentação das funções</h2>
+<a class="anchor" name="a6"></a><!-- doxytag: member="securitas.c::destroy_3_resources" ref="a6" args="(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **sessions)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void destroy_3_resources           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">pthread_cond_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>condicao</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>pthread_mutex_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>mutex</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessions</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00444">444</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a5"></a><!-- doxytag: member="securitas.c::destroy_5_resources" ref="a5" args="(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void destroy_5_resources           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">pthread_cond_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>condicao</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>pthread_mutex_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>mutex</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>contas</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>maquinas</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessions</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00435">435</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a7"></a><!-- doxytag: member="securitas.c::destroy_final_resources" ref="a7" args="(pthread_cond_t *condicao, pthread_mutex_t *mutex, HASHTABLE_T **contas, HASHTABLE_T **maquinas, HASHTABLE_T **sessions, t_args_processor *args_processor, t_args_monitor *args_thread)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void destroy_final_resources           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">pthread_cond_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>condicao</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>pthread_mutex_t *&nbsp;</td>
+          <td class="mdname" nowrap> <em>mutex</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>contas</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>maquinas</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>HASHTABLE_T **&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessions</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structt__args__processor.html">t_args_processor</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>args_processor</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structt__args__monitor.html">t_args_monitor</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>args_thread</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00451">451</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referências <a class="el" href="structures_8c-source.html#l00047">free_args_monitor()</a> e <a class="el" href="structures_8c-source.html#l00087">free_args_processor()</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a1"></a><!-- doxytag: member="securitas.c::main" ref="a1" args="(int argc, char *argv[])" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int main           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>argv</em>[]</td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00015">15</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a>, <a class="el" href="structures_8c-source.html#l00024">create_args_monitor()</a>, <a class="el" href="structures_8c-source.html#l00066">create_args_processor()</a>, <a class="el" href="securitas_8c-source.html#l00444">destroy_3_resources()</a>, <a class="el" href="securitas_8c-source.html#l00435">destroy_5_resources()</a>, <a class="el" href="securitas_8c-source.html#l00451">destroy_final_resources()</a>, <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>, <a class="el" href="structures_8c-source.html#l00218">free_conta()</a>, <a class="el" href="structures_8c-source.html#l00179">free_maquina()</a>, <a class="el" href="structures_8c-source.html#l00128">free_session()</a>, <a class="el" href="securitas_8c-source.html#l00013">global_status</a>, <a class="el" href="defines_8h-source.html#l00022">HASHBASE</a>, <a class="el" href="securitas_8c-source.html#l00165">monitor_thread()</a>, <a class="el" href="functions_8c-source.html#l00130">open_socket()</a>, <a class="el" href="functions_8c-source.html#l00198">parse_args()</a>, <a class="el" href="files_8c-source.html#l00121">parse_contas()</a>, <a class="el" href="files_8c-source.html#l00025">parse_maquinas()</a>, <a class="el" href="functions_8c-source.html#l00222">print_error_exit()</a>, <a class="el" href="securitas_8c-source.html#l00222">proc_pedido()</a>, <a class="el" href="securitas_8c-source.html#l00145">signal_handling()</a> e <a class="el" href="functions_8c-source.html#l00240">validate_path()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a3"></a><!-- doxytag: member="securitas.c::monitor_thread" ref="a3" args="(void *args)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void* monitor_thread           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">void *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>args</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00165">165</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referências <a class="el" href="structures_8h-source.html#l00049">t_args_monitor::cond</a>, <a class="el" href="securitas_8c-source.html#l00013">global_status</a>, <a class="el" href="structures_8h-source.html#l00048">t_args_monitor::mutex</a>, <a class="el" href="structures_8h-source.html#l00047">t_args_monitor::session_len</a> e <a class="el" href="structures_8h-source.html#l00046">t_args_monitor::sessions</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a4"></a><!-- doxytag: member="securitas.c::proc_pedido" ref="a4" args="(int fd, void *args, char *ip_cliente)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int proc_pedido           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap> <em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>void *&nbsp;</td>
+          <td class="mdname" nowrap> <em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ip_cliente</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00222">222</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00014">ALL_GOES_WELL</a>, <a class="el" href="defines_8h-source.html#l00034">AUTORIZACAO</a>, <a class="el" href="structures_8c-source.html#l00101">create_session()</a>, <a class="el" href="defines_8h-source.html#l00013">ERROR_VAL</a>, <a class="el" href="defines_8h-source.html#l00036">EXIT</a>, <a class="el" href="structures_8h-source.html#l00054">t_args_processor::hash_contas</a>, <a class="el" href="structures_8h-source.html#l00054">t_args_processor::hash_maquinas</a>, <a class="el" href="structures_8h-source.html#l00054">t_args_processor::hash_sessions</a>, <a class="el" href="defines_8h-source.html#l00031">LISTENING</a>, <a class="el" href="defines_8h-source.html#l00032">LOGIN</a>, <a class="el" href="structures_8h-source.html#l00040">t_session::login</a>, <a class="el" href="structures_8h-source.html#l00033">t_maquina::logins</a>, <a class="el" href="defines_8h-source.html#l00035">LOGOUT</a>, <a class="el" href="defines_8h-source.html#l00017">MAX_LOGIN_LEN</a>, <a class="el" href="defines_8h-source.html#l00020">MAX_MESSAGE_LEN</a>, <a class="el" href="defines_8h-source.html#l00018">MAX_PASS_LEN</a>, <a class="el" href="defines_8h-source.html#l00019">MAX_SESSINON_ID</a>, <a class="el" href="structures_8h-source.html#l00056">t_args_processor::mutex</a>, <a class="el" href="defines_8h-source.html#l00033">PASSWORD</a>, <a class="el" href="structures_8h-source.html#l00027">t_conta::password</a>, <a class="el" href="structures_8h-source.html#l00034">t_maquina::pastas</a>, <a class="el" href="functions_8c-source.html#l00067">readline()</a>, <a class="el" href="structures_8h-source.html#l00055">t_args_processor::session_len</a>, <a class="el" href="structures_8h-source.html#l00039">t_session::sessionid</a>, <a class="el" href="defines_8h-source.html#l00021">TIMEOUT</a>, <a class="el" href="functions_8c-source.html#l00026">trim_crlf()</a>, <a class="el" href="structures_8h-source.html#l00041">t_session::working_time</a> e <a class="el" href="functions_8c-source.html#l00046">write_to_socket()</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a2"></a><!-- doxytag: member="securitas.c::signal_handling" ref="a2" args="(int sig)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void signal_handling           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>sig</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00145">145</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referências <a class="el" href="defines_8h-source.html#l00024">EXIT_STATUS</a> e <a class="el" href="securitas_8c-source.html#l00013">global_status</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Documentação das variáveis</h2>
+<a class="anchor" name="a0"></a><!-- doxytag: member="securitas.c::global_status" ref="a0" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="securitas_8c.html#a0">global_status</a> = OK_STATUS          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definido na linha <a class="el" href="securitas_8c-source.html#l00013">13</a> do ficheiro <a class="el" href="securitas_8c-source.html">securitas.c</a>.
+<p>
+Referenciado por <a class="el" href="securitas_8c-source.html#l00015">main()</a>, <a class="el" href="securitas_8c-source.html#l00165">monitor_thread()</a> e <a class="el" href="securitas_8c-source.html#l00145">signal_handling()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

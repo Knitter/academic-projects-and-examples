@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Securitas: Desktop/TrabSDP/Securitas/functions.h Source File</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.4.4 -->
+<div class="qindex">  <form class="search" action="search.php" method="get">
+<a class="qindex" href="index.html">Página&nbsp;principal</a> | <a class="qindex" href="classes.html">Lista&nbsp;alfabética</a> | <a class="qindex" href="annotated.html">Lista&nbsp;de&nbsp;componentes</a> | <a class="qindex" href="dirs.html">Directories</a> | <a class="qindex" href="files.html">Lista&nbsp;de&nbsp;ficheiros</a> | <a class="qindex" href="functions.html">Componentes&nbsp;membro</a> | <a class="qindex" href="globals.html">Ficheiros&nbsp;membro</a>  | <span class="search"><u>S</u>earch&nbsp;for&nbsp;<input class="search" type="text" name="query" value="" size="20" accesskey="s"/></span></form></div>
+<div class="nav">
+<a class="el" href="dir_000000.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000001.html">TrabSDP</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_000002.html">Securitas</a></div>
+<h1>functions.h</h1><a href="functions_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef FUNCTIONS_H_</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define FUNCTIONS_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a><a class="code" href="functions_8h.html#a0">00011</a> <span class="preprocessor">#define _GNU_SOURCE</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include "cmdline.h"</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include "<a class="code" href="structures_8h.html">structures.h</a>"</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;netinet/in.h&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;unistd.h&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sys/socket.h&gt;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;sys/types.h&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;netinet/in.h&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;arpa/inet.h&gt;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;time.h&gt;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;errno.h&gt;</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#include "debug.h"</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include "<a class="code" href="defines_8h.html">defines.h</a>"</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include "<a class="code" href="securitas_8h.html">securitas.h</a>"</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="functions_8h.html#a1">00033</a> <span class="preprocessor">#define INVALID_CHARS "^\\|\"?;,:"</span>
+<a name="l00034"></a><a class="code" href="functions_8h.html#a2">00034</a> <span class="preprocessor"></span><span class="preprocessor">#define VALID_CHAR '0'</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>
+<a name="l00036"></a><a class="code" href="functions_8h.html#a3">00036</a> <span class="keyword">typedef</span> int (*<a class="code" href="functions_8h.html#a3">PROCESSOR</a>) (int, <span class="keywordtype">void</span>*, <span class="keywordtype">char</span> *);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="comment">/*</span>
+<a name="l00039"></a>00039 <span class="comment"> * Funcao que permite validar um caminho para um ficheiro </span>
+<a name="l00040"></a>00040 <span class="comment"> */</span>
+<a name="l00041"></a>00041 <span class="keywordtype">int</span> <a class="code" href="functions_8c.html#a7">validate_path</a>(<span class="keywordtype">char</span> *path);
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="comment">/*</span>
+<a name="l00044"></a>00044 <span class="comment"> * Funcao que imprime no stdout e no stderr mensagens de erro e que termina a aplicacao</span>
+<a name="l00045"></a>00045 <span class="comment"> */</span>
+<a name="l00046"></a>00046 <span class="keywordtype">void</span> <a class="code" href="functions_8c.html#a6">print_error_exit</a>(<span class="keywordtype">char</span> *user_mesg, <span class="keywordtype">char</span> *error_mesg, <span class="keywordtype">int</span> exit_code);
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="comment">/*</span>
+<a name="l00049"></a>00049 <span class="comment"> * Funcao que permite efectuar o parsing de argumentos passados a' aplicacao</span>
+<a name="l00050"></a>00050 <span class="comment"> */</span>
+<a name="l00051"></a>00051 <span class="keywordtype">int</span> <a class="code" href="functions_8c.html#a5">parse_args</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[], <span class="keywordtype">char</span> **c_filr, <span class="keywordtype">char</span> **m_file, <span class="keywordtype">int</span> *porto, <span class="keywordtype">int</span> *tempo);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="comment">/*</span>
+<a name="l00054"></a>00054 <span class="comment"> * Funcao que permite abrir um socket</span>
+<a name="l00055"></a>00055 <span class="comment"> */</span>
+<a name="l00056"></a>00056 <span class="keywordtype">int</span> <a class="code" href="functions_8c.html#a4">open_socket</a>(uint16_t porto, <a class="code" href="functions_8h.html#a3">PROCESSOR</a> processa_pedido, <span class="keywordtype">void</span> *args_processor, <span class="keywordtype">int</span> *stoping_condition);
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="comment">/*</span>
+<a name="l00059"></a>00059 <span class="comment"> * Funcao que permite validar um IP no formato pontos e numeros</span>
+<a name="l00060"></a>00060 <span class="comment"> */</span>
+<a name="l00061"></a>00061 <span class="keywordtype">int</span> <a class="code" href="functions_8c.html#a3">validate_ip</a>(<span class="keywordtype">char</span> *ip);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="comment">/*</span>
+<a name="l00064"></a>00064 <span class="comment"> * Funcao que permite ler uma linha de um ficheiro identificado pelo descritor</span>
+<a name="l00065"></a>00065 <span class="comment"> */</span>
+<a name="l00066"></a>00066 <span class="keywordtype">int</span> <a class="code" href="functions_8c.html#a2">readline</a> (<span class="keywordtype">int</span> fd, <span class="keywordtype">char</span> *linha, <span class="keywordtype">int</span> max);
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="comment">/*</span>
+<a name="l00069"></a>00069 <span class="comment"> * Funcao que permite efectuar uma escrita para um socket</span>
+<a name="l00070"></a>00070 <span class="comment"> */</span>
+<a name="l00071"></a>00071 <span class="keywordtype">int</span> <a class="code" href="functions_8c.html#a1">write_to_socket</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">char</span> *mesg, <span class="keywordtype">char</span> *error_mesg);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="comment">/*</span>
+<a name="l00074"></a>00074 <span class="comment"> * Funcao que permite eliminar sequencias de CRLF de fim de linhas de texto</span>
+<a name="l00075"></a>00075 <span class="comment"> */</span>
+<a name="l00076"></a>00076 <span class="keywordtype">void</span> <a class="code" href="functions_8c.html#a0">trim_crlf</a>(<span class="keywordtype">char</span> *line);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif </span><span class="comment">/*FUNCTIONS_H_*/</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Gerado em Fri Nov 25 18:42:04 2005 para Securitas por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package "Securitas"
+version "1.0"
+purpose "Este programa tem como objectivo implementar um servidor iterativo e afins."
+# Options
+option "porto" p "porto" int yes
+option "contas" c "Ficheiro com informacao das contas" string yes
+option "maquinas" m "Ficheiro com informacao das maquinas" string yes
+option "tempo" t "Tempo de duracao da sessao em minutos" int yes
