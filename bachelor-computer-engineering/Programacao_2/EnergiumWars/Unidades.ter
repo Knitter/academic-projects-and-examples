@@ -1,0 +1,70 @@
+Numero de Unidades Existentes: 14
+Unidade: Sweeper
+Preco: 50
+Ataque: 100
+Defesa: 75
+
+Unidade: Gunner
+Preco: 100
+Ataque: 200
+Defesa: 150
+
+Unidade: Laser Rifle Man
+Preco: 150
+Ataque: 300
+Defesa: 250
+
+Unidade: Geronimo
+Preco: 200
+Ataque: 500
+Defesa: 50
+
+Unidade: Anaconda Tank 
+Preco: 800
+Ataque: 750
+Defesa: 1000
+
+Unidade: Siege 
+Preco: 950
+Ataque: 1500
+Defesa: 600
+
+Unidade: MechWarrior Class I - Raven
+Preco: 1000
+Ataque: 2000
+Defesa: 1700
+
+Unidade: MechWarrior Class II - MadCat
+Preco: 1125
+Ataque: 2500
+Defesa: 1900
+
+Unidade: Mobile Turrent
+Preco: 1200
+Ataque: 2700
+Defesa: 3000
+
+Unidade: MechWarrior Class III - Atlas
+Preco: 1225
+Ataque: 4250
+Defesa: 4000
+
+Unidade: Fighter
+Preco: 1500
+Ataque: 4500
+Defesa: 3000
+
+Unidade: Bomber
+Preco: 2000
+Ataque: 6000
+Defesa: 4500
+
+Unidade: Arquillian Battle Ship
+Preco: 2500
+Ataque: 7500
+Defesa: 7000
+
+Unidade: Escaflowne Guymelef
+Preco: 5000
+Ataque: 10000
+Defesa: 10000

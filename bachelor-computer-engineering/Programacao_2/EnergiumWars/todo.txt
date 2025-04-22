@@ -1,0 +1,13 @@
+bugs:
+ - Se os ficheiros de informações forem alterados no podem ser carregados jogos;
+ - É possivel escolher um planeta inexistente na lista de planetas possuidos;
+ - Funcao "carregar_jogo" nao funciona;
+ - Nao é possivel mostrar posses;
+ - Ao vender unidades 2x é mostrado o mesmo planeta 2x;
+ - Funcao desistir nao funciona;
+
+completas:
+ - comprar unidades;
+ - gravar jogo;
+ - funcao de batalha;
+ - mover unidades;
