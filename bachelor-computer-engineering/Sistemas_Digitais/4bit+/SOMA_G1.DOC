@@ -1,0 +1,82 @@
+
+
+                                                                     Page 1
+ABEL-PLD(tm) 3.20  -  Document Generator              22-Jan-:4 02:56 PM
+Somador de duas palavras de 4 bits
+Equations for Module SOMADOR
+
+Device soma_g1
+
+
+- Reduced Equations for device soma_g1:
+
+    CBO.OE = (EN);
+
+    S1.OE = (EN);
+
+    S2.OE = (EN);
+
+    S3.OE = (EN);
+
+    S4.OE = (EN);
+
+    S4 = (D & !H & !CBI # !D & H & !CBI # D & H & CBI # !D & !H & CBI);
+
+    C4 = (D & CBI # H & CBI # D & H);
+
+    S3 = (C & !G & !C4 # !C & G & !C4 # C & G & C4 # !C & !G & C4);
+
+    C3 = (C & C4 # G & C4 # C & G);
+
+    S2 = (B & !F & !C3 # !B & F & !C3 # B & F & C3 # !B & !F & C3);
+
+    C2 = (B & C3 # F & C3 # B & F);
+
+    S1 = (A & !E & !C2 # !A & E & !C2 # A & E & C2 # !A & !E & C2);
+
+    CBO = (A & C2 # E & C2 # A & E);
+
+
+
+                                                                     Page 2
+ABEL-PLD(tm) 3.20  -  Document Generator              22-Jan-:4 02:56 PM
+Somador de duas palavras de 4 bits
+Chip diagram for Module SOMADOR
+
+Device soma_g1
+
+
+                            P22V10
+
+                 ----------\       /----------
+                 |          \     /          |
+                 |           -----           |
+               A |  1                    24  |                 
+                 |                           |
+               B |  2                    23  |                 
+                 |                           |
+               C |  3                    22  | C2              
+                 |                           |
+               D |  4                    21  | C3              
+                 |                           |
+               E |  5                    20  | C4              
+                 |                           |
+               F |  6                    19  |                 
+                 |                           |
+               G |  7                    18  | S4              
+                 |                           |
+               H |  8                    17  | S3              
+                 |                           |
+                 |  9                    16  | S2              
+                 |                           |
+             CBI | 10                    15  | S1              
+                 |                           |
+                 | 11                    14  | CBO             
+                 |                           |
+                 | 12                    13  | EN              
+                 |                           |
+                 |                           |
+                 -----------------------------
+
+
+end of module SOMADOR
