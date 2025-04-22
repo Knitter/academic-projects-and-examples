@@ -1,0 +1,18 @@
+Noivos:
+	- Dar a possibilidade de enviar a lista para o mail.
+	
+Convidados
+	- Possibilidade de subscrever a newsletter de mudanças na lista de casamento.
+	- Listar oferta com opção de remover a oferta.
+	
+Administrador
+	- Listar casamentos com opção para apagar ou marcar como inactivo.
+
+Gerais
+	- Expirar casamentos.
+ 
+[Implementação]
+. Falta mostrar fotografias dos produtos nas pesquisas e na lista de produtos.
+. Limitar o número de caracteres que pode ser introduzido nas caixas de texto.
+. cascade on update, cascade on delete
+. clicar num utilizador da lista e mostrar todas as informações.

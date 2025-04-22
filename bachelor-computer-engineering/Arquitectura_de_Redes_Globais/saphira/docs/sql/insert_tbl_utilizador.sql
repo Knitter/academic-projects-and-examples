@@ -1,0 +1,8 @@
+--tbl_noivo
+--nome, apelido, endereco, cod_postal, chave, contribuinte, username, sexo, localidade, email
+insert into tbl_utilizador(nome, apelido, contribuinte, username, chave, endereco, cod_postal, localidade, email, sexo) values('Nelson', 'Rodrigues', 			'123456789', 'user1', '9df352f244a2c9b60ac646c96d475303', 'rua 1', '2400', 'Localidade1', 'newita@gmail.com', 'M');
+insert into tbl_utilizador(nome, apelido, contribuinte, username, chave, endereco, cod_postal, localidade, email, sexo) values('Ana', 	'Nogueira',  			'987654321', 'user2', '877bf983252651d3411ea98358542198', 'rua 2', '2500', 'Localidade2', 'mail2@domain.com', 'F');
+insert into tbl_utilizador(nome, apelido, contribuinte, username, chave, endereco, cod_postal, localidade, email, sexo) values('Sérgio', 'Lopes', 	 			'001122334', 'user3', '661935de45157159de50babaa1cf7206', 'rua 3', '2600', 'Localidade3', 'mail3@domain.com', 'M');
+insert into tbl_utilizador(nome, apelido, contribuinte, username, chave, endereco, cod_postal, localidade, email, sexo) values('Lela', 	'Lopes', 	'443322110', 'user4', 'e23ce46bb1e6601093fd7c498f2a502f', 'rua 4', '2800', 'Localidade4', 'mail4@domain.com', 'F');
+insert into tbl_utilizador(nome, apelido, contribuinte, username, chave, endereco, cod_postal, localidade, email, sexo) values('Ruben', 	'Pedro', 	 			'556677889', 'user5', 'e0eb4d3a7f59dd9712f088a94df3a0d6', 'rua 5', '2900', 'Localidade5', 'mail5@domain.com', 'M');
+insert into tbl_utilizador(nome, apelido, contribuinte, username, chave, endereco, cod_postal, localidade, email, sexo) values('Ana', 	'Pedro', 		'998877665', 'user6', '513a00a5991c73c931b3f2cbdd9172a6', 'rua 6', '2700', 'Localidade6', 'mail6@domain.com', 'F');
