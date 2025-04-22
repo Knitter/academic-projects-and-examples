@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE XMI SYSTEM "C:\Documents and Settings\Knitter\.netbeans\6.0beta2\.uml\config\UML_2.0EMBT.dtd"> --><XMI xmlns:UML="omg.org/UML/1.4" xmi.version="2.0"> <XMI.header> <XMI.metamodel xmi.name="UML" xmi.version="1.4"/> <XMI.documentation> <XMI.exporter> Embarcadero's Describe </XMI.exporter> <XMI.exporterVersion> 6.0 </XMI.exporterVersion> </XMI.documentation> </XMI.header> <XMI.content> <UML:Project xmi.id="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" mode="Design" defaultLanguage="UML" projVersion="6.1.4.837" name="UML"><UML:Element.ownedElement>
+
+
+<UML:Class xmi.id="DCE.B6E8BB91-DF71-8D2A-1A89-71AA9CFBF099" name="Requisicao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.F71CE965-0E86-A8C1-7AAA-9F9D26ED371E DCE.F234529E-6C7F-11AF-8249-830A7D99D3A5 DCE.E9566041-ED2A-5D18-2AB8-8D9BB4F7AE63 DCE.96E00D13-BEAC-501D-6F96-24293B2027EE DCE.1312DB8F-522E-22D3-D92E-D82609E4D577 DCE.CB6C752B-1510-8759-DAED-8E68770F8AD7 DCE.9E2D1B11-B6F2-7398-F5F5-286AAD45156F DCE.CBB93D74-E875-FA8F-D3C0-9715B0F37579"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Class>
+
+<UML:Class xmi.id="DCE.F4B1CE5C-D2AC-2133-1DD2-7486F5E55C1D" name="Destino" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.D79FEC03-413A-9DFB-96C5-3D02C6336ACE"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Class>
+
+<UML:Class xmi.id="DCE.B543E9B2-BC62-E801-21E3-72B8524F9ACB" name="Colaborador" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.122AA31A-7DFE-4F5C-7FE7-583C9C7E008E DCE.AE428508-C30B-B799-EF6A-82DBD3524898 DCE.E6EEF6C8-1BD4-6878-ED9D-41EEAB79A3C5"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Class>
+<UML:Class xmi.id="DCE.EA3444EC-C3B8-1E07-B0AF-997F0AC20F2C" name="Produto" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.2D5EAD54-4E42-ED69-9CC0-6E613FD01E62 DCE.8D81A169-06EF-3C4B-24E6-C5C035AE70D1 DCE.9F9841AB-F9F3-7269-FC92-E4098C434CA2 DCE.E55E2944-E2D1-6CC4-C0A3-26E6ACBE7B35"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Class>
+<UML:Class xmi.id="DCE.A7204EEA-5A44-D906-3922-422DC01A7AFB" name="Encomenda" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.9442C7BF-7D89-8466-A4C7-6C85EC3D492F DCE.3FA004E0-F780-1F98-0A83-5E379FB086BB DCE.44B4D3E9-E888-B072-EFDE-48C1348BC84B"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Class>
+
+<UML:Association xmi.id="DCE.2A059E5E-C37B-C13E-2046-2BE978CCF2BE" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.122AA31A-7DFE-4F5C-7FE7-583C9C7E008E" visibility="private" association="DCE.2A059E5E-C37B-C13E-2046-2BE978CCF2BE" type="DCE.B543E9B2-BC62-E801-21E3-72B8524F9ACB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.923E1C5F-3238-8028-E893-127FBDE7408D"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.F234529E-6C7F-11AF-8249-830A7D99D3A5" visibility="private" association="DCE.2A059E5E-C37B-C13E-2046-2BE978CCF2BE" type="DCE.B6E8BB91-DF71-8D2A-1A89-71AA9CFBF099"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.2ED6FAC6-139F-8D28-7F7C-89C8449902A7"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+<UML:Association xmi.id="DCE.EEE9BF69-6B24-D097-5BE8-15590C824898" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.3FA004E0-F780-1F98-0A83-5E379FB086BB" visibility="private" association="DCE.EEE9BF69-6B24-D097-5BE8-15590C824898" type="DCE.A7204EEA-5A44-D906-3922-422DC01A7AFB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.94F23815-C141-CE7D-59A4-F8F5D2AF5F1A"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.E9566041-ED2A-5D18-2AB8-8D9BB4F7AE63" visibility="private" association="DCE.EEE9BF69-6B24-D097-5BE8-15590C824898" type="DCE.B6E8BB91-DF71-8D2A-1A89-71AA9CFBF099"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F057A847-0038-062E-73DF-7A6734E26B04"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+
+<UML:Association xmi.id="DCE.C4926DC5-4FB5-3FC0-F147-A55FEB5A703A" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.1312DB8F-522E-22D3-D92E-D82609E4D577" visibility="private" association="DCE.C4926DC5-4FB5-3FC0-F147-A55FEB5A703A" type="DCE.B6E8BB91-DF71-8D2A-1A89-71AA9CFBF099"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C55E366D-7A74-BCC2-0E3D-3DC58E979DBA"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.D79FEC03-413A-9DFB-96C5-3D02C6336ACE" visibility="private" association="DCE.C4926DC5-4FB5-3FC0-F147-A55FEB5A703A" type="DCE.F4B1CE5C-D2AC-2133-1DD2-7486F5E55C1D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F8749CCC-B8D4-0B43-4842-7C541F26C7F7"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+
+<UML:Actor xmi.id="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222" name="Empregado" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" specialization="DCE.5D7FFEEA-A4D0-63E0-0601-0519BFC01689 DCE.39AC8808-E145-4666-F4D6-5E2E9C663252 DCE.DAF41647-3080-1996-4EA8-1FC028EF9535 DCE.4A55B267-288F-7898-FD92-CC66FA9AF093" associationEnd="DCE.F1C2450F-9AFF-87C6-ABE7-599E738D359A DCE.4BDCA0B7-18D7-2138-8744-73F5A2D57DB7 DCE.5E7FF193-AFAF-DB7E-BADC-253FADDA84DC DCE.F9ECB2D7-65DD-3CC2-E1C3-DD6B015EFA51 DCE.8DC1EBFB-14E7-FEA8-CE47-F0215ADB2BAD DCE.481C5CEA-D1AB-59F2-F578-04A2B15D421F"><UML:Element.presentation>
+
+
+
+
+</UML:Element.presentation><UML:Classifier.generalization>
+
+</UML:Classifier.generalization></UML:Actor>
+<UML:Actor xmi.id="DCE.7727A827-F373-4084-7A36-0F578FE754BF" name="Responsavel de Armazem" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.3E68A34F-61CE-7C86-5EB7-B69F185F9C3F DCE.6AF3E9BF-BF03-C757-3C33-D60ED77F112C DCE.76F797DB-C7E2-F860-4199-8D2A8F287D56 DCE.6D612884-DF28-3942-B097-866932C3CB34"><UML:Element.presentation>
+
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Classifier.generalization>
+
+
+<UML:Generalization xmi.id="DCE.4A55B267-288F-7898-FD92-CC66FA9AF093" specific="DCE.7727A827-F373-4084-7A36-0F578FE754BF" general="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Generalization></UML:Classifier.generalization></UML:Actor>
+<UML:Actor xmi.id="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1" name="Aprovador" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" specialization="" associationEnd="DCE.E5345670-7111-B3ED-5395-1E2694C97D3E DCE.8581890A-8FEA-4AED-C555-E2E16F0ABDCE DCE.6C672935-46E7-491E-B907-3A434FF96F3C DCE.2319A707-8FBE-E051-EDC4-BFBD98A409D6 DCE.E5A7F316-7FF2-67F0-E4E3-F2837CC19402"><UML:Element.presentation>
+
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Classifier.generalization>
+
+<UML:Generalization xmi.id="DCE.DAF41647-3080-1996-4EA8-1FC028EF9535" specific="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1" general="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Generalization></UML:Classifier.generalization></UML:Actor>
+
+<UML:UseCase xmi.id="DCE.BB797176-7897-E567-B423-1976FFECB613" name="C1. Criar Requisicao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.9372A99E-4DEB-7576-27BD-0A10C4DEA9FE" extendedBy="DCE.FA5F8F52-5CCD-5851-7E85-5ACB1EA58566"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.B9CCB9AF-65A1-CBEB-51AA-8E5B33AEE7F5" owner="DCE.BB797176-7897-E567-B423-1976FFECB613" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C1&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Criar Requisi&amp;#231;&amp;#227;o&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um empregado cria uma 
+      requisi&amp;#231;&amp;#227;o e submete-a para posterior aprova&amp;#231;&amp;#227;o ou guarda rascunho.&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Empregado&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt;n/d &lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d &lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O empregado preenche os dados da requisi&amp;#231;&amp;#227;o na PaginaRequisicoes.&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      2. O empregado clica em &amp;quot;Submeter&amp;quot; na PaginaRequisicoes.&lt;br&gt;&lt;br&gt;3. 
+      O sistema guarda a requisi&amp;#231;&amp;#227;o.&lt;br&gt;&lt;br&gt;4. O sistema confirma 
+      que a submiss&amp;#227;o foi bem sucedida.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos 
+      alternativos: &lt;/b&gt;&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1 &lt;/u&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 do caminho principal, o empregado clica em &amp;quot;Guardar 
+      Rascunho&amp;quot; na PaginaRequisicoes.&lt;br&gt;&lt;br&gt;2. O sistema guarda o 
+      rascunho.&lt;br&gt;&lt;br&gt;3. O sistema confirma que a submiss&amp;#227;o foi bem sucedida.&lt;br&gt;&lt;br&gt;&lt;u&gt;A2&lt;/u&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 3 do caminho principal o sistema n&amp;#227;o consegue guardar os 
+      dados.&lt;br&gt;&lt;br&gt;2. O sistema informa o utilizador que a submiss&amp;#227;o n&amp;#227;o foi 
+      bem sucedida.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.3216303E-1964-AE70-B204-E211EB92D66F" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.F1C2450F-9AFF-87C6-ABE7-599E738D359A" visibility="private" association="DCE.3216303E-1964-AE70-B204-E211EB92D66F" type="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F995DDEF-D20B-4A54-0CB7-23C93D125BF5"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.9372A99E-4DEB-7576-27BD-0A10C4DEA9FE" visibility="private" association="DCE.3216303E-1964-AE70-B204-E211EB92D66F" type="DCE.BB797176-7897-E567-B423-1976FFECB613"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FFAA7E73-309E-52FC-44E5-C3F21F71AD90"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+<UML:Activity xmi.id="DCE.60D1BBD9-1523-D5B8-CBBD-42AFD416C697" name="Casos de Uso do Aprovador" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"/>
+<UML:UseCase xmi.id="DCE.7513A7F2-E98B-FBA8-638D-111994C801CC" name="C2. Aprovar Requisicao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.C70FD445-A856-5FCF-0D5E-7F365249C1DD"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.01518348-1234-A68C-09F7-D5413207A78F" owner="DCE.7513A7F2-E98B-FBA8-638D-111994C801CC" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C2&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Aprovar Requisi&amp;#231;&amp;#227;o&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um aprovador aprova 
+      determinada requisi&amp;#231;&amp;#227;o, notificando o correspondente remetente da mesma.&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Aprovador&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; O aprovador tem pelo 
+      menos uma requisi&amp;#231;&amp;#227;o por aprovar.&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d &lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O aprovador clica em &amp;quot;Aprovar&amp;quot; na PaginaAprovacao.&lt;br&gt;&lt;br&gt;2. 
+      O sistema marca a requisi&amp;#231;&amp;#227;o como aprovada.&lt;br&gt;&lt;br&gt;3. O 
+      sistema notifica o remetente da requisi&amp;#231;&amp;#227;o.&lt;br&gt;&lt;br&gt;4. A 
+      aplica&amp;#231;&amp;#227;o informa o aprovador que a aprova&amp;#231;&amp;#227;o foi bem sucedida.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos 
+      alternativos: &lt;/b&gt;&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;
+&lt;/u&gt;&lt;br&gt;    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1 &lt;/u&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 do caminho principal o sistema n&amp;#227;o consegue marcar a 
+      requisi&amp;#231;&amp;#227;o como aprovada.&lt;br&gt;&lt;br&gt;2. O sistema informa o 
+      aprovador que a aprova&amp;#231;&amp;#227;o n&amp;#227;o foi bem sucedida.&lt;br&gt;&lt;br&gt;&lt;u&gt;A2 
+      &lt;/u&gt;&lt;br&gt;1. No passo 3 do caminho principal, o sistema n&amp;#227;o consegue 
+      notificar o remetente da requisi&amp;#231;&amp;#227;o.&lt;br&gt;&lt;br&gt;2. O sistema 
+      informa o aprovador que a notifica&amp;#231;&amp;#227;o n&amp;#227;o foi bem sucedida.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.7B06ED51-FC43-CBA7-FA5E-8F34C20F16A7" name="C3. Reprovar Requisicao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.AB9D7295-0BA5-960E-FF25-DDA9EAB8AD0E"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.6A34A52D-C493-A74E-78C6-A3E278C5E56A" owner="DCE.7B06ED51-FC43-CBA7-FA5E-8F34C20F16A7" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C3&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Reprovar Requisi&amp;#231;&amp;#227;o&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um aprovador reprova 
+      determinada requisi&amp;#231;&amp;#227;o, notificando o correspondente remetente da mesma.&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Aprovador&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; O aprovador tem pelo 
+      menos uma requisi&amp;#231;&amp;#227;o por reprovar.&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d &lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O aprovador clica em &amp;quot;Reprovar&amp;quot; na PaginaAprovacao.&lt;br&gt;&lt;br&gt;2. 
+      O sistema marca a requisi&amp;#231;&amp;#227;o como reprovada na PaginaAprovacao.&lt;br&gt;&lt;br&gt;3. 
+      O sistema notifica o remetente da requisi&amp;#231;&amp;#227;o.&lt;br&gt;&lt;br&gt;4. O 
+      sistema informa o aprovador que a reprova&amp;#231;&amp;#227;o foi bem sucedida.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos 
+      alternativos: &lt;/b&gt;&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1 &lt;/u&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 do caminho principal, o sistema n&amp;#227;o consegue marcar a 
+      requisi&amp;#231;&amp;#227;o como reprovada na PaginaAprovacao.&lt;br&gt;&lt;br&gt;2. O 
+      sistema informa o aprovador que a reprova&amp;#231;&amp;#227;o n&amp;#227;o foi bem sucedida.&lt;br&gt;&lt;br&gt;&lt;u&gt;A2 
+      &lt;/u&gt;&lt;br&gt;1. No passo 3 do caminho principal, o sistema n&amp;#227;o consegue 
+      notificar o remetente da requisi&amp;#231;&amp;#227;o.&lt;br&gt;&lt;br&gt;2. O sistema 
+      informa o Aprovador que a reprova&amp;#231;&amp;#227;o n&amp;#227;o foi bem sucedida.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.EDC61EE6-F679-0549-130C-44FE65C75211" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.E5345670-7111-B3ED-5395-1E2694C97D3E" visibility="private" association="DCE.EDC61EE6-F679-0549-130C-44FE65C75211" type="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0336536D-730E-94A4-4AAC-1DED03DE1259"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.C70FD445-A856-5FCF-0D5E-7F365249C1DD" visibility="private" association="DCE.EDC61EE6-F679-0549-130C-44FE65C75211" type="DCE.7513A7F2-E98B-FBA8-638D-111994C801CC"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.4CB9F32C-FC51-84BE-A3B5-F342DEE6CACF"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.3A17CE7D-50C7-0B7C-9550-EE0437C4294D" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.8581890A-8FEA-4AED-C555-E2E16F0ABDCE" visibility="private" association="DCE.3A17CE7D-50C7-0B7C-9550-EE0437C4294D" type="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C84E25FF-65F4-73DC-0356-D6B3A6DC9671"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.AB9D7295-0BA5-960E-FF25-DDA9EAB8AD0E" visibility="private" association="DCE.3A17CE7D-50C7-0B7C-9550-EE0437C4294D" type="DCE.7B06ED51-FC43-CBA7-FA5E-8F34C20F16A7"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.2EEDBB5E-B512-5971-5785-9971076A9652"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+<UML:UseCase xmi.id="DCE.59AEF038-446C-BCED-2068-CA3ECE420724" name="C4. Notificar remetente e aprovador do estado de satisfacao de determinada requisicao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.FFD3EE43-C6BA-25D1-83E0-BBCB8DD08853"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.10A6C62C-F75E-1691-4070-626AB36C4B74" owner="DCE.59AEF038-446C-BCED-2068-CA3ECE420724" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C4&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Notificar remetente e aprovador do estado de 
+      satisfa&amp;#231;&amp;#227;o de determinada requisi&amp;#231;&amp;#227;o&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um respons&amp;#225;vel de armaz&amp;#233;m 
+      notifica o remetente e o aprovador do estado de satisfa&amp;#231;&amp;#227;o de 
+      determinada requisi&amp;#231;&amp;#227;o (e.g. em encomenda, pronta para levantar, 
+      entregue, etc).&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Respons&amp;#225;vel de Armaz&amp;#233;m&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d &lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O respons&amp;#225;vel clica no bot&amp;#227;o &amp;quot;Notificar&amp;quot; na PaginaArmazem.&lt;br&gt;&lt;br&gt;2. 
+      O sistema notifica o remetente e o aprovador.&lt;br&gt;&lt;br&gt;3. O sistema 
+      informa o respons&amp;#225;vel que a notifica&amp;#231;&amp;#227;o foi bem sucedida.&lt;br&gt;
+&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos alternativos: &lt;/b&gt;&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1 &lt;/u&gt;&lt;br&gt;1. No passo 2 do caminho principal, o sistema n&amp;#227;o consegue 
+      notificar o remetente e/ou o aprovador.&lt;br&gt;&lt;br&gt;2. O sistema informa o 
+      respons&amp;#225;vel que a notifica&amp;#231;&amp;#227;o falhou.
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.87240644-5A58-2DCA-F73C-80B00EC35936" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.3E68A34F-61CE-7C86-5EB7-B69F185F9C3F" visibility="private" association="DCE.87240644-5A58-2DCA-F73C-80B00EC35936" type="DCE.7727A827-F373-4084-7A36-0F578FE754BF"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.DFE9B5D8-644B-52C8-CA67-36693603D495"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.FFD3EE43-C6BA-25D1-83E0-BBCB8DD08853" visibility="private" association="DCE.87240644-5A58-2DCA-F73C-80B00EC35936" type="DCE.59AEF038-446C-BCED-2068-CA3ECE420724"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.780DD250-3FFB-A0C2-34F3-C273B92B6D37"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:UseCase xmi.id="DCE.916E6CE1-1933-788B-BCC3-059A9DCE576F" name="C5. Assinalar requisição como parcialmente satisfeita" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.E286C266-C3C4-60D4-13D9-06D19083928F"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.01AC009A-03BB-C1DA-9027-FB6D30D3AA2F" owner="DCE.916E6CE1-1933-788B-BCC3-059A9DCE576F" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C5&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Assinalar requisi&amp;#231;&amp;#227;o como parcialmente 
+      satisfeita&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um respons&amp;#225;vel de armaz&amp;#233;m, 
+      caso a requisi&amp;#231;&amp;#227;o n&amp;#227;o possa ser satisfeita n&amp;#227;o possa ser satisfeita de 
+      uma s&amp;#243; vez, assinala a requisi&amp;#231;&amp;#227;o como parcialmente satisfeita.&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Respons&amp;#225;vel de Armaz&amp;#233;m&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O respons&amp;#225;vel de armaz&amp;#233;m clica em &amp;quot;Parcialmente Satisfeita&amp;quot; na 
+      PaginaArmazem.&lt;br&gt;&lt;br&gt;2. O sistema marca a requisi&amp;#231;&amp;#227;o como parcialmente 
+      satisfeita.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos alternativos: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1&lt;br&gt;&lt;/u&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 o sistema n&amp;#227;o consegue marcar a requisi&amp;#231;&amp;#227;o como 
+      parcialmente satisfeita.&lt;br&gt;&lt;br&gt;2. O sistema informa o respons&amp;#225;vel que 
+      falhou.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.C4187031-DEE8-33BC-773F-06847C95D19D" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.6AF3E9BF-BF03-C757-3C33-D60ED77F112C" visibility="private" association="DCE.C4187031-DEE8-33BC-773F-06847C95D19D" type="DCE.7727A827-F373-4084-7A36-0F578FE754BF"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.00AEBA5F-9C32-5DBD-8736-69655CDF2999"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.E286C266-C3C4-60D4-13D9-06D19083928F" visibility="private" association="DCE.C4187031-DEE8-33BC-773F-06847C95D19D" type="DCE.916E6CE1-1933-788B-BCC3-059A9DCE576F"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.982EFD3E-0657-6B1A-4069-CE0E6ABDF3FD"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:UseCase xmi.id="DCE.07DD151C-00F8-1840-0C69-93F134453539" name="C6. Assinalar requisicao como completamente satisfeita" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.56EAF45B-249B-F474-5E23-773157411416"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.EE8240E8-7561-9500-6C85-4F750229BA68" owner="DCE.07DD151C-00F8-1840-0C69-93F134453539" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C6&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Assinalar requisi&amp;#231;&amp;#227;o como parcialmente 
+      satisfeita&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um respons&amp;#225;vel de armaz&amp;#233;m, 
+      assinala a requisi&amp;#231;&amp;#227;o como completamente satisfeita.&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Respons&amp;#225;vel de Armaz&amp;#233;m&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O respons&amp;#225;vel de armaz&amp;#233;m clica em &amp;quot;Satisfeita&amp;quot; na PaginaArmazem.&lt;br&gt;&lt;br&gt;2. 
+      O sistema marca a requisi&amp;#231;&amp;#227;o como completamente satisfeita.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos 
+      alternativos: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1&lt;br&gt;&lt;/u&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 o sistema n&amp;#227;o consegue marcar a requisi&amp;#231;&amp;#227;o como 
+      completamente satisfeita.&lt;br&gt;&lt;br&gt;2. O sistema informa o respons&amp;#225;vel que 
+      falhou.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.D7628AC8-9418-C119-F77A-CEFF90E0ED78" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.76F797DB-C7E2-F860-4199-8D2A8F287D56" visibility="private" association="DCE.D7628AC8-9418-C119-F77A-CEFF90E0ED78" type="DCE.7727A827-F373-4084-7A36-0F578FE754BF"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.E2956DAB-A94B-6428-56C5-ECF581320F35"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.56EAF45B-249B-F474-5E23-773157411416" visibility="private" association="DCE.D7628AC8-9418-C119-F77A-CEFF90E0ED78" type="DCE.07DD151C-00F8-1840-0C69-93F134453539"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.78F73872-ECA4-4789-9512-228CD8566E25"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+
+<UML:UseCase xmi.id="DCE.AF1E51C4-C44B-28C2-0D42-D71AA4693C76" name="C8. Consultar lista requisicoes da sua autoria" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.3F5E0259-9C5D-F955-0D02-4B95C7CF31F2"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.4DE6A531-3DE3-98C9-744B-BB26D5DD9469" owner="DCE.AF1E51C4-C44B-28C2-0D42-D71AA4693C76" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C8&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Consultar lista de requisi&amp;#231;&amp;#245;es da sua autoria&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um empregado consulta a lista 
+      de requisi&amp;#231;&amp;#245;es da sua autoria.&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Empregado&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O empregado clica em &amp;quot;Consultar Lista de Requisi&amp;#231;&amp;#245;es&amp;quot; na 
+      PaginaEmpregado.&lt;br&gt;&lt;br&gt;2. O sistema obt&amp;#233;m a lista de requisi&amp;#231;&amp;#245;es da 
+      autoria do empregado.&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      3. A aplica&amp;#231;&amp;#227;o mostra a lista de requisi&amp;#231;&amp;#245;es da autoria do empregado na 
+      PaginaListaRequisicoes.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos alternativos: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1&lt;br&gt;&lt;/u&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 do caminho principal o sistema n&amp;#227;o consegue obter a lista 
+      de requisi&amp;#231;&amp;#245;es da autoria do empregado.&lt;br&gt;&lt;br&gt;2. O sistema 
+      informa o utilizador que falhou.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.4A6DC845-D968-02CE-3B9B-838433B1651B" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.5E7FF193-AFAF-DB7E-BADC-253FADDA84DC" visibility="private" association="DCE.4A6DC845-D968-02CE-3B9B-838433B1651B" type="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.BF3022AB-FD07-5A31-C604-5380E111EBDE"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.3F5E0259-9C5D-F955-0D02-4B95C7CF31F2" visibility="private" association="DCE.4A6DC845-D968-02CE-3B9B-838433B1651B" type="DCE.AF1E51C4-C44B-28C2-0D42-D71AA4693C76"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.4CE19C70-5062-9018-5B9C-72CE6319FAE2"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:UseCase xmi.id="DCE.D0E09BAD-CC56-ED4C-CD65-8F2E664D08DA" name="C9. Consultar requisicoes existentes, excepto rascunhos que nao sejam da sua autoria" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.17107F21-301A-93A5-9972-216014EF7C20 DCE.FE9F0CDB-F38C-4C1C-E4EF-3704DDC1E075"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.EDBB9B93-4F37-6A34-538A-953D0E443442" owner="DCE.D0E09BAD-CC56-ED4C-CD65-8F2E664D08DA" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C9&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Consultar requisi&amp;#231;&amp;#245;es existentes, excepto 
+      rascunhos que n&amp;#227;o sejam da sua autoria&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um aprovador ou respons&amp;#225;vel de 
+      armaz&amp;#233;m consulta a lista de requisi&amp;#231;&amp;#245;es existentes, excepto rascunhos 
+      que n&amp;#227;o sejam da sua autoria.&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Aprovador&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O aprovador clica em &amp;quot;Consultar Lista de Requisi&amp;#231;&amp;#245;es&amp;quot; na 
+      PaginaAprovacao.&lt;br&gt;&lt;br&gt;2. O sistema obt&amp;#233;m a lista de requisi&amp;#231;&amp;#245;es 
+      existentes, excepto rascunhos que n&amp;#227;o sejam da sua autoria.
+&lt;br&gt;    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      3. A aplica&amp;#231;&amp;#227;o mostra a lista de requisi&amp;#231;&amp;#245;es existentes na 
+      PaginaListaRequisicoes.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos alternativos: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1&lt;br&gt;&lt;/u&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. No passo 2 do caminho principal o sistema n&amp;#227;o consegue obter a lista 
+      de requisi&amp;#231;&amp;#245;es existentes.&lt;br&gt;&lt;br&gt;2. O sistema informa o 
+      aprovador que falhou.&lt;br&gt;
+&lt;br&gt;&lt;u&gt;A2&lt;/u&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. O respons&amp;#225;vel de armaz&amp;#233;m clica em &amp;quot;Consultar Lista de Requisi&amp;#231;&amp;#245;es&amp;quot; na 
+      PaginaArmazem.&lt;br&gt;&lt;br&gt;2. O sistema obt&amp;#233;m a lista de requisi&amp;#231;&amp;#245;es 
+      existentes, excepto rascunhos que n&amp;#227;o sejam da sua autoria.&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      3. A aplica&amp;#231;&amp;#227;o mostra a lista de requisi&amp;#231;&amp;#245;es existentes na 
+      PaginaListaRequisicoes.&lt;br&gt;
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.F8537547-DF8C-8F10-D7F2-C6B31C6067BC" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.17107F21-301A-93A5-9972-216014EF7C20" visibility="private" association="DCE.F8537547-DF8C-8F10-D7F2-C6B31C6067BC" type="DCE.D0E09BAD-CC56-ED4C-CD65-8F2E664D08DA"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.1E78CD3A-C9F6-160F-D718-F7948580FE40"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.6D612884-DF28-3942-B097-866932C3CB34" visibility="private" association="DCE.F8537547-DF8C-8F10-D7F2-C6B31C6067BC" type="DCE.7727A827-F373-4084-7A36-0F578FE754BF"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.EFA7B49C-1897-521D-0D77-3767C097E3E3"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.6451580A-6496-E902-7269-F09262747E42" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.FE9F0CDB-F38C-4C1C-E4EF-3704DDC1E075" visibility="private" association="DCE.6451580A-6496-E902-7269-F09262747E42" type="DCE.D0E09BAD-CC56-ED4C-CD65-8F2E664D08DA"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.55D71CA9-610F-191C-1811-0FE55375DDBB"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.6C672935-46E7-491E-B907-3A434FF96F3C" visibility="private" association="DCE.6451580A-6496-E902-7269-F09262747E42" type="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.74ADE713-68FD-6644-3E25-CC94B67A948F"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:UseCase xmi.id="DCE.D8503971-DE4D-AD2E-C028-CE814D96D76A" name="C11. Apagar requisicoes da sua autoria, ainda nao aprovada, ou ja reprovada" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.D3933A93-6761-8B40-BCBD-4B4A2C1F54BF"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.05F1FD08-D11D-2456-D793-7C0974D6EB04" name="C10. Alterar requisicoes da sua autoria, ainda nao aprovadas, ou ja reprovadas" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.B37CF146-1A2A-F148-F593-C0E5D467B25A"><UML:Element.presentation>
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.04B7E21D-2F6D-7FA7-695E-51C00BF1CF8B" owner="DCE.05F1FD08-D11D-2456-D793-7C0974D6EB04" name="documentation">
+<UML:TaggedValue.dataValue>&lt;font face=""&gt;&lt;b&gt;ID: &lt;/b&gt;C10&lt;/font&gt;
+
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Nome:&lt;/b&gt; Alterar requisi&amp;#231;&amp;#245;es da sua autoria, ainda n&amp;#227;o 
+      aprovadas, ou j&amp;#225; reprovadas.&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Descri&amp;#231;&amp;#227;o: &lt;/b&gt;Um empregado pode alterar uma 
+      requisi&amp;#231;&amp;#227;o criada por si, desde que a mesma n&amp;#227;o tenha sido ainda 
+      aprovada, ou tenha sido reprovada pelo aprovador&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Actor prim&amp;#225;rio:&lt;/b&gt; Empregado&lt;/font&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;br&gt;
+      
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Pr&amp;#233;-condi&amp;#231;&amp;#227;o:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Trigger:&lt;/b&gt; n/d&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;font face=""&gt;&lt;b&gt;Caminho principal: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1.&lt;br&gt;&lt;br&gt;&lt;font face=""&gt;&lt;b&gt;Caminhos alternativos: &lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      &lt;u&gt;A1&lt;br&gt;&lt;/u&gt;
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      1. 
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:Association xmi.id="DCE.4BDF35B2-74BF-EAE5-3365-DE41D0515F82" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.F9ECB2D7-65DD-3CC2-E1C3-DD6B015EFA51" visibility="private" association="DCE.4BDF35B2-74BF-EAE5-3365-DE41D0515F82" type="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.A0509850-A2EB-ACCC-F82A-5044F8B4D3A5"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.D3933A93-6761-8B40-BCBD-4B4A2C1F54BF" visibility="private" association="DCE.4BDF35B2-74BF-EAE5-3365-DE41D0515F82" type="DCE.D8503971-DE4D-AD2E-C028-CE814D96D76A"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.A729AF79-7FEF-430C-8D07-2ED953807F02"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.2F655313-0D83-6EAC-6300-0D0ECF6FE3BF" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.8DC1EBFB-14E7-FEA8-CE47-F0215ADB2BAD" visibility="private" association="DCE.2F655313-0D83-6EAC-6300-0D0ECF6FE3BF" type="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.AA2AB8FB-9875-DE10-108D-2F3EF65F43A4"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.B37CF146-1A2A-F148-F593-C0E5D467B25A" visibility="private" association="DCE.2F655313-0D83-6EAC-6300-0D0ECF6FE3BF" type="DCE.05F1FD08-D11D-2456-D793-7C0974D6EB04"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.9394C3A3-AA71-11A8-520D-BC5EE67E7CAC"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:UseCase xmi.id="DCE.0E94BF3A-CC0E-54B2-5BDC-351D003F602C" name="C12. Alterar uma requisicao antes de a aprovar." owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.A66CCCB8-C56B-56AA-9E48-93359EA52899"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.EACD9A77-7C11-A231-BE4C-3F7654562BFD" name="C13. Apagar requisicao ainda nao satisfeita pelo responsavel do armazem" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.62AA5104-2A5B-6F40-BF52-42844DBE72ED"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:Association xmi.id="DCE.40E3100D-3DDF-6E3D-76CB-2650E6F37E90" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.2319A707-8FBE-E051-EDC4-BFBD98A409D6" visibility="private" association="DCE.40E3100D-3DDF-6E3D-76CB-2650E6F37E90" type="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.3CC63A70-C29F-0C3A-CE34-E66C0C766216"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.62AA5104-2A5B-6F40-BF52-42844DBE72ED" visibility="private" association="DCE.40E3100D-3DDF-6E3D-76CB-2650E6F37E90" type="DCE.EACD9A77-7C11-A231-BE4C-3F7654562BFD"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.173C6393-C635-35C5-8EA0-929E7FD48DFB"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.71EBDB55-F351-5F0C-A27C-057B50494DFB" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.E5A7F316-7FF2-67F0-E4E3-F2837CC19402" visibility="private" association="DCE.71EBDB55-F351-5F0C-A27C-057B50494DFB" type="DCE.281F52DB-4201-D82F-A411-8072A9D63DA1"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0B5237A4-9B07-5D6A-6624-45EB430FAE9F"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.A66CCCB8-C56B-56AA-9E48-93359EA52899" visibility="private" association="DCE.71EBDB55-F351-5F0C-A27C-057B50494DFB" type="DCE.0E94BF3A-CC0E-54B2-5BDC-351D003F602C"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.214004F1-3681-9F92-16FD-18E4247F466A"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+
+
+<UML:UseCase xmi.id="DCE.069192BC-D50D-C50F-E749-9A04F1744513" name="C14. Autenticar" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.8488536E-DFB1-A208-C652-3DDD06138D58"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:Association xmi.id="DCE.869EBBFA-ACBA-88D7-51DD-8CD1D95E4C54" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.481C5CEA-D1AB-59F2-F578-04A2B15D421F" visibility="private" association="DCE.869EBBFA-ACBA-88D7-51DD-8CD1D95E4C54" type="DCE.F70B9D8A-3C92-B278-D4F2-947A6818C222"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.4EFB36EA-6DB1-EDE4-A9D2-94F1A4E7A414"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.8488536E-DFB1-A208-C652-3DDD06138D58" visibility="private" association="DCE.869EBBFA-ACBA-88D7-51DD-8CD1D95E4C54" type="DCE.069192BC-D50D-C50F-E749-9A04F1744513"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.B5544157-B615-30B4-95E5-86B71322F5E7"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Class xmi.id="DCE.A8F81583-5A9E-0A15-6C7F-364BC1B0B161" name="Notificacao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.1C0CA64B-8456-4E2A-78E6-0918B3759783 DCE.315E631F-C603-3AFE-2C96-26C0A3C1AD0C"><UML:Element.presentation>
+</UML:Element.presentation></UML:Class>
+<UML:Class xmi.id="DCE.E39B3ECF-2AFA-F269-CACF-D8AA3F7C953D" name="LinhaRequisicao" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.67CE3914-D4F6-331E-4EF4-9E385CF3C6F4 DCE.67E8CD45-6E54-75E6-6687-B63146320059"><UML:Element.presentation>
+</UML:Element.presentation></UML:Class>
+<UML:Class xmi.id="DCE.57DDCE33-BD08-BF55-F2E8-E3409AC2043D" name="LinhaEncomenda" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2" associationEnd="DCE.521FCD7D-7A02-2D3A-09D2-3048CF8F69A6 DCE.84641E38-84D3-42E8-4A15-B5C0EF4752EE"><UML:Element.presentation>
+</UML:Element.presentation></UML:Class>
+
+<UML:Association xmi.id="DCE.D4B054F8-6DA9-B054-12B5-205FDC893D3D" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.1C0CA64B-8456-4E2A-78E6-0918B3759783" visibility="private" association="DCE.D4B054F8-6DA9-B054-12B5-205FDC893D3D" type="DCE.A8F81583-5A9E-0A15-6C7F-364BC1B0B161"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F8B8A72D-992B-5D94-C5C2-9463690B53FD"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.E6EEF6C8-1BD4-6878-ED9D-41EEAB79A3C5" visibility="private" association="DCE.D4B054F8-6DA9-B054-12B5-205FDC893D3D" type="DCE.B543E9B2-BC62-E801-21E3-72B8524F9ACB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.62B1AF83-2D1D-43B4-435B-6C677A52051F"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.BE33CBCD-C12A-8BD2-83D0-7D1394047125" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.315E631F-C603-3AFE-2C96-26C0A3C1AD0C" visibility="private" association="DCE.BE33CBCD-C12A-8BD2-83D0-7D1394047125" type="DCE.A8F81583-5A9E-0A15-6C7F-364BC1B0B161"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C51E41F9-8F83-22EB-F820-E1CCDA75D140"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.9E2D1B11-B6F2-7398-F5F5-286AAD45156F" visibility="private" association="DCE.BE33CBCD-C12A-8BD2-83D0-7D1394047125" type="DCE.B6E8BB91-DF71-8D2A-1A89-71AA9CFBF099"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.2A114A28-0D54-D82D-6EA5-4C12CFDC4D9E"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.93272E16-CFC6-FEE5-B6A6-C832A262D7B4" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.CBB93D74-E875-FA8F-D3C0-9715B0F37579" visibility="private" association="DCE.93272E16-CFC6-FEE5-B6A6-C832A262D7B4" type="DCE.B6E8BB91-DF71-8D2A-1A89-71AA9CFBF099"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FE1D3BD9-A5A7-E66F-2929-C3F378E4D0DC"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.67CE3914-D4F6-331E-4EF4-9E385CF3C6F4" visibility="private" association="DCE.93272E16-CFC6-FEE5-B6A6-C832A262D7B4" type="DCE.E39B3ECF-2AFA-F269-CACF-D8AA3F7C953D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.3848FBA7-C4A8-1F33-2A95-63E7C3267981"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.7C216EFB-77D6-DA7A-66A6-EBCA7144CC4A" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.67E8CD45-6E54-75E6-6687-B63146320059" visibility="private" association="DCE.7C216EFB-77D6-DA7A-66A6-EBCA7144CC4A" type="DCE.E39B3ECF-2AFA-F269-CACF-D8AA3F7C953D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.6829A920-A14C-C909-27EB-344CBAA58B49"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.9F9841AB-F9F3-7269-FC92-E4098C434CA2" visibility="private" association="DCE.7C216EFB-77D6-DA7A-66A6-EBCA7144CC4A" type="DCE.EA3444EC-C3B8-1E07-B0AF-997F0AC20F2C"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.5E1FDEE4-572E-01ED-10BD-2A8633B158A6"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.C52C73CA-FA11-9F0C-02C3-ABA287CBA308" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.E55E2944-E2D1-6CC4-C0A3-26E6ACBE7B35" visibility="private" association="DCE.C52C73CA-FA11-9F0C-02C3-ABA287CBA308" type="DCE.EA3444EC-C3B8-1E07-B0AF-997F0AC20F2C"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C255245D-D844-34A7-262C-A15F78F3E8A1"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.521FCD7D-7A02-2D3A-09D2-3048CF8F69A6" visibility="private" association="DCE.C52C73CA-FA11-9F0C-02C3-ABA287CBA308" type="DCE.57DDCE33-BD08-BF55-F2E8-E3409AC2043D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.926D8F05-0E77-49C8-AA20-D7F002F6437E"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.9F45D33F-C2B9-9744-3799-1B1D5D15FE1C" owner="DCE.05DE8C32-105E-3D98-2F48-ACCCACB9EEA2"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.84641E38-84D3-42E8-4A15-B5C0EF4752EE" visibility="private" association="DCE.9F45D33F-C2B9-9744-3799-1B1D5D15FE1C" type="DCE.57DDCE33-BD08-BF55-F2E8-E3409AC2043D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.790D2E61-41D6-5938-661C-84BE6DF357C9"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.44B4D3E9-E888-B072-EFDE-48C1348BC84B" visibility="private" association="DCE.9F45D33F-C2B9-9744-3799-1B1D5D15FE1C" type="DCE.A7204EEA-5A44-D906-3922-422DC01A7AFB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.A4FD2FE0-296E-1880-D463-737426BC0D06"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+</UML:Element.presentation></UML:Association></UML:Element.ownedElement></UML:Project></XMI.content> </XMI>

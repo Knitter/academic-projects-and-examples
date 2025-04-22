@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.j2ee.ejbjarproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/j2ee-ejbjarproject/3">
+            <name>GestorRequisicoes-ejb</name>
+            <minimum-ant-version>1.6</minimum-ant-version>
+            <included-library files="1">file.reference.antlr-2.7.6.jar</included-library>
+            <included-library files="1">file.reference.asm-attrs.jar</included-library>
+            <included-library files="1">file.reference.asm.jar</included-library>
+            <included-library files="1">file.reference.c3p0-0.9.1.jar</included-library>
+            <included-library files="1">file.reference.cglib-2.1.3.jar</included-library>
+            <included-library files="1">file.reference.commons-collections-2.1.1.jar</included-library>
+            <included-library files="1">file.reference.commons-logging-1.0.4.jar</included-library>
+            <included-library files="1">file.reference.concurrent-1.3.2.jar</included-library>
+            <included-library files="1">file.reference.dom4j-1.6.1.jar</included-library>
+            <included-library files="1">file.reference.ehcache-1.2.3.jar</included-library>
+            <included-library files="1">file.reference.hibernate-annotations.jar</included-library>
+            <included-library files="1">file.reference.hibernate-commons-annotations.jar</included-library>
+            <included-library files="1">file.reference.hibernate-entitymanager.jar</included-library>
+            <included-library files="1">file.reference.hibernate3.jar</included-library>
+            <included-library files="1">file.reference.javassist.jar</included-library>
+            <included-library files="1">file.reference.jboss-archive-browsing.jar</included-library>
+            <included-library files="1">file.reference.log4j-1.2.11.jar</included-library>
+            <source-roots>
+                <root id="src.dir" name="Source Packages"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.src.dir" name="Test Packages"/>
+            </test-roots>
+        </data>
+    </configuration>
+</project>
