@@ -1,0 +1,7 @@
+#O que se encontrar á direita do cardinal é comentário
+TEMPO=4	#Este parâmetro é definido em dias
+DIRS=/etc/rc.d:/etc/init.d:/etc/rc3.d	# Lista de directorias
+
+#Adenda
+LOG./log.txt	# Nome do ficheiro de registo
+MAIL=xxx@slinux.pt # Endereço de mail 
