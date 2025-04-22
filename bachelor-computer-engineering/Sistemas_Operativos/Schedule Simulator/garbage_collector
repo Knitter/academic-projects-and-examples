@@ -1,0 +1,14 @@
+#!/bin/csh -f
+
+foreach thing (`ipcs -q | tail +3 | grep -v : | awk '{print $2}'`)
+	echo ipcrm msg $thing
+	ipcrm msg $thing
+end
+foreach thing (`ipcs -s | tail +3 | grep -v : | awk '{print $2}'`)
+        echo ipcrm sem $thing
+        ipcrm sem $thing
+end
+foreach thing (`ipcs -m | tail +3 | grep -v : | awk '{print $2}'`)
+        echo ipcrm shm $thing
+        ipcrm shm $thing
+end

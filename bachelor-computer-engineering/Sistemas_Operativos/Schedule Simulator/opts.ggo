@@ -1,0 +1,14 @@
+package "schedule"
+version "0.01"
+purpose "facilitar o tratamento de 2 argumentos"
+
+#c ou --conf especifica um ficheiro de configuração, se for
+#omitido deve ser usado o schedule.conf
+#
+#-t ou --time_slice especifica a quantidade de quanta do time slice,
+#sempre que esta opção seja especificada sobrepõe-se à que estiver definida no
+#ficheiro de configuração
+
+
+option "conf"		c	"Ficheiro de configuração"		string	no
+option "time_slice"	t	"quantidade de quanta do time-slice"	int	no

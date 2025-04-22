@@ -1,0 +1,5 @@
+package "ps_schedule"
+version "0.01"
+purpose "facilitar tratamento de argumentos do psschedule"
+
+option "freq"	f	"frequencia de actualizacao"	int	no
