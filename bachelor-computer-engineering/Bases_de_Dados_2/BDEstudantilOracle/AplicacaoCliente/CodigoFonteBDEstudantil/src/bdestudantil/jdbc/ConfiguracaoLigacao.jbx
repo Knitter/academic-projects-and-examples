@@ -1,0 +1,12 @@
+[PropertyInfo]
+bd,String,false,false, , ,false,<default>
+con,java.sql.Connection,false,false, , ,false,<default>
+ip,String,false,false, , ,false,<default>
+pass,String,false,false, , ,false,<default>
+port,String,false,false, , ,false,<default>
+user,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+
