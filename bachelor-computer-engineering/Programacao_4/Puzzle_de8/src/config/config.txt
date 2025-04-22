@@ -1,0 +1,17 @@
+ABOUT = About
+SAVE = Save
+OPEN = Load
+PERSEVERANCE = Perseverance
+TITLE = Puzzle
+RULES = Rules
+EXIT = Exit
+FILE = File
+LINE = Line
+MOVE = Move
+SCRAMBLE = Scramble
+HELP = Help
+COLUMN = Column
+WIDTH = 400
+HIGHT = 500
+PICTURE_SIZE = 94
+
