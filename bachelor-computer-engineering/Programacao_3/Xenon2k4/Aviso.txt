@@ -1,0 +1,18 @@
+Este pretende ser apenas um pequeno aviso para os aventutureiros
+que efectuaram o download deste material ;)
+
+Este ficheiro contém material resultado de trabalhos práticos,
+efectuados nas diversas disciplinas a que atendi.
+Como qualquer software desenvolvido durante a aprendizagem está 
+repleto de erros e bugs que poderão danificar o teu computador,
+usa-o por tua completa conta e risco.
+
+Eu, o autor/co-autor do sofware não tomo qualquer responsbilidade 
+nem garanto que o software funcione correctamente, em caso algum 
+eu ou algum dos co-autores que desenvolveram o software comigo
+seremos considerados responsáveis por eventuais perdas de informação
+resultantes da utilização deste software.
+
+Atentamente,
+
+Sérgio Lopes
