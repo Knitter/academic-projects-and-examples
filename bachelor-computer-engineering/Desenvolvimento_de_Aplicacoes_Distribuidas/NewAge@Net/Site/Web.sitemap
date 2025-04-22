@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default.aspx">
+        <siteMapNode url="Cliente/AreaPessoal.aspx" title="Área Pessoal" roles="Cliente" />
+        <siteMapNode url="Cliente/HistoricoPagamentos.aspx" title="Histórico de Pagamentos" roles="Cliente" />
+        <siteMapNode url="Cliente/MeusCarrinhos.aspx" title="Meus Carrinhos" roles="Cliente" />
+        <siteMapNode url="Cliente/MeusManuais.aspx" title="Meus Manuais" roles="Cliente" />
+        <siteMapNode url="Cliente/MeusChats.aspx" title="Meus Chats" roles="Cliente" />
+        <siteMapNode url="Cliente/MeusTickets.aspx" title="Meus Tickets" roles="Cliente" />
+        <siteMapNode url="Admin/CriarAdministrador.aspx" title="Criar Administrador" roles="Administrador" />
+        <siteMapNode url="Admin/CriarProdutos.aspx" title="Criar Produtos" roles="Administrador" />
+        <siteMapNode url="Admin/Estatisticas.aspx" title="Dados Estatísticos" roles="Administrador" />
+        <siteMapNode url="Admin/GerirClientes.aspx" title="Gerir Clientes" roles="Administrador" />
+        <siteMapNode url="Admin/GerirNotificacoes.aspx" title="Gerir Notificações" roles="Administrador" />
+        <siteMapNode url="Admin/GerirStocks.aspx" title="Gerir Stocks" roles="Administrador" />
+        <siteMapNode url="Admin/GerirVendas.aspx" title="Gerir Vendas" roles="Administrador" />
+        <siteMapNode url="Admin/ListaManuais.aspx" title="Lista de Manuais" roles="Administrador" />
+        <siteMapNode url="Admin/ProdutosDescontinuados.aspx" title="Produtos Descontinuados" roles="Administrador" />
+        <siteMapNode url="Admin/UploadManual.aspx" title="Upload de Manuais" roles="Administrador" />
+  </siteMapNode>
+</siteMap>

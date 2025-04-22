@@ -1,0 +1,236 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="images_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>New Age @ Net</title>
+    <link href="styles/masterpage.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table class="header">
+        <tr class="header">
+            <td class="header-left">
+            </td>
+            <td class="header-center">
+            </td>
+            <td class="header-right">
+                <div class="login">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                            <asp:LoginName ID="LoginName1" runat="server" FormatString="Olá {0}!" />
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        </LoggedInTemplate>
+                        <AnonymousTemplate>
+                    <asp:Login ID="ctrlLogin" runat="server" DisplayRememberMe="False" LoginButtonText="entrar"
+                        Orientation="Horizontal" PasswordLabelText="passe:" TitleText="" UserNameLabelText="utilizador:"
+                        VisibleWhenLoggedIn="False" LoginButtonType="Link" FailureAction="RedirectToLoginPage" OnLoginError="ctrlLogin_LoginError" OnLoggedIn="ctrlLogin_LoggedIn" CreateUserText="registar" CreateUserUrl="~/CriarUtilizador.aspx">
+                        <TextBoxStyle Height="12px" Font-Names="verdana,arial,sans serif" Font-Size="12px" />
+                        <LabelStyle Font-Names="verdana,arial,sans serif" Font-Size="10px" />
+                        <LoginButtonStyle Font-Names="verdana,arial,sans serif" Font-Size="10px" />
+                        <HyperLinkStyle Font-Names="verdana,arial,sans serif" Font-Size="10px" Wrap="True" />
+                        <LayoutTemplate>
+                            <table border="0" cellpadding="1" cellspacing="0" style="border-collapse: collapse">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0">
+                                            <tr>
+                                                <td style="font-size: 10px; font-family: verdana,arial,sans serif">
+                                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">utilizador:</asp:Label></td>
+                                                <td>
+                                                    <asp:TextBox ID="UserName" runat="server" Font-Names="verdana,arial,sans serif" Font-Size="12px"
+                                                        Height="12px"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
+                                                        ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="ctl00$ctl02$ctrlLogin">*</asp:RequiredFieldValidator>
+                                                </td>
+                                                <td style="font-size: 10px; font-family: verdana,arial,sans serif">
+                                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">passe:</asp:Label></td>
+                                                <td>
+                                                    <asp:TextBox ID="Password" runat="server" Font-Names="verdana,arial,sans serif" Font-Size="12px"
+                                                        Height="12px" TextMode="Password"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
+                                                        ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="ctl00$ctl02$ctrlLogin">*</asp:RequiredFieldValidator>
+                                                </td>
+                                                <td>
+                                                    <asp:HyperLink ID="CreateUserLink" runat="server" Font-Names="verdana,arial,sans serif"
+                                                        Font-Size="10px" NavigateUrl="~/CriarUtilizador.aspx">registar</asp:HyperLink>
+                                                    <asp:LinkButton ID="LoginLinkButton" runat="server" CommandName="Login" Font-Names="verdana,arial,sans serif"
+                                                        Font-Size="10px" ValidationGroup="ctl00$ctl02$ctrlLogin">entrar</asp:LinkButton>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6" style="color: red">
+                                                    <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </LayoutTemplate>
+                    </asp:Login>                       
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table class="body">
+        <tr>
+            <td class="body-left" style="width: 205px">
+                <asp:LoginView ID="LoginView2" runat="server">
+                    <LoggedInTemplate>
+                        <asp:Table ID="tblTituloMenu" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerPainelAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px" BorderStyle="None">
+                <asp:TableRow ID="tblMenuRow" runat="server" HorizontalAlign="Center">
+                    <asp:TableCell ID="tblMenuCell" runat="server" HorizontalAlign="Center">Menu</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+                <asp:Menu ID="Menu1" runat="server" BackColor="#FCFCFC" DataSourceID="dsSiteMap"
+                    DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="12px" ForeColor="#7C6F57"
+                    StaticDisplayLevels="2" StaticSubMenuIndent="10px" Width="205px" BorderColor="#B5BFD9" BorderStyle="Solid" BorderWidth="1px">
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                    <DynamicMenuStyle BackColor="#FCFCFC" />
+                    <StaticSelectedStyle BackColor="LightBlue" />
+                    <DynamicSelectedStyle BackColor="#5D7B9D" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                    <LevelMenuItemStyles>
+                        <asp:MenuItemStyle CssClass="level0" Font-Underline="False" />
+                    </LevelMenuItemStyles>
+                </asp:Menu>
+                        <br />
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerPainelAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px" BorderStyle="None">
+                    <asp:TableRow ID="tblPesquisaRow" runat="server" HorizontalAlign="Center">
+                        <asp:TableCell ID="tblPesquisaCell" runat="server" HorizontalAlign="Center">Pesquisa de Produtos</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <asp:Panel ID="Panel1" runat="server" Width="193px" BackColor="#FCFCFC" BorderColor="#B5BFD9" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" CssClass="painelLateral"><br />
+                    <asp:TextBox ID="txtPesquisa" runat="server"></asp:TextBox><br />
+                    <br />
+                    <asp:Button ID="btnPesquisar" runat="server" OnClick="btnPesquisar_Click1" Text="Pesquisar" /><br />
+                </asp:Panel>
+                &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                <br />
+                <asp:SiteMapDataSource ID="dsSiteMap" runat="server" /><asp:Table ID="tblTituloCategorias" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerPainelAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px" BorderStyle="None">
+                    <asp:TableRow ID="tblCategoriasRow" runat="server" HorizontalAlign="Center">
+                        <asp:TableCell ID="tblCategoriasCell" runat="server" HorizontalAlign="Center">Catálogo</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <asp:TreeView ID="treeCategorias" runat="server" ImageSet="Arrows" OnTreeNodePopulate="treeCategorias_TreeNodePopulate" BorderColor="#B5BFD9" BorderStyle="Solid" BorderWidth="1px" Width="203px" BackColor="#FCFCFC">
+                    <ParentNodeStyle Font-Bold="False" />
+                    <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                    <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px"
+                        VerticalPadding="0px" BackColor="#5D7B9D" />
+                    <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px"
+                        NodeSpacing="0px" VerticalPadding="0px" />
+                    <RootNodeStyle BorderStyle="None" />
+                </asp:TreeView>
+                <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                    SelectCommand="SELECT [ID], [Nome], [IDCategoriaPai] FROM [Categoria] WHERE ([Activa] = @Activa)">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="TRUE" Name="Activa" Type="Boolean" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+            <td class="body-center" align="center">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+            <td class="body-right">
+                <asp:Table ID="tblTituloCarrinho" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerCarrinhoAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px">
+                    <asp:TableRow ID="tblTituloCarrinhoRow" runat="server" HorizontalAlign="Center">
+                        <asp:TableCell ID="tblTituloCarrinhoCell" runat="server" HorizontalAlign="Center">O Seu Carrinho</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <asp:Panel ID="pnCarrinho" runat="server" Width="193px" BackColor="#FCFCFC" BorderColor="#D8D8B6" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" CssClass="painelLateral">
+                    <br />
+                    <asp:Label ID="lblArtigos" runat="server" CssClass="preco"></asp:Label><br />
+                    <asp:Label ID="lblSubTotal" runat="server" CssClass="preco"></asp:Label><br />
+                    &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp;
+                    <br />
+                    <asp:HyperLink ID="lnVerCarrinho" runat="server" CssClass="painelLateral" NavigateUrl="~/Carrinho.aspx">Ver carrinho</asp:HyperLink></asp:Panel>
+                &nbsp; &nbsp;&nbsp;
+
+                <asp:Table ID="tblTituloDia" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerPainelAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px">
+                    <asp:TableRow runat="server" HorizontalAlign="Center">
+                        <asp:TableCell runat="server" HorizontalAlign="Center">Produto do Dia</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <asp:Panel ID="pnProdutoDia" runat="server" Width="193px" BackColor="#FCFCFC" BorderColor="#B5BFD9" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" CssClass="painelLateral">
+                    <asp:HyperLink ID="lnDiaNome" runat="server" CssClass="painelLateral">HyperLink</asp:HyperLink><br />
+                    <asp:Image ID="imgDia" runat="server" CssClass="painelLateral" BorderWidth="1px" />
+                    <asp:SqlDataSource ID="dsDestaques" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                        SelectCommand="SELECT Produto.ID AS IDProd, '~/detalhesProduto.aspx?id=' + str(Produto.ID, LEN(LTRIM(str(Produto.ID)))) as ProdutoURL, Produto.Nome, Produto.Preco, ImagemURL, Destaque.ProdutoDia FROM Produto INNER JOIN Destaque ON Produto.ID = Destaque.IDProduto WHERE (Produto.Activo = 1) AND (Destaque.Activo = 1)">
+                    </asp:SqlDataSource>
+                    <br />
+                    &nbsp;
+                    <asp:Label ID="lblDiaPreco" runat="server" Text="Label" CssClass="preco"></asp:Label></asp:Panel>
+                &nbsp; &nbsp;&nbsp;
+
+                <asp:Table ID="tblTituloDestaques" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerPainelAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px">
+                    <asp:TableRow runat="server" HorizontalAlign="Center">
+                        <asp:TableCell runat="server" HorizontalAlign="Center">Destaques</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <asp:Panel ID="pnDestaques" runat="server" Width="193px" BackColor="#FCFCFC" BorderColor="#B5BFD9" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" CssClass="painelLateral">
+                    <asp:HyperLink ID="lnDestaquesNome" runat="server" CssClass="painelLateral">HyperLink</asp:HyperLink>
+                    <br />
+                    <asp:AdRotator ID="rotatorDestaques" runat="server" AlternateTextField="Nome" CssClass="adrotator" BorderStyle="Solid" BorderWidth="1px" OnAdCreated="rotatorDestaques_AdCreated" AdvertisementFile="~/rotatorDestaques.xml" />
+                    <br />
+                    <asp:Label ID="lblDestaquesPreco" runat="server" Text="Label" CssClass="preco"></asp:Label>&nbsp;
+                </asp:Panel>
+                <br />
+                <asp:Table ID="tblTituloPromocoes" runat="server" HorizontalAlign="Center" Width="100%" BackImageUrl="~/images/headerPainelAlt.png" Font-Bold="True" Font-Names="verdana,arial,sans serif" Font-Size="12px" ForeColor="White" Height="20px">
+                    <asp:TableRow runat="server" HorizontalAlign="Center">
+                        <asp:TableCell runat="server" HorizontalAlign="Center">Promoções</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <asp:Panel ID="pnPromocoes" runat="server" Width="193px" BackColor="#FCFCFC" BorderColor="#B5BFD9" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" CssClass="painelLateral">
+                    <asp:HyperLink ID="lnPromocoesNome" runat="server" CssClass="painelLateral">HyperLink</asp:HyperLink>
+                    <br />
+                    <asp:AdRotator ID="rotatorPromocoes" runat="server" AlternateTextField="Nome" CssClass="adrotator" BorderStyle="Solid" BorderWidth="1px" OnAdCreated="rotatorPromocoes_AdCreated" AdvertisementFile="~/rotatorPromocoes.xml" />
+                    <asp:SqlDataSource ID="dsPromocoes" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                        SelectCommand="SELECT Produto.ID AS IDProd, Produto.Nome, Produto.Codigo, Produto.Preco, Produto.Stock, Produto.StockMinimo, Produto.Descricao, Produto.IDCategoria, Produto.Activo, Promover.IDProduto, Promover.IDPromocao, ImagemURL FROM Produto INNER JOIN Promover ON Produto.ID = Promover.IDProduto" OnSelecting="dsPromocoes_Selecting">
+                    </asp:SqlDataSource>
+                    <br />
+                    <asp:Label ID="lblPromocoesPreco" runat="server" CssClass="preco" Text="Label"></asp:Label>&nbsp;
+                </asp:Panel>
+            </td>
+        </tr>
+    </table>
+    <table class="footer">
+        <tr class="footer">
+            <td class="footer-padding" style="height: 21px">
+            </td>
+            <td class="footer-middle" style="height: 21px">
+                <asp:HyperLink ID="lnCondicoesVenda" runat="server" NavigateUrl="~/CondicoesVenda.aspx">condições</asp:HyperLink>
+            </td>
+            <td class="footer-middle" style="height: 21px">
+                <asp:HyperLink ID="lnContactos" runat="server" NavigateUrl="~/Contactos.aspx"
+                    Target="contactos">contactos</asp:HyperLink>
+            </td>
+            <td class="footer-middle" style="height: 21px">
+                <asp:HyperLink ID="lnFaq" runat="server" NavigateUrl="~/FAQ.aspx">faq</asp:HyperLink>
+            </td>
+            <td class="footer-middle" style="height: 21px">
+                <asp:HyperLink ID="lnMapaSite" runat="server" NavigateUrl="~/MapaSite.aspx">mapa do site</asp:HyperLink>
+            </td>
+            <td class="footer-middle" style="height: 21px">
+                <asp:HyperLink ID="lnPrivacidade" runat="server" NavigateUrl="~/Privacidade.aspx">privacidade</asp:HyperLink>
+            </td>
+            <td class="footer-middle" style="height: 21px">
+                <asp:HyperLink ID="lnSuporte" runat="server" NavigateUrl="~/Suporte.aspx">suporte</asp:HyperLink>
+            </td>
+            <td class="footer-padding" style="height: 21px">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

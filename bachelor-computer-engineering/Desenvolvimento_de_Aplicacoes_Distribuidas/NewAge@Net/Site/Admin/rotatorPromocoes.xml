@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Advertisements>
+  <Ad>
+    <Nome>HP Pavilion t870.pt Desktop PC P4 550HT/512MB DDR/HDD 200Gb </Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=1</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>1158,40 €</Preco>
+  </Ad>
+  <Ad>
+    <Nome>HP Pavilion a1119.pt P4 516 (2.93GHz)/160GB/512MB/DVDRW</Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=2</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>787,37 €</Preco>
+  </Ad>
+  <Ad>
+    <Nome>IBM TC A51 3.2G 1MB 256/80 SATA, DVD-ROM WXP Tower  </Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=3</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>862,52 €</Preco>
+  </Ad>
+  <Ad>
+    <Nome>HP DC7600 SFF, P4-640 (800 MHZ - 2 MB cache), w/ HT, 512 MB </Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=5</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>1113,61 €</Preco>
+  </Ad>
+</Advertisements>

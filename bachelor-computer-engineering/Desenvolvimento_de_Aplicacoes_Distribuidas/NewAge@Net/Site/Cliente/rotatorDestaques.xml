@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Advertisements>
+  <Ad>
+    <Nome>ACER Srie T AST310 CELMCR/340D 2.93GHz,256KB,T310,T350/80GB </Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=6</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>516,37 €</Preco>
+  </Ad>
+  <Ad>
+    <Nome>HP DC7100 USDT P4 3Ghz, 256MB DDR400, 80GB SATA, DVD </Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=7</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>1015,50 €</Preco>
+  </Ad>
+  <Ad>
+    <Nome>IBM TC A51 3.2G 1MB 512/80 SATA, DVD-CDRW WXP, SFF </Nome>
+    <NavigateUrl>~/DetalhesProduto.aspx?id=8</NavigateUrl>
+    <ImageUrl>sem-foto.png</ImageUrl>
+    <Preco>941,42 €</Preco>
+  </Ad>
+</Advertisements>
