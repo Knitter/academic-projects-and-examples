@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ValoresActuais_GetDireccaoVento">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetDireccaoVentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetDireccaoVentoResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetHumidade">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetHumidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetHumidadeResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetPrecipitacao">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetPrecipitacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetPrecipitacaoResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetPressaoAtmosferica">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetPressaoAtmosfericaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetPressaoAtmosfericaResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetRadiacaoSolar">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetRadiacaoSolarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetRadiacaoSolarResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetTemperatura">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetTemperaturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetTemperaturaResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetVelocidadeVento">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetVelocidadeVentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetVelocidadeVentoResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_GetDataUltimaActualizacao">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_GetDataUltimaActualizacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValoresActuais_GetDataUltimaActualizacaoResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresActuais_SelectAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValoresActuais_SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresActuais_SelectAllResult" type="tns:CValoresActuais" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CValoresActuais">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_ValoresActuais_SqlType" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Temperatura_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Humidade_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="PressaoAtmosferica_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="VelocidadeVento_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="DireccaoVento_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="RadiacaoSolar_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Precipitacao_SqlType" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hora_Precipitacao_SqlType" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_ValoresActuais" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Temperatura" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Humidade" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="PressaoAtmosferica" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="VelocidadeVento" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="DireccaoVento" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="RadiacaoSolar" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Precipitacao" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hora_Precipitacao" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Variaveis_GetDescricao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="variavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetDescricaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variaveis_GetDescricaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetNome">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="variavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetNomeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variaveis_GetNomeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetSimbolo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="variavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetSimboloResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variaveis_GetSimboloResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetTempoAquisicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="variavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetTempoAquisicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Variaveis_GetTempoAquisicaoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetUnidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="variavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_GetUnidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variaveis_GetUnidadeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_SelectVariavel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="variavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variaveis_SelectVariavelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variaveis_SelectVariavelResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetTemperaturaMaxByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetTemperaturaMaxByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetTemperaturaMaxByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetTemperaturaMinByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetTemperaturaMinByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetTemperaturaMinByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetVelocidadeVentoMaxByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetVelocidadeVentoMaxByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetVelocidadeVentoMaxByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetRadiacaoSolarMaxByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetRadiacaoSolarMaxByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetRadiacaoSolarMaxByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetPrecipitacaoTotalByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetPrecipitacaoTotalByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetPrecipitacaoTotalByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetNumHorasSolByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetNumHorasSolByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetNumHorasSolByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetHumidadeMaxByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetHumidadeMaxByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetHumidadeMaxByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetHumidadeMinByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetHumidadeMinByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetHumidadeMinByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetByDataRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataini" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="datafim" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValoresDiarios_GetByDataRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValoresDiarios_GetByDataRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValoresActuais_GetDireccaoVentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetDireccaoVento" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetDireccaoVentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetDireccaoVentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetHumidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetHumidade" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetHumidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetHumidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetPrecipitacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetPrecipitacao" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetPrecipitacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetPrecipitacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetPressaoAtmosfericaSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetPressaoAtmosferica" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetPressaoAtmosfericaSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetPressaoAtmosfericaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetRadiacaoSolarSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetRadiacaoSolar" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetRadiacaoSolarSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetRadiacaoSolarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetTemperaturaSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetTemperatura" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetTemperaturaSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetTemperaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetVelocidadeVentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetVelocidadeVento" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetVelocidadeVentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetVelocidadeVentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetDataUltimaActualizacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetDataUltimaActualizacao" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_GetDataUltimaActualizacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_GetDataUltimaActualizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="ValoresActuais_SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresActuais_SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetDescricaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetDescricao" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetDescricaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetDescricaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetNomeSoapIn">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetNome" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetNomeSoapOut">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetSimboloSoapIn">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetSimbolo" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetSimboloSoapOut">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetSimboloResponse" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetTempoAquisicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetTempoAquisicao" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetTempoAquisicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetTempoAquisicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetUnidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetUnidade" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_GetUnidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:Variaveis_GetUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_SelectVariavelSoapIn">
+    <wsdl:part name="parameters" element="tns:Variaveis_SelectVariavel" />
+  </wsdl:message>
+  <wsdl:message name="Variaveis_SelectVariavelSoapOut">
+    <wsdl:part name="parameters" element="tns:Variaveis_SelectVariavelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetTemperaturaMaxByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetTemperaturaMaxByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetTemperaturaMaxByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetTemperaturaMaxByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetTemperaturaMinByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetTemperaturaMinByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetTemperaturaMinByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetTemperaturaMinByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetVelocidadeVentoMaxByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetVelocidadeVentoMaxByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetVelocidadeVentoMaxByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetVelocidadeVentoMaxByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetRadiacaoSolarMaxByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetRadiacaoSolarMaxByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetRadiacaoSolarMaxByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetRadiacaoSolarMaxByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetPressaoAtmosfericaMinByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetPrecipitacaoTotalByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetPrecipitacaoTotalByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetPrecipitacaoTotalByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetPrecipitacaoTotalByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetNumHorasSolByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetNumHorasSolByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetNumHorasSolByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetNumHorasSolByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetHumidadeMaxByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetHumidadeMaxByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetHumidadeMaxByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetHumidadeMaxByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetHumidadeMinByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetHumidadeMinByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetHumidadeMinByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetHumidadeMinByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetByDataRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetByDataRange" />
+  </wsdl:message>
+  <wsdl:message name="ValoresDiarios_GetByDataRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:ValoresDiarios_GetByDataRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="ValoresActuais_GetDireccaoVento">
+      <wsdl:input message="tns:ValoresActuais_GetDireccaoVentoSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetDireccaoVentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetHumidade">
+      <wsdl:input message="tns:ValoresActuais_GetHumidadeSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetHumidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetPrecipitacao">
+      <wsdl:input message="tns:ValoresActuais_GetPrecipitacaoSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetPrecipitacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetPressaoAtmosferica">
+      <wsdl:input message="tns:ValoresActuais_GetPressaoAtmosfericaSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetPressaoAtmosfericaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetRadiacaoSolar">
+      <wsdl:input message="tns:ValoresActuais_GetRadiacaoSolarSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetRadiacaoSolarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetTemperatura">
+      <wsdl:input message="tns:ValoresActuais_GetTemperaturaSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetTemperaturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetVelocidadeVento">
+      <wsdl:input message="tns:ValoresActuais_GetVelocidadeVentoSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetVelocidadeVentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetDataUltimaActualizacao">
+      <wsdl:input message="tns:ValoresActuais_GetDataUltimaActualizacaoSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_GetDataUltimaActualizacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_SelectAll">
+      <wsdl:input message="tns:ValoresActuais_SelectAllSoapIn" />
+      <wsdl:output message="tns:ValoresActuais_SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetDescricao">
+      <wsdl:input message="tns:Variaveis_GetDescricaoSoapIn" />
+      <wsdl:output message="tns:Variaveis_GetDescricaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetNome">
+      <wsdl:input message="tns:Variaveis_GetNomeSoapIn" />
+      <wsdl:output message="tns:Variaveis_GetNomeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetSimbolo">
+      <wsdl:input message="tns:Variaveis_GetSimboloSoapIn" />
+      <wsdl:output message="tns:Variaveis_GetSimboloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetTempoAquisicao">
+      <wsdl:input message="tns:Variaveis_GetTempoAquisicaoSoapIn" />
+      <wsdl:output message="tns:Variaveis_GetTempoAquisicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetUnidade">
+      <wsdl:input message="tns:Variaveis_GetUnidadeSoapIn" />
+      <wsdl:output message="tns:Variaveis_GetUnidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_SelectVariavel">
+      <wsdl:input message="tns:Variaveis_SelectVariavelSoapIn" />
+      <wsdl:output message="tns:Variaveis_SelectVariavelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetTemperaturaMaxByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetTemperaturaMaxByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetTemperaturaMaxByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetTemperaturaMinByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetTemperaturaMinByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetTemperaturaMinByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetVelocidadeVentoMaxByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetVelocidadeVentoMaxByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetVelocidadeVentoMaxByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetRadiacaoSolarMaxByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetRadiacaoSolarMaxByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetRadiacaoSolarMaxByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetPressaoAtmosfericaMaxByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetPressaoAtmosfericaMinByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPrecipitacaoTotalByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetPrecipitacaoTotalByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetPrecipitacaoTotalByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetNumHorasSolByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetNumHorasSolByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetNumHorasSolByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetHumidadeMaxByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetHumidadeMaxByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetHumidadeMaxByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetHumidadeMinByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetHumidadeMinByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetHumidadeMinByDataRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetByDataRange">
+      <wsdl:input message="tns:ValoresDiarios_GetByDataRangeSoapIn" />
+      <wsdl:output message="tns:ValoresDiarios_GetByDataRangeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValoresActuais_GetDireccaoVento">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetDireccaoVento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetHumidade">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetHumidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetPrecipitacao">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetPrecipitacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetPressaoAtmosferica">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetPressaoAtmosferica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetRadiacaoSolar">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetRadiacaoSolar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetTemperatura">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetTemperatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetVelocidadeVento">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetVelocidadeVento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetDataUltimaActualizacao">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_GetDataUltimaActualizacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_SelectAll">
+      <soap:operation soapAction="http://tempuri.org/ValoresActuais_SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetDescricao">
+      <soap:operation soapAction="http://tempuri.org/Variaveis_GetDescricao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetNome">
+      <soap:operation soapAction="http://tempuri.org/Variaveis_GetNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetSimbolo">
+      <soap:operation soapAction="http://tempuri.org/Variaveis_GetSimbolo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetTempoAquisicao">
+      <soap:operation soapAction="http://tempuri.org/Variaveis_GetTempoAquisicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetUnidade">
+      <soap:operation soapAction="http://tempuri.org/Variaveis_GetUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_SelectVariavel">
+      <soap:operation soapAction="http://tempuri.org/Variaveis_SelectVariavel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetTemperaturaMaxByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetTemperaturaMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetTemperaturaMinByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetTemperaturaMinByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetVelocidadeVentoMaxByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetVelocidadeVentoMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetRadiacaoSolarMaxByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetRadiacaoSolarMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetPressaoAtmosfericaMinByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPrecipitacaoTotalByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetPrecipitacaoTotalByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetNumHorasSolByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetNumHorasSolByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetHumidadeMaxByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetHumidadeMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetHumidadeMinByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetHumidadeMinByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetByDataRange">
+      <soap:operation soapAction="http://tempuri.org/ValoresDiarios_GetByDataRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValoresActuais_GetDireccaoVento">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetDireccaoVento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetHumidade">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetHumidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetPrecipitacao">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetPrecipitacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetPressaoAtmosferica">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetPressaoAtmosferica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetRadiacaoSolar">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetRadiacaoSolar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetTemperatura">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetTemperatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetVelocidadeVento">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetVelocidadeVento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_GetDataUltimaActualizacao">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_GetDataUltimaActualizacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresActuais_SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/ValoresActuais_SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetDescricao">
+      <soap12:operation soapAction="http://tempuri.org/Variaveis_GetDescricao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetNome">
+      <soap12:operation soapAction="http://tempuri.org/Variaveis_GetNome" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetSimbolo">
+      <soap12:operation soapAction="http://tempuri.org/Variaveis_GetSimbolo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetTempoAquisicao">
+      <soap12:operation soapAction="http://tempuri.org/Variaveis_GetTempoAquisicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_GetUnidade">
+      <soap12:operation soapAction="http://tempuri.org/Variaveis_GetUnidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variaveis_SelectVariavel">
+      <soap12:operation soapAction="http://tempuri.org/Variaveis_SelectVariavel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetTemperaturaMaxByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetTemperaturaMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetTemperaturaMinByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetTemperaturaMinByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetVelocidadeVentoMaxByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetVelocidadeVentoMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetRadiacaoSolarMaxByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetRadiacaoSolarMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetPressaoAtmosfericaMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPressaoAtmosfericaMinByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetPressaoAtmosfericaMinByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetPrecipitacaoTotalByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetPrecipitacaoTotalByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetNumHorasSolByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetNumHorasSolByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetHumidadeMaxByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetHumidadeMaxByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetHumidadeMinByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetHumidadeMinByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValoresDiarios_GetByDataRange">
+      <soap12:operation soapAction="http://tempuri.org/ValoresDiarios_GetByDataRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://www.meteo.estg.ipleiria.pt/webservice/service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://www.meteo.estg.ipleiria.pt/webservice/service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
